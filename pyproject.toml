@@ -1,0 +1,8 @@
+[tool.uv.workspace]
+members = ["apps/pipeline"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "python-dotenv>=1.2.2",
+]

@@ -1,0 +1,17 @@
+[project]
+name = "pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic>=1.18.5",
+    "numpy>=1.26.0",
+    "openai>=2.44.0",
+    "pgvector>=0.4.2",
+    "psycopg2-binary>=2.9.12",
+    "pydantic>=2.13.4",
+    "requests>=2.34.2",
+    "sqlalchemy>=2.0.51",
+    "tweepy>=4.17.0",
+]
