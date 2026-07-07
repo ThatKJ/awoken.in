@@ -8,3 +8,7 @@ __pycache__/
 
 .DS_Store
 files.zip
+
+apps/pipeline/debug_responses/
+apps/pipeline/check_db.py
+apps/pipeline/seed_test.py
