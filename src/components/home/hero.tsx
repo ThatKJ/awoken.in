@@ -22,13 +22,13 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 md:pt-24 pb-16 md:pb-20 overflow-hidden">
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           <div className="max-w-xl">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.97]"
+              className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.97]"
             >
               Stop Losing Revenue to Manual Work.
             </motion.h1>

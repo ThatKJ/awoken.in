@@ -54,23 +54,24 @@ export function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 lg:h-[160px] items-center justify-between">
-            {/* Mobile: wordmark on left */}
-            <Link href="/" className="lg:hidden flex items-center">
-              <img src="/logo.svg" alt="Awoken" className="h-32 w-auto" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex h-20 xl:h-[160px] items-center justify-between">
+            {/* Tablet & below: wordmark on left */}
+            <Link href="/" className="xl:hidden flex items-center">
+              <img src="/logo.svg" alt="Awoken" className="h-8 sm:h-10 w-auto" />
             </Link>
 
             {/* Desktop: logo */}
-            <Link href="/" className="hidden lg:flex items-center shrink-0">
+            <Link href="/" className="hidden xl:flex items-center shrink-0">
               <img
                 src="/logo.svg"
                 alt="Awoken"
-                className="h-10 w-auto lg:h-[150px]"
+                className="h-10 w-auto xl:h-[150px]"
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-4">
+            {/* Desktop: nav */}
+            <nav className="hidden xl:flex items-center gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -82,7 +83,17 @@ export function Navigation() {
               ))}
             </nav>
 
-            <div className="hidden lg:flex items-center gap-3">
+            {/* Tablet & up: CTA */}
+            <div className="hidden sm:flex xl:hidden items-center">
+              <Link href={ctaButtons.primary.href}>
+                <Button variant="primary" size="md" className="whitespace-nowrap">
+                  {ctaButtons.primary.label}
+                </Button>
+              </Link>
+            </div>
+
+            {/* Desktop: CTAs */}
+            <div className="hidden xl:flex items-center gap-3">
               <Link href={ctaButtons.secondary.href}>
                 <Button variant="ghost" size="md">
                   {ctaButtons.secondary.label}
@@ -95,9 +106,9 @@ export function Navigation() {
               </Link>
             </div>
 
-            {/* Mobile: hamburger */}
+            {/* Hamburger */}
             <button
-              className="lg:hidden p-2 -mr-2"
+              className="xl:hidden p-2 -mr-2"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -117,7 +128,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+              className="fixed inset-0 z-40 bg-black/40 xl:hidden"
               onClick={close}
             />
 
@@ -127,7 +138,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background lg:hidden flex flex-col"
+              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background xl:hidden flex flex-col"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-6 h-20 border-b border-border shrink-0">
@@ -183,7 +194,7 @@ export function Navigation() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 40 }}
-            className="fixed right-8 bottom-48 z-30 hidden lg:flex flex-col gap-2"
+            className="fixed right-8 bottom-48 z-30 hidden xl:flex flex-col gap-2"
           >
             <Link href={stickyCta.primary.href}>
               <Button variant="primary" size="sm">
