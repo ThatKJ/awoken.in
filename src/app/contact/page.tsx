@@ -1,0 +1,95 @@
+import type { Metadata } from "next"
+import { Container } from "@/components/shared/container"
+import { Button } from "@/components/ui/button"
+import { Mail, Clock, CalendarCheck, Shield, ArrowRight } from "lucide-react"
+import { CONTACT_EMAIL } from "@/lib/constants"
+import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Contact — Book a Strategy Call | Awoken",
+  description: "Book a free strategy call and discover where AI can create the biggest impact in your business.",
+}
+
+export default function ContactPage() {
+  return (
+    <section className="pt-[140px] pb-24">
+      <Container>
+        <div className="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+              Let's Build Your Revenue System
+            </h1>
+            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+              Book a free strategy call and discover where AI can create the biggest impact in your
+              business.
+            </p>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <Mail className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Email</p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="text-sm text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    team.awoken.in@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <Clock className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Response Time</p>
+                  <p className="text-sm text-muted-foreground">Typically within 2 hours</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                  <CalendarCheck className="h-5 w-5 text-accent" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium">Business Hours</p>
+                  <p className="text-sm text-muted-foreground">Mon–Sat, 9 AM – 7 PM IST</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 rounded-xl border border-border bg-surface p-6">
+              <div className="flex items-start gap-3">
+                <Shield className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                <p className="text-sm text-muted-foreground">
+                  Every strategy call is confidential. We respect your privacy and never share your
+                  information.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Link href="/book">
+                <Button variant="primary" size="xl">
+                  Book Strategy Call
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div>
+            <div className="rounded-2xl border border-border shadow-sm overflow-hidden">
+              <iframe
+                src="https://cal.com/awoken-in/strategy-call?embed=1"
+                width="100%"
+                height="900"
+                frameBorder="0"
+                title="Book a Strategy Call"
+                className="w-full"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}

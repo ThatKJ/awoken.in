@@ -1,0 +1,64 @@
+import type { Metadata } from "next"
+import { Container } from "@/components/shared/container"
+import { serviceBlueprints } from "@/data/service-blueprints"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles } from "lucide-react"
+import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Services — Revenue Systems for Modern Businesses",
+  description: "We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work.",
+}
+
+const icons = [PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles]
+
+export default function ServicesPage() {
+  return (
+    <>
+      <section className="pt-[140px] pb-24">
+        <Container>
+          <div className="max-w-xl">
+            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+              Services
+            </h1>
+            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+              Every solution is designed around a specific business outcome. We don't sell technology. We build systems that create measurable results.
+            </p>
+          </div>
+        </Container>
+      </section>
+      <section className="pb-24">
+        <Container>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {serviceBlueprints.map((blueprint, i) => {
+              const Icon = icons[i]
+              return (
+                <div
+                  key={blueprint.title}
+                  className="rounded-xl border border-border bg-background p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-6 shrink-0">
+                    <Icon className="h-5 w-5 text-accent" />
+                  </div>
+                  <h3 className="text-2xl font-semibold min-h-[72px] flex items-start mb-5">{blueprint.title}</h3>
+                  <p className="text-base text-muted-foreground mb-4 leading-relaxed min-h-[72px]">
+                    {blueprint.outcome}
+                  </p>
+                  <div className="flex-1" />
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {blueprint.description}
+                  </p>
+                  <div className="mt-auto">
+                    <Badge variant="secondary" className="text-sm">
+                      {blueprint.technology}
+                    </Badge>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </Container>
+      </section>
+    </>
+  )
+}
