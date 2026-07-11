@@ -8,10 +8,10 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 
 export function ImplementationTimeline() {
   return (
-    <section className="py-32">
+    <section className="py-20 md:py-24 lg:py-32">
       <Container>
-        <div className="mx-auto mb-20 max-w-3xl text-center">
-          <h2 className="text-5xl font-bold tracking-tight lg:text-6xl">
+        <div className="mx-auto mb-14 md:mb-16 lg:mb-20 max-w-3xl text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Your First 30 Days
           </h2>
 
@@ -22,7 +22,7 @@ export function ImplementationTimeline() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch">
           {implementationTimeline.map((step, i) => (
             <motion.div
               key={step.week}
@@ -44,7 +44,7 @@ export function ImplementationTimeline() {
                   border
                   border-border
                   bg-background
-                  p-8
+                  p-6 lg:p-8
                   shadow-sm
                   transition-all
                   duration-300
@@ -63,14 +63,14 @@ export function ImplementationTimeline() {
 
                 {/* Title */}
                 <div className="h-28">
-                  <h3 className="text-[30px] font-semibold leading-tight tracking-tight">
+                  <h3 className="text-2xl md:text-[30px] font-semibold leading-tight tracking-tight">
                     {step.title}
                   </h3>
                 </div>
 
                 {/* Description */}
                 <div className="mt-2 h-36">
-                  <p className="text-[17px] leading-8 text-muted-foreground">
+                  <p className="text-base md:text-lg leading-8 text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export function ImplementationTimeline() {
                     {step.deliverables.map((deliverable) => (
                       <li
                         key={deliverable}
-                        className="flex items-start gap-3"
+                        className="flex items-start gap-4"
                       >
                         <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-accent" />
                         <span className="text-base leading-7 text-muted-foreground">

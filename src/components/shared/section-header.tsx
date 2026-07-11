@@ -23,7 +23,7 @@ export function SectionHeader({
     <div
       className={cn(
         align === "center" ? "text-center" : "text-left",
-        "mb-16",
+        "mb-12 md:mb-14 lg:mb-16",
         className
       )}
     >
@@ -32,14 +32,13 @@ export function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className={cn("text-5xl lg:text-6xl font-bold tracking-tight", titleClassName)}>
+      <h2 className={cn("text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight", titleClassName)}>
         {title}
       </h2>
       {description && (
         <p
           className={cn(
-            "mt-4 text-[20px] text-muted-foreground leading-relaxed mx-auto",
-            align === "center" ? "max-w-[700px]" : "max-w-[700px]",
+            "mt-4 text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-2xl lg:max-w-[700px]",
             descriptionClassName
           )}
         >

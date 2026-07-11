@@ -14,13 +14,13 @@ export function WorkflowDiagram() {
   })
 
   return (
-    <section ref={ref} className="py-24 bg-surface relative overflow-hidden">
+    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-surface relative overflow-hidden">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             How It Works
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
             From lead capture to revenue dashboard. Every step is automated end-to-end.
           </p>
         </div>
@@ -67,7 +67,7 @@ export function WorkflowDiagram() {
                     )}
                   </div>
                   <div className="flex-1 pt-3">
-                    <h3 className="text-2xl font-semibold mb-2">{node.label}</h3>
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2">{node.label}</h3>
                     <p className="text-base text-muted-foreground leading-relaxed">
                       {node.description}
                     </p>

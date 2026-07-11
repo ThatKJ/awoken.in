@@ -6,7 +6,7 @@ import { philosophyPoints } from "@/data/philosophy"
 
 export function FounderPhilosophy() {
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-16 md:py-20 lg:py-24 bg-surface">
       <Container>
         <div className="max-w-3xl mx-auto">
           {philosophyPoints.map((point, i) => (

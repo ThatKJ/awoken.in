@@ -11,13 +11,13 @@ import { faqItems } from "@/data/faq"
 
 export function FAQSection() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Common Questions
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
             Answers to the questions we hear most often.
           </p>
         </div>

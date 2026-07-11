@@ -14,25 +14,25 @@ export const metadata: Metadata = {
 export default function EngagementPage() {
   return (
     <>
-      <section className="pt-[140px] pb-24">
+      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="max-w-xl">
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Engagement Models
             </h1>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               Custom pricing tailored to your business. Every engagement starts with understanding your unique needs.
             </p>
           </div>
         </Container>
       </section>
-      <section className="pb-[72px]">
+      <section className="pb-16 md:pb-20 lg:pb-[72px]">
         <Container>
-          <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {engagementTiers.map((tier) => (
               <div
                 key={tier.id}
-className={`rounded-xl border-2 p-8 relative flex flex-col h-full ${
+className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full ${
                    tier.badge ? "border-accent" : "border-border"
                  }`}
               >
@@ -74,7 +74,7 @@ className={`rounded-xl border-2 p-8 relative flex flex-col h-full ${
           </div>
         </Container>
       </section>
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-2xl font-semibold mb-4">Every business is different.</h3>

@@ -9,17 +9,17 @@ const icons = [Phone, Timer, Settings, Link, Users, Database, UserRound, Frown]
 
 export function ProblemsGrid() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Every Growing Business Leaks Revenue
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
             These are the problems we solve. Each one costs you money every day it goes unfixed.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {problems.map((problem, i) => {
             const Icon = icons[i]
             return (
@@ -34,7 +34,7 @@ export function ProblemsGrid() {
                 <div className="w-11 h-11 rounded-lg bg-surface flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors shrink-0">
                   <Icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
                 </div>
-                <h3 className="text-lg font-semibold min-h-[48px] flex items-start mb-5">{problem.title}</h3>
+                <h3 className="text-lg md:text-xl font-semibold min-h-[48px] flex items-start mb-5">{problem.title}</h3>
                 <p className="flex-1 text-base text-muted-foreground leading-relaxed">
                   {problem.description}
                 </p>

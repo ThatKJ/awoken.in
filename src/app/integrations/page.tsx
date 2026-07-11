@@ -10,21 +10,21 @@ export const metadata: Metadata = {
 export default function IntegrationsPage() {
   return (
     <>
-      <section className="pt-[140px] pb-24">
+      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="max-w-xl">
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Integrations
             </h1>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               We work with your existing tools. Every system we build is designed to connect with what you already use.
             </p>
           </div>
         </Container>
       </section>
-      <section className="pb-[120px]">
+      <section className="pb-20 md:pb-24 lg:pb-[120px]">
         <Container>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {integrationCategories.map((category) => (
               <div key={category.name}>
                 <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
@@ -46,9 +46,9 @@ export default function IntegrationsPage() {
           </div>
         </Container>
       </section>
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
-          <div className="rounded-xl border border-border bg-surface p-8 max-w-2xl">
+          <div className="rounded-xl border border-border bg-surface p-6 lg:p-8 max-w-2xl">
             <h2 className="text-2xl font-semibold mb-3">Our Tech Stack</h2>
             <p className="text-sm text-muted-foreground mb-4">
               We select the best technology for each use case. Here is the stack we work with most frequently.

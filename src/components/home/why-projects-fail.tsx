@@ -7,14 +7,14 @@ import { AlertTriangle, Lightbulb } from "lucide-react"
 
 export function WhyProjectsFail() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Why Most AI Projects Fail
             </h2>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               We've seen it happen repeatedly. Companies invest in AI without understanding their own workflows first.
             </p>
           </div>
@@ -36,7 +36,7 @@ export function WhyProjectsFail() {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">{point.title}</h3>
+                  <h3 className="text-lg md:text-xl font-semibold mb-1">{point.title}</h3>
                   <p className="text-base text-muted-foreground leading-relaxed">{point.description}</p>
                 </div>
               </motion.div>

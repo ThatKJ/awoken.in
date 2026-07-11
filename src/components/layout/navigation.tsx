@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -24,6 +24,26 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  const close = useCallback(() => setMobileOpen(false), [])
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => { document.body.style.overflow = "" }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [mobileOpen, close])
+
   return (
     <>
       <header
@@ -36,7 +56,13 @@ export function Navigation() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 lg:h-[160px] items-center justify-between">
-            <Link href="/" className="flex items-center shrink-0">
+            {/* Mobile: wordmark on left */}
+            <Link href="/" className="lg:hidden flex items-center">
+              <img src="/logo.svg" alt="Awoken" className="h-32 w-auto" />
+            </Link>
+
+            {/* Desktop: logo */}
+            <Link href="/" className="hidden lg:flex items-center shrink-0">
               <img
                 src="/logo.svg"
                 alt="Awoken"
@@ -69,67 +95,85 @@ export function Navigation() {
               </Link>
             </div>
 
+            {/* Mobile: hamburger */}
             <button
               className="lg:hidden p-2 -mr-2"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
-              <img src="/icon.svg" alt="Menu" className="h-5 w-5" />
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
       </header>
 
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 bg-background lg:hidden"
-          >
-            <div className="flex items-center justify-between px-4 h-20 border-b border-border">
-              <Link href="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-                <img
-                  src="/logo.svg"
-                  alt="Awoken"
-className="h-10 w-auto"
-              />
-            </Link>
-              <button
-                className="p-2 -mr-2"
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <nav className="flex flex-col px-4 pt-6 gap-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-lg py-3 hover:text-accent transition-colors border-b border-border/50"
-                  onClick={() => setMobileOpen(false)}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
+              onClick={close}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background lg:hidden flex flex-col"
+            >
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between px-6 h-20 border-b border-border shrink-0">
+                <Link href="/" className="flex items-center" onClick={close}>
+                  <img src="/icon.svg" alt="Awoken" className="h-8 w-8" />
+                </Link>
+                <button
+                  className="p-2 -mr-2"
+                  onClick={close}
+                  aria-label="Close menu"
                 >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="flex flex-col gap-3 mt-6 pt-6">
-                <Link href={ctaButtons.secondary.href} onClick={() => setMobileOpen(false)}>
-                  <Button variant="outline" className="w-full" size="lg">
-                    {ctaButtons.secondary.label}
-                  </Button>
-                </Link>
-                <Link href={ctaButtons.primary.href} onClick={() => setMobileOpen(false)}>
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex-1 overflow-y-auto px-6 pt-8 pb-4">
+                <div className="flex flex-col gap-1">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-xl py-3 font-medium text-foreground hover:text-accent transition-colors border-b border-border/50"
+                      onClick={close}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+
+              {/* Bottom CTAs */}
+              <div className="px-6 pb-8 pt-4 border-t border-border shrink-0 flex flex-col gap-3">
+                <Link href={ctaButtons.primary.href} onClick={close}>
                   <Button variant="primary" className="w-full" size="lg">
                     {ctaButtons.primary.label}
                   </Button>
                 </Link>
+                <Link href={ctaButtons.secondary.href} onClick={close}>
+                  <Button variant="outline" className="w-full" size="lg">
+                    {ctaButtons.secondary.label}
+                  </Button>
+                </Link>
               </div>
-            </nav>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
 
@@ -139,7 +183,7 @@ className="h-10 w-auto"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 40 }}
-            className="fixed right-8 bottom-48 z-40 hidden lg:flex flex-col gap-2"
+            className="fixed right-8 bottom-48 z-30 hidden lg:flex flex-col gap-2"
           >
             <Link href={stickyCta.primary.href}>
               <Button variant="primary" size="sm">

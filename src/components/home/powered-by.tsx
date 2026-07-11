@@ -11,9 +11,9 @@ const technologies = [
 
 export function PoweredBy() {
   return (
-    <section className="py-20 border-y border-border">
+    <section className="py-14 md:py-16 lg:py-20 border-y border-border">
       <Container>
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground text-center mb-8">
+        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground text-center mb-8">
           Built on technologies trusted by millions
         </p>
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">

@@ -10,17 +10,17 @@ import Link from "next/link"
 
 export function EngagementModels() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Engagement Models
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
             Custom pricing tailored to your business. Every engagement starts with understanding your unique needs.
           </p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {engagementTiers.map((tier, i) => (
             <motion.div
               key={tier.id}
@@ -28,7 +28,7 @@ export function EngagementModels() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-className={`rounded-xl border-2 flex flex-col h-full p-8 relative ${
+className={`rounded-xl border-2 flex flex-col h-full p-6 lg:p-8 relative ${
                  tier.badge
                   ? "border-accent bg-background"
                   : "border-border bg-background"
@@ -39,7 +39,7 @@ className={`rounded-xl border-2 flex flex-col h-full p-8 relative ${
                   {tier.badge}
                 </Badge>
               )}
-              <h3 className="text-2xl font-semibold min-h-[64px] flex items-start mb-5">{tier.name}</h3>
+              <h3 className="text-xl md:text-2xl font-semibold min-h-[64px] flex items-start mb-5">{tier.name}</h3>
               <p className="text-base text-muted-foreground mb-6 leading-relaxed min-h-[72px]">
                 {tier.description}
               </p>

@@ -9,17 +9,17 @@ const icons = [TrendingUp, Clock, Headphones, Target]
 
 export function BusinessOutcomes() {
   return (
-    <section className="py-24">
+    <section className="py-16 md:py-20 lg:py-24">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Business Outcomes
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
             Every metric represents real business value. Faster response. More appointments. Zero missed opportunities.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {metrics.map((metric, i) => {
             const Icon = icons[i]
             return (
@@ -29,7 +29,7 @@ export function BusinessOutcomes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-xl border border-border flex flex-col h-full p-8 hover:border-accent/30 transition-colors"
+                className="rounded-xl border border-border flex flex-col h-full p-6 lg:p-8 hover:border-accent/30 transition-colors"
               >
                 <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-6 shrink-0">
                   <Icon className="h-5 w-5 text-accent" />

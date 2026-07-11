@@ -13,25 +13,25 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <section className="pt-[140px] pb-24">
+      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="max-w-xl">
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Solutions
             </h1>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               Every solution is designed around a specific outcome. Technology supports the outcome, not the other way around.
             </p>
           </div>
         </Container>
       </section>
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
-          <div className="grid sm:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {serviceBlueprints.map((blueprint) => (
               <div
                 key={blueprint.title}
-                className="rounded-xl border border-border p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
+                className="rounded-xl border border-border p-6 lg:p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
               >
                 <h3 className="text-2xl font-semibold min-h-[72px] flex items-start mb-5">{blueprint.title}</h3>
                 <p className="text-base text-muted-foreground mb-4 leading-relaxed min-h-[72px]">

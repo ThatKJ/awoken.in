@@ -10,21 +10,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="pt-[140px] pb-24">
+      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="max-w-xl">
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               About Awoken
             </h1>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work. Revenue Systems for Modern Businesses.
             </p>
           </div>
         </Container>
       </section>
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">

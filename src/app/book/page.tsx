@@ -133,10 +133,10 @@ export default function BookPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Book Your Strategy Call
           </h1>
-          <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[700px]">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[700px]">
             In 30 minutes we&apos;ll understand your business, identify
             workflow bottlenecks, and show where automation can create the
             biggest impact.
@@ -162,7 +162,7 @@ export default function BookPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {steps.map((step) => {
             const Icon = step.icon
@@ -196,7 +196,7 @@ export default function BookPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {criteria.map((item) => (
             <motion.div key={item.title} variants={itemVariants}>
@@ -227,7 +227,7 @@ export default function BookPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8"
         >
           {preparations.map((item) => {
             const Icon = item.icon
@@ -254,7 +254,7 @@ export default function BookPage() {
         </motion.div>
       </Section>
 
-      <section id="book" className="pb-24">
+      <section id="book" className="pb-16 md:pb-20 lg:pb-24">
         <Container>
           <SectionHeader
             title="Schedule Your Strategy Call"
@@ -270,7 +270,7 @@ export default function BookPage() {
         </Container>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
           <SectionHeader title="Frequently Asked Questions" />
           <div className="max-w-3xl mx-auto">
@@ -297,13 +297,13 @@ export default function BookPage() {
         </Container>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-16 md:pb-20 lg:pb-24">
         <Container>
           <div className="text-center">
-            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Need help before booking?
             </h2>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               Contact us at{" "}
               <a
                 href="mailto:team.awoken.in@gmail.com"

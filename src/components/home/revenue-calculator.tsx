@@ -37,14 +37,14 @@ export function RevenueCalculator() {
   }
 
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-16 md:py-20 lg:py-24 bg-surface">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               {calculatorConfig.title}
             </h2>
-            <p className="mt-4 text-[20px] text-muted-foreground max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px]">
               {calculatorConfig.description}
             </p>
             <div className="mt-8 space-y-6">
@@ -69,7 +69,7 @@ export function RevenueCalculator() {
               ))}
             </div>
           </div>
-          <div className="rounded-xl border border-border bg-background flex flex-col h-full p-8 lg:p-10 text-center">
+          <div className="rounded-xl border border-border bg-background flex flex-col h-full p-6 lg:p-8 text-center">
             <p className="text-sm text-muted-foreground mb-2">
               {calculatorConfig.resultLabel}
             </p>

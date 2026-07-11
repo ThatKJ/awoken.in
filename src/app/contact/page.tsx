@@ -12,19 +12,19 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="pt-[140px] pb-24">
+    <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Let's Build Your Revenue System
             </h1>
-            <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
               Book a free strategy call and discover where AI can create the biggest impact in your
               business.
             </p>
             <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
@@ -38,7 +38,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-accent" />
                 </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                   <p className="text-sm text-muted-foreground">Typically within 2 hours</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                   <CalendarCheck className="h-5 w-5 text-accent" />
                 </div>
@@ -58,7 +58,7 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="mt-8 rounded-xl border border-border bg-surface p-6">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-4">
                 <Shield className="h-5 w-5 text-accent shrink-0 mt-0.5" />
                 <p className="text-sm text-muted-foreground">
                   Every strategy call is confidential. We respect your privacy and never share your

@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 export default function DemoPage() {
   return (
     <>
-      <section className="pt-[140px] pb-24">
+      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 Experience an AI Employee in Action
               </h1>
-              <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed max-w-[650px]">
+              <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
                 See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically. Every conversation is designed to help businesses recover more revenue.
               </p>
               <ul className="mt-8 space-y-3">

@@ -8,14 +8,14 @@ import Link from "next/link"
 
 export function LiveDemo() {
   return (
-    <section className="py-24 bg-surface">
+    <section className="py-16 md:py-20 lg:py-24 bg-surface">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-5xl lg:text-6xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Experience an AI Employee in Action
             </h2>
-<p className="mt-4 text-[22px] text-muted-foreground leading-relaxed max-w-[700px]">
+<p className="mt-4 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-[700px]">
                See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically. Every conversation is designed to help businesses recover more revenue.
             </p>
             <ul className="mt-8 space-y-3">
