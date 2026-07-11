@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,8 +41,8 @@
   body {
     @apply bg-background text-foreground font-sans text-[18px] leading-[1.8] antialiased;
   }
-  html {
-    scroll-behavior: smooth;
+  html.lenis {
+    scroll-behavior: auto;
   }
   ::selection {
     background-color: #F97316;

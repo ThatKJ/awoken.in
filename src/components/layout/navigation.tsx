@@ -58,7 +58,7 @@ export function Navigation() {
           <div className="flex h-20 xl:h-[160px] items-center justify-between">
             {/* Tablet & below: wordmark on left */}
             <Link href="/" className="xl:hidden flex items-center">
-              <img src="/logo.svg" alt="Awoken" className="h-8 sm:h-10 w-auto" />
+              <img src="/logo.svg" alt="Awoken" className="h-24 sm:h-[120px] w-auto" />
             </Link>
 
             {/* Desktop: logo */}
