@@ -71,10 +71,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Awoken. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/ThatKJ/awoken.in" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              GitHub
-            </a>
-            <a href="https://linkedin.com/company/awoken-in" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="https://www.linkedin.com/company/awoken-in/about/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               LinkedIn
             </a>
             <a href="mailto:team.awoken.in@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
