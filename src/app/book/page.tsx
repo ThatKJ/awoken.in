@@ -260,10 +260,10 @@ export default function BookPage() {
             title="Schedule Your Audit"
             description="Pick a time that works for you."
           />
-          <div className="rounded-2xl border border-border shadow-sm overflow-hidden mx-auto max-w-5xl min-h-[700px]">
+          <div className="rounded-2xl border border-border shadow-sm overflow-hidden mx-auto max-w-5xl min-h-[500px] sm:min-h-[600px] md:min-h-[700px]">
             <Cal
               calLink={config.calLink}
-              style={{ width: "100%", height: "100%", minHeight: "700px" }}
+              style={{ width: "100%", height: "100%", minHeight: "500px" }}
               config={{ layout: "month_view" }}
             />
           </div>

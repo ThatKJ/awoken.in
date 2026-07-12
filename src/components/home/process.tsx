@@ -26,8 +26,8 @@ export function Process() {
           description="Every engagement follows a proven methodology that ensures we solve the right problems."
         />
         <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
-          <div className="space-y-8">
+          <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
+          <div className="space-y-6 sm:space-y-8">
             {steps.map((step, i) => {
               const Icon = step.icon
               return (
@@ -37,19 +37,19 @@ export function Process() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="flex items-start gap-5"
+                  className="flex items-start gap-4 sm:gap-5"
                 >
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-full border-2 border-accent bg-background flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-accent" />
+                  <div className="relative z-10 shrink-0">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-accent bg-background flex items-center justify-center">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                     </div>
                   </div>
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xs font-semibold text-accent">Step {i + 1}</span>
-                      <h3 className="text-lg font-semibold">{step.title}</h3>
+                  <div className="flex-1 pt-1 sm:pt-2 min-w-0">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-1 flex-wrap">
+                      <span className="text-[10px] sm:text-xs font-semibold text-accent">Step {i + 1}</span>
+                      <h3 className="text-sm sm:text-lg font-semibold">{step.title}</h3>
                     </div>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
                 </motion.div>
               )

@@ -25,7 +25,7 @@ export function Industries() {
           title="We work across industries, but always start with your specific problem."
           description="Every business is different. We don't apply generic solutions. We study your operations first."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {industries.map((industry, i) => {
             const Icon = industry.icon
             return (
@@ -35,13 +35,13 @@ export function Industries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-xl border border-border bg-background p-6 lg:p-8 hover:shadow-lg transition-all duration-200 group"
+                className="rounded-xl border border-border bg-background p-5 sm:p-6 lg:p-8 hover:shadow-lg transition-all duration-200 group"
               >
-                <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
-                  <Icon className="h-5 w-5 text-accent" />
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-5">
+                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold mb-3 group-hover:text-accent transition-colors">{industry.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
+                <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 group-hover:text-accent transition-colors">{industry.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
               </motion.div>
             )
           })}

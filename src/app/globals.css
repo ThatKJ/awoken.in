@@ -39,7 +39,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans text-[18px] leading-[1.8] antialiased;
+    @apply bg-background text-foreground font-sans text-[18px] leading-[1.8] antialiased overflow-x-hidden;
   }
   html.lenis {
     scroll-behavior: auto;
@@ -70,11 +70,14 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
   @media (width >= 40rem) {
     padding-inline: 1.5rem;
   }
   @media (width >= 64rem) {
     padding-inline: 2rem;
+  }
+  @media (width >= 80rem) {
+    padding-inline: 3rem;
   }
 }

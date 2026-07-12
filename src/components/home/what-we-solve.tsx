@@ -85,14 +85,14 @@ export function WhatWeSolve() {
               <div key={problem.title}>
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center gap-4 py-5 text-left group"
+                  className="w-full flex items-center gap-3 sm:gap-4 py-4 sm:py-5 text-left group min-h-[44px]"
                   aria-expanded={isOpen}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                    <Icon className="h-5 w-5 text-accent" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <span className="text-base font-semibold">{problem.title}</span>
+                    <span className="text-sm sm:text-base font-semibold">{problem.title}</span>
                   </div>
                   <ChevronDown
                     className={cn(
@@ -110,18 +110,18 @@ export function WhatWeSolve() {
                       transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 pl-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="pb-5 sm:pb-6 pl-12 sm:pl-14 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">How We Investigate</p>
-                          <p className="text-sm text-muted-foreground">{problem.investigation}</p>
+                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Investigate</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{problem.investigation}</p>
                         </div>
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">How We Solve</p>
-                          <p className="text-sm text-muted-foreground">{problem.solution}</p>
+                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Solve</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{problem.solution}</p>
                         </div>
                         <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">Expected Outcome</p>
-                          <p className="text-sm font-medium">{problem.outcome}</p>
+                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-accent mb-1.5 sm:mb-2">Expected Outcome</p>
+                          <p className="text-xs sm:text-sm font-medium">{problem.outcome}</p>
                         </div>
                       </div>
                     </motion.div>

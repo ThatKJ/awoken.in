@@ -26,7 +26,7 @@ export function Examples() {
           title="Solutions we build after diagnosis, not before."
           description="These are examples of what we've built. Every recommendation comes from understanding your specific situation first."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {examples.map((example, i) => {
             const Icon = example.icon
             return (
@@ -38,12 +38,12 @@ export function Examples() {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <Card>
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                    <Icon className="h-5 w-5 text-accent" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-4">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
                   </div>
                   <CardBody>
-                    <h3 className="text-sm font-semibold mb-2">{example.title}</h3>
-                    <p className="text-sm text-muted-foreground">{example.description}</p>
+                    <h3 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2">{example.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{example.description}</p>
                   </CardBody>
                 </Card>
               </motion.div>
