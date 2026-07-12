@@ -54,37 +54,37 @@ export function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-12">
-          <div className="flex h-16 sm:h-20 xl:h-[160px] items-center justify-between gap-2">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 sm:h-20 lg:h-[100px] items-center justify-between gap-2">
             {/* Tablet & below: wordmark on left */}
-            <Link href="/" className="xl:hidden flex items-center">
+            <Link href="/" className="lg:hidden flex items-center">
               <img src="/logo.svg" alt="Awoken" className="h-16 sm:h-24 md:h-[120px] w-auto" />
             </Link>
 
             {/* Desktop: logo */}
-            <Link href="/" className="hidden xl:flex items-center shrink-0">
+            <Link href="/" className="hidden lg:flex items-center shrink-0">
               <img
                 src="/logo.svg"
                 alt="Awoken"
-                className="h-10 w-auto xl:h-[150px]"
+                className="h-10 w-auto lg:h-[80px]"
               />
             </Link>
 
             {/* Desktop: nav */}
-            <nav className="hidden xl:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
+                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Tablet & up: CTA */}
-            <div className="hidden sm:flex xl:hidden items-center">
+            {/* Tablet-only CTA (between mobile & laptop) */}
+            <div className="hidden sm:flex lg:hidden items-center">
               <Link href={ctaButtons.primary.href}>
                 <Button variant="primary" size="md" className="whitespace-nowrap">
                   {ctaButtons.primary.label}
@@ -93,9 +93,9 @@ export function Navigation() {
             </div>
 
             {/* Desktop: CTAs */}
-            <div className="hidden xl:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3 xl:gap-4">
               <Link href={ctaButtons.secondary.href}>
-                <Button variant="ghost" size="md">
+                <Button variant="ghost" size="sm" className="hidden xl:inline-flex">
                   {ctaButtons.secondary.label}
                 </Button>
               </Link>
@@ -108,7 +108,7 @@ export function Navigation() {
 
             {/* Hamburger — min 44px touch target */}
             <button
-              className="xl:hidden flex items-center justify-center w-11 h-11 -mr-2"
+              className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -128,7 +128,7 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-black/40 xl:hidden"
+              className="fixed inset-0 z-40 bg-black/40 lg:hidden"
               onClick={close}
             />
 
@@ -138,7 +138,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background xl:hidden flex flex-col"
+              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background lg:hidden flex flex-col"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20 border-b border-border shrink-0">
@@ -194,7 +194,7 @@ export function Navigation() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 40 }}
-            className="fixed right-8 bottom-48 z-30 hidden xl:flex flex-col gap-2"
+            className="fixed right-8 bottom-48 z-30 hidden lg:flex flex-col gap-2"
           >
             <Link href={stickyCta.primary.href}>
               <Button variant="primary" size="sm">
