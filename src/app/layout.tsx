@@ -19,15 +19,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Awoken — Revenue Systems for Modern Businesses",
+    default: "Awoken | Business Intelligence & AI Implementation Consultancy",
     template: "%s — Awoken",
   },
   description:
-    "We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work. Revenue Systems for Modern Businesses.",
+    "Awoken helps businesses identify operational bottlenecks, prioritize high-impact improvements, and implement AI solutions that solve real business problems.",
   openGraph: {
-    title: "Awoken — Revenue Systems for Modern Businesses",
+    title: "Awoken | Business Intelligence & AI Implementation Consultancy",
     description:
-      "We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work.",
+      "Awoken helps businesses identify operational bottlenecks, prioritize high-impact improvements, and implement AI solutions that solve real business problems.",
     url: "https://awoken.in",
     siteName: "Awoken",
     locale: "en_IN",

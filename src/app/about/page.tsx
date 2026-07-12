@@ -3,8 +3,8 @@ import { Container } from "@/components/shared/container"
 import { philosophyPoints } from "@/data/philosophy"
 
 export const metadata: Metadata = {
-  title: "About — Revenue Systems for Modern Businesses",
-  description: "We don't believe businesses need more software. They need systems that remove repetitive work.",
+  title: "About — Business Intelligence & Implementation Consultancy",
+  description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.",
 }
 
 export default function AboutPage() {
@@ -17,7 +17,7 @@ export default function AboutPage() {
               About Awoken
             </h1>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-              We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work. Revenue Systems for Modern Businesses.
+              We help businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems. Business Intelligence &amp; Implementation Consultancy.
             </p>
           </div>
         </Container>
@@ -28,15 +28,15 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                Every business has repetitive work. Every repetitive workflow can be automated. Every missed opportunity is recoverable. We build intelligent systems that answer calls, qualify leads, follow up automatically, book appointments, manage workflows and increase revenue.
+                Businesses don't need more software. They need clarity. Every operational bottleneck discovered is an opportunity. Every inefficiency fixed is revenue recovered. We help businesses understand where they're losing time and money, then build systems that solve those specific problems.
               </p>
               <h2 className="text-2xl font-semibold mb-4">Our Approach</h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-6">
-                We don't install software. We redesign workflows. We don't sell subscriptions. We build measurable revenue systems. Every implementation begins with understanding the client's business. Technology is never the hero. Business outcomes are.
+                Understand first. Recommend second. Build third. We never start with technology. We start with your business. Every engagement begins with a structured operational assessment that identifies bottlenecks, prioritizes improvements, and only then determines where AI creates measurable value.
               </p>
               <h2 className="text-2xl font-semibold mb-4">Engineering Quality</h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Every system we build is production-ready, measurable, and built to evolve with your business. We use industry-leading infrastructure and follow software engineering best practices.
+                Every system we build is production-ready, measurable, and built to evolve with your business. We follow software engineering best practices and use industry-leading infrastructure. But technology is never the focus. Business outcomes are.
               </p>
             </div>
             <div className="space-y-8">

@@ -6,8 +6,8 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Solutions — Revenue Systems for Modern Businesses",
-  description: "Never Miss Another Call. Every Lead Gets Qualified Instantly. Your CRM Updates Itself. Outcome-focused AI solutions for your business.",
+  title: "Solutions — Business Intelligence & Implementation Consultancy",
+  description: "Outcome-focused solutions for your business. We diagnose operational bottlenecks and build systems that solve specific problems.",
 }
 
 export default function SolutionsPage() {
@@ -20,7 +20,7 @@ export default function SolutionsPage() {
               Solutions
             </h1>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-              Every solution is designed around a specific outcome. Technology supports the outcome, not the other way around.
+              Every solution starts with a diagnosis. We identify the bottlenecks in your operations before recommending any technology. These are examples of what we build.
             </p>
           </div>
         </Container>

@@ -16,9 +16,8 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { label: "Book Strategy Call", href: "/book" },
-      { label: "Engagement", href: "/engagement" },
-      { label: "Demo", href: "/demo" },
+      { label: "Book Free Audit", href: "/book" },
+      { label: "How We Work", href: "/how-we-work" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],
@@ -42,7 +41,7 @@ export function Footer() {
               <img src="/logo.svg" alt="Awoken" className="h-10 w-auto lg:h-[150px]" />
             </Link>
             <p className="text-sm text-muted-foreground">
-              Revenue Systems for Modern Businesses. We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work.
+              Business Intelligence &amp; Implementation Consultancy. We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12">

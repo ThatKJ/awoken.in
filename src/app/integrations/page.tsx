@@ -3,8 +3,8 @@ import { Container } from "@/components/shared/container"
 import { integrationCategories } from "@/data/integrations"
 
 export const metadata: Metadata = {
-  title: "Integrations — Revenue Systems for Modern Businesses",
-  description: "We work with your existing tools. Every system connects with your CRM, phone system, calendar, and more.",
+  title: "Integrations — Business Intelligence & Implementation Consultancy",
+  description: "We work with your existing tools. Every system we build connects with your CRM, phone system, calendar, and more.",
 }
 
 export default function IntegrationsPage() {

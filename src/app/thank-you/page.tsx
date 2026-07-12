@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "You're Booked | Awoken",
-  description: "Your strategy call is confirmed. We'll review your business before the meeting.",
+  description: "Your Business Intelligence Audit is confirmed. We'll review your operations before the meeting.",
 }
 
 export default function ThankYouPage() {
@@ -22,7 +22,7 @@ export default function ThankYouPage() {
             You&apos;re booked.
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-              We&apos;ll review your business before the meeting so we can spend our time discussing solutions instead of asking basic questions.
+              We&apos;ll review your business before the meeting so we can spend our time discussing solutions instead of asking basic questions. Your Business Intelligence Audit is confirmed.
             </p>
             <div className="mt-8 text-left max-w-sm mx-auto">
               <div className="flex items-start gap-4">

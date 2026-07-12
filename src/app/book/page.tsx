@@ -24,7 +24,7 @@ import Link from "next/link"
 const steps = [
   {
     icon: Search,
-    title: "Understand Your Business",
+    title: "Understand Your Operations",
     description: "We learn about your industry, team size, current tools, and revenue goals.",
   },
   {
@@ -34,7 +34,7 @@ const steps = [
   },
   {
     icon: Target,
-    title: "Identify Automation Opportunities",
+    title: "Identify Improvement Opportunities",
     description: "We pinpoint specific areas where AI can create the biggest impact.",
   },
   {
@@ -133,18 +133,18 @@ export default function BookPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Book Your Strategy Call
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            Book a Free Business Intelligence Audit
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[700px]">
             In 30 minutes we&apos;ll understand your business, identify
-            workflow bottlenecks, and show where automation can create the
+            operational bottlenecks, and show where improvements can create the
             biggest impact.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="xl" asChild>
               <a href="#book">
-                Book Your Strategy Call
+                Book a Free Business Intelligence Audit
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
@@ -257,7 +257,7 @@ export default function BookPage() {
       <section id="book" className="pb-16 md:pb-20 lg:pb-24">
         <Container>
           <SectionHeader
-            title="Schedule Your Strategy Call"
+            title="Schedule Your Audit"
             description="Pick a time that works for you."
           />
           <div className="rounded-2xl border border-border shadow-sm overflow-hidden mx-auto max-w-5xl min-h-[700px]">

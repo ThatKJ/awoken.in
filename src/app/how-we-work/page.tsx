@@ -4,8 +4,8 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 import { CheckCircle } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "How We Work — 30-Day AI Implementation",
-  description: "From discovery to deployment in four weeks. Every implementation follows a proven process designed for measurable results.",
+  title: "How We Work — Business Intelligence & Implementation Process",
+  description: "From discovery to deployment. Every engagement follows a proven methodology: understand, diagnose, prioritize, implement, measure.",
 }
 
 export default function HowWeWorkPage() {
@@ -18,7 +18,7 @@ export default function HowWeWorkPage() {
               How We Work
             </h1>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-              Every engagement follows a proven four-week process. We study your business, design the right system, build it, and deploy it with your team.
+              Every engagement follows a proven process. We discover your operational bottlenecks, diagnose root causes, prioritize improvements, implement solutions, and measure results. Technology is applied only where it creates measurable value.
             </p>
           </div>
         </Container>
@@ -57,7 +57,7 @@ export default function HowWeWorkPage() {
           <div className="max-w-3xl mx-auto rounded-xl border border-border bg-surface p-6 lg:p-8">
             <h2 className="text-2xl font-semibold mb-4">Our Philosophy</h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Most AI projects fail because companies start with tools. We start with workflows. We study how your business operates, identify what's broken, and design the ideal workflow before choosing any technology. Every system we build must save time, recover revenue, or improve customer experience. If it doesn't create measurable value, we don't build it.
+              Most AI projects fail because companies start with technology. We start with understanding. We study how your business operates, identify what's broken, and design the ideal workflow before choosing any technology. Every system we build must create measurable business value—faster operations, recovered revenue, or better customer experience. If it doesn't, we don't build it.
             </p>
           </div>
         </Container>

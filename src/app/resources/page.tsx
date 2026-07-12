@@ -4,8 +4,8 @@ import { resources } from "@/data/resources"
 import { BookOpen, FileText, Download, ClipboardCheck, Calculator, Map } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Resources — AI Playbooks, Guides & Templates",
-  description: "AI Playbooks, Automation Guides, Workflow Templates, Revenue Calculators and more to help your business grow.",
+  title: "Resources — Business Intelligence Guides & Templates",
+  description: "Operational assessment guides, workflow templates, and resources to help you identify bottlenecks in your business.",
 }
 
 const typeIcons: Record<string, React.ReactNode> = {
@@ -26,7 +26,7 @@ export default function ResourcesPage() {
               Resources
             </h1>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-              AI playbooks, automation guides, workflow templates, and revenue calculators to help you understand what's possible.
+              Guides, templates, and resources to help you identify operational bottlenecks and understand where technology can create value in your business.
             </p>
           </div>
         </Container>

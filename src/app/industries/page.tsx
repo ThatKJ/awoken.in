@@ -6,8 +6,8 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Industries — Revenue Systems for Modern Businesses",
-  description: "We design AI systems for healthcare, dental, real estate, legal, roofing, HVAC, fitness, marketing agencies, and home services.",
+  title: "Industries — Business Intelligence & Implementation Consultancy",
+  description: "We help businesses across industries identify operational bottlenecks and implement solutions that solve real problems.",
 }
 
 export default function IndustriesPage() {

@@ -6,8 +6,8 @@ import { ArrowRight, PhoneCall, Target, Calendar, Database, Send, Star, Bot, Spa
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Services — Revenue Systems for Modern Businesses",
-  description: "We design and implement AI systems that answer calls, qualify leads, automate follow-ups and eliminate repetitive work.",
+  title: "Services — Business Intelligence & Implementation Consultancy",
+  description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI solutions that solve real problems.",
 }
 
 const icons = [PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles]
@@ -22,7 +22,7 @@ export default function ServicesPage() {
               Services
             </h1>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-              Every solution is designed around a specific business outcome. We don't sell technology. We build systems that create measurable results.
+              Every solution starts with understanding your business. We diagnose operational bottlenecks, then build systems that solve specific problems. Technology follows diagnosis, never the other way around.
             </p>
           </div>
         </Container>

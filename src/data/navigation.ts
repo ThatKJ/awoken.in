@@ -17,16 +17,16 @@ export const navItems: NavItem[] = [
 
 export const ctaButtons = {
   primary: {
-    label: "Book Strategy Call",
+    label: "Book Free Audit",
     href: "/book",
   },
   secondary: {
-    label: "See Live Demo",
-    href: "/demo",
+    label: "See How It Works",
+    href: "/how-we-work",
   },
 };
 
 export const stickyCta = {
-  primary: { label: "Book Strategy Call", href: "/book" },
-  secondary: { label: "Free Workflow Audit", href: "/book" },
+  primary: { label: "Book Free Audit", href: "/book" },
+  secondary: { label: "Business Intelligence Audit", href: "/book" },
 };

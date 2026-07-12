@@ -6,8 +6,8 @@ import Link from "next/link"
 import { BOOKING_URL } from "@/lib/constants"
 
 export const metadata: Metadata = {
-  title: "Demo — Experience an AI Employee in Action",
-  description: "See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically.",
+  title: "Demo — See Our Systems in Action",
+  description: "See how we build operational systems that solve real business problems.",
 }
 
 export default function DemoPage() {
@@ -18,10 +18,10 @@ export default function DemoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Experience an AI Employee in Action
+                See Our Systems in Action
               </h1>
               <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
-                See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically. Every conversation is designed to help businesses recover more revenue.
+                See how the systems we build handle real business operations. Every solution is designed around specific operational bottlenecks, not generic automation.
               </p>
               <ul className="mt-8 space-y-3">
                 {[
