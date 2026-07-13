@@ -172,7 +172,7 @@ export function Process() {
         {/* Desktop: two-column interactive */}
         <div className="hidden lg:grid lg:grid-cols-[1fr_2fr] lg:gap-12 xl:gap-16 mt-16 md:mt-20">
           {/* Left: Sticky Navigation */}
-          <div className="lg:sticky lg:top-32 lg:self-start">
+          <div className="lg:sticky lg:top-32 lg:self-start lg:pt-8 xl:pt-10">
             <nav className="space-y-0.5">
               {steps.map((step, i) => {
                 const isActive = i === active
