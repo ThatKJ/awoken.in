@@ -1,18 +1,29 @@
 "use client"
 
-import { Bell } from "lucide-react"
+import { LogOut } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export function Header() {
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    await fetch("/admin/api/logout", { method: "POST" })
+    router.push("/admin/login")
+  }
+
   return (
     <header className="h-16 border-b border-border bg-background flex items-center justify-between px-6 shrink-0">
       <div />
       <div className="flex items-center gap-3">
-        <button className="w-9 h-9 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-surface transition-colors relative">
-          <Bell className="h-5 w-5" />
-          <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-accent" />
+        <button
+          onClick={handleLogout}
+          className="h-9 px-3 rounded-lg flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+        >
+          <LogOut className="h-4 w-4" />
+          <span className="hidden sm:inline">Logout</span>
         </button>
         <div className="flex items-center gap-3 pl-3 border-l border-border">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">
+          <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-xs font-bold text-accent">
             AK
           </div>
           <div className="text-sm leading-tight hidden sm:block">
