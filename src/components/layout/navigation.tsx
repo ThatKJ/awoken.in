@@ -48,17 +48,17 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden",
           scrolled
             ? "bg-background/70 backdrop-blur-md border-b border-border"
             : "bg-transparent"
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 sm:h-20 lg:h-[100px] items-center justify-between gap-2">
+          <div className="flex h-16 sm:h-20 lg:h-[88px] xl:h-[120px] items-center justify-between gap-2">
             {/* Tablet & below: wordmark on left */}
-            <Link href="/" className="lg:hidden flex items-center">
-              <img src="/logo.svg" alt="Awoken" className="h-16 sm:h-24 md:h-[120px] w-auto" />
+            <Link href="/" className="lg:hidden flex items-center shrink-0">
+              <img src="/logo.svg" alt="Awoken" className="h-10 sm:h-14 md:h-[80px] w-auto" />
             </Link>
 
             {/* Desktop: logo */}
@@ -66,27 +66,33 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken"
-                className="h-10 w-auto lg:h-[80px]"
+                className="h-10 w-auto lg:h-[72px] xl:h-[100px]"
               />
             </Link>
 
+            {/* Spacer */}
+            <div className="hidden lg:block flex-1 min-w-4" />
+
             {/* Desktop: nav */}
-            <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+            <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
+                  className="text-sm xl:text-[15px] font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Tablet-only CTA (between mobile & laptop) */}
+            {/* Spacer */}
+            <div className="hidden lg:block flex-1 min-w-4" />
+
+            {/* Tablet-only CTA */}
             <div className="hidden sm:flex lg:hidden items-center">
               <Link href={ctaButtons.primary.href}>
-                <Button variant="primary" size="md" className="whitespace-nowrap">
+                <Button variant="primary" size="md" className="whitespace-nowrap text-sm">
                   {ctaButtons.primary.label}
                 </Button>
               </Link>
@@ -95,12 +101,12 @@ export function Navigation() {
             {/* Desktop: CTAs */}
             <div className="hidden lg:flex items-center gap-3 xl:gap-4">
               <Link href={ctaButtons.secondary.href}>
-                <Button variant="ghost" size="sm" className="hidden xl:inline-flex">
+                <Button variant="ghost" size="sm" className="hidden xl:inline-flex text-sm">
                   {ctaButtons.secondary.label}
                 </Button>
               </Link>
               <Link href={ctaButtons.primary.href}>
-                <Button variant="primary" size="md">
+                <Button variant="primary" size="md" className="text-sm whitespace-nowrap">
                   {ctaButtons.primary.label}
                 </Button>
               </Link>
@@ -108,7 +114,7 @@ export function Navigation() {
 
             {/* Hamburger — min 44px touch target */}
             <button
-              className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2"
+              className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2 shrink-0"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >

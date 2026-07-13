@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
-import { SmoothScrollProvider } from "@/components/shared/smooth-scroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,11 +49,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <SmoothScrollProvider>
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <Navigation />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
