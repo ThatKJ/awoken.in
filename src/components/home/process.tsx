@@ -1,7 +1,7 @@
 "use client"
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useState, useRef, useEffect, useCallback } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { Container } from "@/components/shared/container"
 import { SectionHeader } from "@/components/shared/section-header"
@@ -14,94 +14,151 @@ import {
   RefreshCw,
   Check,
   ArrowRight,
+  ChevronDown,
 } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const steps = [
   {
     icon: Phone,
     title: "Discovery Call",
+    duration: "45–60 Minutes",
     description: "We learn how your business actually operates before recommending technology.",
-    outcomes: [
-      "Understand business goals",
-      "Interview stakeholders",
-      "Identify pain points",
+    deliverables: [
+      "Business Goals",
+      "Operational Challenges",
+      "Stakeholder Interviews",
     ],
-    value: "Complete operational understanding.",
+    outcome: "Complete understanding of how the business operates before making recommendations.",
   },
   {
     icon: ClipboardList,
     title: "Business Audit",
+    duration: "2–3 Days",
     description: "Deep dive into your operations, workflows, and systems.",
-    outcomes: [
-      "Map existing workflows",
-      "Analyze revenue gaps",
-      "Document tech stack",
+    deliverables: [
+      "Revenue Analysis",
+      "Workflow Mapping",
+      "Tech Stack Review",
     ],
-    value: "Comprehensive health assessment.",
+    outcome: "Comprehensive health assessment with quantified inefficiencies.",
   },
   {
     icon: FileText,
     title: "Intelligence Report",
+    duration: "3–5 Days",
     description: "Comprehensive findings with prioritized recommendations.",
-    outcomes: [
-      "Quantified opportunity sizing",
-      "Prioritized action plan",
-      "ROI projections",
+    deliverables: [
+      "Opportunity Sizing",
+      "Prioritized Action Plan",
+      "ROI Projections",
     ],
-    value: "Data-backed decision framework.",
+    outcome: "Data-backed decision framework for leadership alignment.",
   },
   {
     icon: FileCheck,
     title: "Implementation Proposal",
+    duration: "5–7 Days",
     description: "Detailed plan with timelines, costs, and expected ROI.",
-    outcomes: [
-      "Scope & milestones defined",
-      "Budget & timeline locked",
-      "Risk assessment complete",
+    deliverables: [
+      "Scope & Milestones",
+      "Budget & Timeline",
+      "Risk Assessment",
     ],
-    value: "Clear execution roadmap.",
+    outcome: "Clear execution roadmap with stakeholder buy-in.",
   },
   {
     icon: Rocket,
     title: "Deployment",
+    duration: "2–6 Weeks",
     description: "Build, test, and launch your custom solution.",
-    outcomes: [
-      "Custom system built",
-      "Team training completed",
-      "Go-live support",
+    deliverables: [
+      "Custom System Build",
+      "Team Training",
+      "Go-Live Support",
     ],
-    value: "Production-ready solution.",
+    outcome: "Production-ready solution with zero operational disruption.",
   },
   {
     icon: RefreshCw,
     title: "Optimization",
+    duration: "Ongoing",
     description: "Monitor results, iterate, and continuously improve.",
-    outcomes: [
-      "Track key metrics",
-      "Iterate based on data",
-      "Scale what works",
+    deliverables: [
+      "KPI Tracking",
+      "Data-Driven Iteration",
+      "Performance Reviews",
     ],
-    value: "Continuous improvement loop.",
+    outcome: "Continuous improvement loop that scales with your business.",
   },
 ]
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 80 : -80,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    transition: { duration: 0.35, ease: "easeOut" as const },
   },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 80 : -80,
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeOut" as const },
+  }),
 }
 
 export function Process() {
+  const [active, setActive] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const [expanded, setExpanded] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  })
+  const cardRef = useRef<HTMLDivElement>(null)
 
-  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+  const goTo = useCallback(
+    (i: number) => {
+      if (i === active) return
+      setDirection(i > active ? 1 : -1)
+      setActive(i)
+    },
+    [active]
+  )
+
+  // Scroll-based active step detection
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const handles = steps.map((_, i) => {
+      const el = document.getElementById(`step-${i}`)
+      return el
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.id.replace("step-", ""))
+            if (!isNaN(idx) && idx !== active) {
+              setDirection(idx > active ? 1 : -1)
+              setActive(idx)
+            }
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+    )
+
+    for (const el of handles) {
+      if (el) observer.observe(el)
+    }
+
+    return () => observer.disconnect()
+  }, [active])
+
+  const current = steps[active]
 
   return (
     <section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
@@ -112,112 +169,206 @@ export function Process() {
           description="Every engagement follows a proven methodology that ensures we solve the right problems."
         />
 
-        <div className="mt-16 md:mt-20 lg:grid lg:grid-cols-[1fr_1.5fr] lg:gap-16 xl:gap-20">
-          {/* Left: Sticky Timeline */}
-          <div className="lg:sticky lg:top-32 lg:self-start mb-12 lg:mb-0">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-[17px] top-3 bottom-3 w-px bg-border hidden lg:block">
-                <motion.div
-                  className="w-full bg-accent origin-top"
-                  style={{ scaleY: lineScale }}
-                />
-              </div>
-
-              <div className="relative space-y-0 lg:space-y-0">
-                {steps.map((step, i) => (
-                  <motion.div
+        {/* Desktop: two-column interactive */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_2fr] lg:gap-12 xl:gap-16 mt-16 md:mt-20">
+          {/* Left: Sticky Navigation */}
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <nav className="space-y-0.5">
+              {steps.map((step, i) => {
+                const isActive = i === active
+                const Icon = step.icon
+                return (
+                  <button
                     key={step.title}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-120px" }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="flex items-center gap-4 py-5 lg:py-6"
+                    onClick={() => goTo(i)}
+                    className={cn(
+                      "flex items-center gap-3 w-full text-left py-3 px-4 rounded-xl transition-all duration-300",
+                      isActive
+                        ? "bg-accent/5"
+                        : "hover:bg-surface"
+                    )}
                   >
-                    <div className="relative z-10 shrink-0">
-                      <div className="w-[36px] h-[36px] rounded-full border-2 border-accent bg-background flex items-center justify-center text-sm font-bold text-accent">
-                        {i + 1}
-                      </div>
+                    <div
+                      className={cn(
+                        "w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300",
+                        isActive
+                          ? "bg-accent text-white"
+                          : "bg-border/50 text-muted-foreground"
+                      )}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
                     </div>
-                    <div className="hidden lg:block">
-                      <p className="text-xs font-semibold text-accent uppercase tracking-wider">
+                    <div className="min-w-0">
+                      <span
+                        className={cn(
+                          "block text-xs font-semibold transition-all duration-300",
+                          isActive ? "text-accent" : "text-muted-foreground"
+                        )}
+                      >
                         Step {i + 1}
-                      </p>
-                      <p className="text-sm font-medium text-foreground mt-0.5">
+                      </span>
+                      <span
+                        className={cn(
+                          "block transition-all duration-300",
+                          isActive
+                            ? "text-sm font-bold text-foreground"
+                            : "text-sm font-medium text-muted-foreground"
+                        )}
+                      >
                         {step.title}
-                      </p>
+                      </span>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                  </button>
+                )
+              })}
+            </nav>
           </div>
 
-          {/* Right: Cards */}
-          <div className="space-y-8 md:space-y-10">
-            {steps.map((step, i) => {
-              const Icon = step.icon
-              return (
-                <motion.div
-                  key={step.title}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  variants={cardVariants}
+          {/* Right: Single Animated Card */}
+          <div ref={cardRef} className="relative min-h-[400px]">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={active}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="group rounded-2xl border border-border bg-background p-8 xl:p-10 shadow-sm"
+              >
+                <div className="w-10 h-1 rounded-full bg-accent/60 mb-6" />
+
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-accent/5 flex items-center justify-center shrink-0">
+                    <current.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">
+                      Step {active + 1}
+                    </span>
+                    <h3 className="text-xl xl:text-2xl font-bold mt-0.5">{current.title}</h3>
+                  </div>
+                </div>
+
+                <p className="text-sm xl:text-base text-muted-foreground leading-relaxed max-w-[55ch] mb-6">
+                  {current.description}
+                </p>
+
+                <div className="mb-6">
+                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Duration
+                  </span>
+                  <p className="text-sm font-medium text-foreground mt-0.5">
+                    {current.duration}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Deliverables
+                  </span>
+                  <ul className="mt-3 space-y-2">
+                    {current.deliverables.map((d) => (
+                      <li key={d} className="flex items-start gap-2.5">
+                        <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                        <span className="text-sm xl:text-base text-muted-foreground">{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-5 border-t border-border">
+                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Business Outcome
+                  </span>
+                  <p className="text-sm font-medium text-foreground mt-1">
+                    {current.outcome}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Mobile: Accordion */}
+        <div className="lg:hidden mt-12 space-y-3">
+          {steps.map((step, i) => {
+            const Icon = step.icon
+            const isOpen = expanded === i
+            return (
+              <div key={step.title} className="rounded-xl border border-border bg-background overflow-hidden">
+                <button
+                  onClick={() => setExpanded(isOpen ? null : i)}
+                  className="flex items-center justify-between w-full p-5 text-left"
                 >
-                  {/* Mobile: inline number + title */}
-                  <div className="lg:hidden flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-full border-2 border-accent flex items-center justify-center text-xs font-bold text-accent shrink-0">
-                      {i + 1}
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                      <Icon className="h-4 w-4 text-accent" />
                     </div>
-                    <p className="text-xs font-semibold text-accent uppercase tracking-wider">
-                      Step {i + 1}
-                    </p>
+                    <div className="min-w-0">
+                      <span className="text-[10px] font-semibold text-accent">Step {i + 1}</span>
+                      <h3 className="text-sm font-bold mt-0.5">{step.title}</h3>
+                    </div>
                   </div>
-
-                  <div className="group rounded-2xl border border-border bg-background p-6 md:p-8 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300">
-                    {/* Top accent bar */}
-                    <div className="w-10 h-1 rounded-full bg-accent/60 mb-5" />
-
-                    <div className="flex items-start gap-4 mb-5">
-                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-accent/5 flex items-center justify-center shrink-0 group-hover:bg-accent/10 group-hover:scale-105 transition-all duration-300">
-                        <Icon className="h-5 w-5 md:h-6 md:w-6 text-accent" />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">
-                          Step {i + 1}
-                        </span>
-                        <h3 className="text-lg md:text-xl font-bold mt-0.5">{step.title}</h3>
-                      </div>
-                    </div>
-
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-[60ch] mb-5">
-                      {step.description}
-                    </p>
-
-                    {/* Key outcomes */}
-                    <div className="space-y-2 mb-5">
-                      {step.outcomes.map((outcome) => (
-                        <div key={outcome} className="flex items-start gap-2.5">
-                          <Check className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                          <span className="text-sm md:text-base text-muted-foreground">{outcome}</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 text-muted-foreground shrink-0 transition-transform duration-300",
+                      isOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5 pt-0 space-y-4 border-t border-border">
+                        <p className="text-sm text-muted-foreground leading-relaxed mt-4">
+                          {step.description}
+                        </p>
+                        <div>
+                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                            Duration
+                          </span>
+                          <p className="text-sm font-medium mt-0.5">{step.duration}</p>
                         </div>
-                      ))}
-                    </div>
+                        <div>
+                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                            Deliverables
+                          </span>
+                          <ul className="mt-2 space-y-1.5">
+                            {step.deliverables.map((d) => (
+                              <li key={d} className="flex items-start gap-2">
+                                <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+                                <span className="text-sm text-muted-foreground">{d}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="pt-3 border-t border-border">
+                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                            Business Outcome
+                          </span>
+                          <p className="text-sm font-medium text-foreground mt-1">{step.outcome}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            )
+          })}
+        </div>
 
-                    {/* Business value */}
-                    <div className="pt-4 border-t border-border">
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
-                        Business Outcome
-                      </p>
-                      <p className="text-sm font-medium text-foreground">{step.value}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
+        {/* Hidden sentinel elements for scroll detection */}
+        <div className="hidden lg:block">
+          {steps.map((_, i) => (
+            <div key={i} id={`step-${i}`} className="h-0" />
+          ))}
         </div>
 
         {/* CTA */}
@@ -238,7 +389,7 @@ export function Process() {
             href="/book"
             className="inline-flex h-12 px-7 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors items-center gap-2"
           >
-            Book Free Audit
+            Book Your Free Audit
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
