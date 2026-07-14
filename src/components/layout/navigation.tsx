@@ -66,7 +66,7 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken"
-                className="h-10 w-auto lg:h-[72px] xl:h-[100px]"
+                className="h-10 w-auto lg:h-[96px] xl:h-[124px]"
               />
             </Link>
 
