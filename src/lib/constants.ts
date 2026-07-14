@@ -2,7 +2,7 @@ export const BOOKING_URL = "/book"
 
 export const SITE_NAME = "Awoken"
 export const SITE_DESCRIPTION = "Business Intelligence & Implementation Consultancy"
-export const CONTACT_EMAIL = "team.awoken.in@gmail.com"
+export const CONTACT_EMAIL = "contact@awoken.in"
 
 export const TAGLINE = "Business Intelligence & Implementation Consultancy"
 export const HERO_HEADLINE = "Find the bottlenecks holding your business back."

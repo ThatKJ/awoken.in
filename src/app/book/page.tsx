@@ -306,10 +306,10 @@ export default function BookPage() {
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               Contact us at{" "}
               <a
-                href="mailto:team.awoken.in@gmail.com"
+                href="mailto:contact@awoken.in"
                 className="text-accent underline underline-offset-4 hover:text-accent/80 transition-colors"
               >
-                team.awoken.in@gmail.com
+                contact@awoken.in
               </a>
             </p>
             <div className="mt-8">

@@ -58,7 +58,7 @@ export default function TermsPage() {
               <div>
                 <h2 className="text-xl font-semibold mb-3">6. Contact</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  For questions about these terms, email team.awoken.in@gmail.com.
+                  For questions about these terms, email contact@awoken.in.
                 </p>
               </div>
             </div>

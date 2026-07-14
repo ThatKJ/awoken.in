@@ -33,7 +33,7 @@ export default function ContactPage() {
                     href={`mailto:${CONTACT_EMAIL}`}
                     className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors break-all"
                   >
-                    team.awoken.in@gmail.com
+                    contact@awoken.in
                   </a>
                 </div>
               </div>

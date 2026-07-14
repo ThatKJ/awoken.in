@@ -53,14 +53,14 @@ export default function PrivacyPage() {
                 <h2 className="text-xl font-semibold mb-3">5. Your Rights</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   You have the right to access, correct, or delete your personal information. Contact us at
-                  team.awoken.in@gmail.com to exercise these rights.
+                  contact@awoken.in to exercise these rights.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-xl font-semibold mb-3">6. Contact</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  For questions about this policy, email team.awoken.in@gmail.com.
+                  For questions about this policy, email contact@awoken.in.
                 </p>
               </div>
             </div>

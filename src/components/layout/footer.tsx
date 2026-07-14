@@ -74,8 +74,8 @@ export function Footer() {
             <a href="https://www.linkedin.com/company/awoken-in/about/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               LinkedIn
             </a>
-            <a href="mailto:team.awoken.in@gmail.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              team.awoken.in@gmail.com
+            <a href="mailto:contact@awoken.in" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              contact@awoken.in
             </a>
           </div>
         </div>
