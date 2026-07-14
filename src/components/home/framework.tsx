@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Search, Stethoscope, Target, Building2, LineChart, ArrowRight, Check } from "lucide-react"
 
@@ -79,8 +79,7 @@ export function Framework() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
-      <Container>
+    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
         <SectionHeader
           eyebrow="The Awoken Intelligence Framework"
           title="A structured approach to operational clarity."
@@ -216,7 +215,6 @@ export function Framework() {
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
-      </Container>
-    </section>
+    </Section>
   )
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { serviceBlueprints } from "@/data/service-blueprints"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles } from "lucide-react"
@@ -30,8 +30,7 @@ const icons = [PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles]
 export default function ServicesPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section size="hero">
           <div className="max-w-xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Services
@@ -40,10 +39,8 @@ export default function ServicesPage() {
               Every solution starts with understanding your business. We diagnose operational bottlenecks, then build systems that solve specific problems. Technology follows diagnosis, never the other way around.
             </p>
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      </Section>
+      <Section>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {serviceBlueprints.map((blueprint, i) => {
               const Icon = icons[i]
@@ -72,8 +69,7 @@ export default function ServicesPage() {
               )
             })}
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

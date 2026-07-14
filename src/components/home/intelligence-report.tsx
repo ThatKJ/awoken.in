@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { FileText, Search, Zap, Target, Route, TrendingUp } from "lucide-react"
 
@@ -16,9 +16,8 @@ const reportSections = [
 
 export function IntelligenceReport() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
+    <Section>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
           <div>
             <SectionHeader
               align="left"
@@ -89,7 +88,6 @@ export function IntelligenceReport() {
             <div className="hidden sm:block absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-border -z-10 bg-surface" />
           </motion.div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

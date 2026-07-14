@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { resources } from "@/data/resources"
 import { BookOpen, FileText, Download, ClipboardCheck, Calculator, Map } from "lucide-react"
 
@@ -34,8 +34,7 @@ const typeIcons: Record<string, React.ReactNode> = {
 export default function ResourcesPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section size="hero">
           <div className="max-w-xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Resources
@@ -44,10 +43,8 @@ export default function ResourcesPage() {
               Guides, templates, and resources to help you identify operational bottlenecks and understand where technology can create value in your business.
             </p>
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      </Section>
+      <Section>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {resources.map((resource) => (
               <div
@@ -69,8 +66,7 @@ export default function ResourcesPage() {
               </div>
             ))}
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

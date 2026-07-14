@@ -1,15 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { whyFailPoints } from "@/data/why-projects-fail"
 import { AlertTriangle, Lightbulb } from "lucide-react"
 
 export function WhyProjectsFail() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <Section>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Why Most AI Projects Fail
@@ -43,7 +42,6 @@ export function WhyProjectsFail() {
             ))}
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

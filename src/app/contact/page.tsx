@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { Mail, Clock, CalendarCheck, Shield, ArrowRight } from "lucide-react"
 import { CONTACT_EMAIL } from "@/lib/constants"
@@ -27,9 +27,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
+    <Section size="hero">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
           <div>
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Let's Understand Your Business
@@ -102,7 +101,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

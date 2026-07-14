@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { whyAwokenPoints } from "@/data/why-awoken"
 import { Shield, Cpu, BarChart, RefreshCw } from "lucide-react"
 
@@ -9,8 +9,7 @@ const icons = [Cpu, Shield, BarChart, RefreshCw]
 
 export function WhyAwoken() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
+    <Section>
         <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Why Awoken
@@ -42,7 +41,6 @@ export function WhyAwoken() {
             )
           })}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

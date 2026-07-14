@@ -1,15 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { fitCriteria } from "@/data/who-we-work-with"
 import { CheckCircle, XCircle } from "lucide-react"
 
 export function WhoWeWorkWith() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section className="bg-surface">
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Who We Work Best With
           </h2>
@@ -59,7 +58,6 @@ className={`rounded-xl border-2 flex flex-col h-full p-6 lg:p-8 ${
             </motion.div>
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

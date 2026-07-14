@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { engagementTiers } from "@/data/engagement-models"
 import { Badge } from "@/components/ui/badge"
@@ -29,8 +29,7 @@ export const metadata: Metadata = {
 export default function EngagementPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section size="hero">
           <div className="max-w-xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Engagement Models
@@ -39,10 +38,8 @@ export default function EngagementPage() {
               Custom engagement tailored to your business. Every engagement starts with understanding your unique needs.
             </p>
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-[72px]">
-        <Container>
+      </Section>
+      <Section className="pb-16 md:pb-20 lg:pb-[72px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
             {engagementTiers.map((tier) => (
               <div
@@ -87,10 +84,8 @@ className={`rounded-xl border-2 p-5 sm:p-6 lg:p-8 relative flex flex-col h-full 
               </div>
             ))}
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      </Section>
+      <Section>
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Every business is different.</h3>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -107,8 +102,7 @@ className={`rounded-xl border-2 p-5 sm:p-6 lg:p-8 relative flex flex-col h-full 
               )}
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

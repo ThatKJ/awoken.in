@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { X, Check } from "lucide-react"
 
@@ -34,8 +34,7 @@ const comparisons = [
 
 export function WhyCompare() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
+    <Section>
         <SectionHeader
           eyebrow="Why Awoken"
           title="A fundamentally different approach."
@@ -74,7 +73,6 @@ export function WhyCompare() {
             </div>
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

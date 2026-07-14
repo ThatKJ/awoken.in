@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { calculatorConfig } from "@/data/revenue-calculator"
 import { ArrowRight } from "lucide-react"
@@ -37,9 +37,8 @@ export function RevenueCalculator() {
   }
 
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <Section className="bg-surface">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               {calculatorConfig.title}
@@ -87,7 +86,6 @@ export function RevenueCalculator() {
             </Link>
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

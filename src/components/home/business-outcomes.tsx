@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { metrics } from "@/data/metrics"
 import { TrendingUp, Clock, Headphones, Target } from "lucide-react"
 
@@ -9,8 +9,7 @@ const icons = [TrendingUp, Clock, Headphones, Target]
 
 export function BusinessOutcomes() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
+    <Section>
         <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Business Outcomes
@@ -45,7 +44,6 @@ export function BusinessOutcomes() {
             )
           })}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

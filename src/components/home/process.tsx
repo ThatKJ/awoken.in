@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import {
   Phone,
@@ -161,8 +161,7 @@ export function Process() {
   const current = steps[active]
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
-      <Container>
+    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
         <SectionHeader
           eyebrow="Our Process"
           title="From discovery to deployment, in six steps."
@@ -393,7 +392,6 @@ export function Process() {
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
-      </Container>
-    </section>
+    </Section>
   )
 }

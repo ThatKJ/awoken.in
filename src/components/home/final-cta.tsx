@@ -1,13 +1,12 @@
 import Link from "next/link"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="max-w-2xl mx-auto text-center">
+    <Section>
+      <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Let's understand your business before recommending technology.
           </h2>
@@ -28,7 +27,6 @@ export function FinalCTA() {
             </Link>
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

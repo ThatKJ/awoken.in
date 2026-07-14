@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { exampleSolutions } from "@/data/example-solutions"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight } from "lucide-react"
@@ -9,9 +9,8 @@ import Link from "next/link"
 
 export function ExampleSolutions() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section className="bg-surface">
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <Badge variant="secondary" className="mb-4">Reference Architecture</Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Example Solutions
@@ -56,7 +55,6 @@ export function ExampleSolutions() {
             These are conceptual solutions. <Link href="/book" className="text-accent hover:underline">Talk to us</Link> about your specific business needs.
           </p>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

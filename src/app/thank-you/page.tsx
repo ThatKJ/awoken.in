@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Calendar, Mail, Video, ListChecks, Home, BookOpen, PlayCircle } from "lucide-react"
 import Link from "next/link"
@@ -31,9 +31,8 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <>
-    <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-      <Container>
-        <div className="max-w-xl mx-auto text-center">
+    <Section size="hero" className="pt-28 md:pt-36">
+      <div className="max-w-xl mx-auto text-center">
           <div className="mx-auto w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-8">
             <CheckCircle className="h-16 w-16 text-green-500" />
           </div>
@@ -82,8 +81,7 @@ export default function ThankYouPage() {
               </Link>
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

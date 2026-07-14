@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 
 const technologies = [
   "OpenAI", "Anthropic", "Gemini", "Twilio", "ElevenLabs",
@@ -11,9 +11,8 @@ const technologies = [
 
 export function PoweredBy() {
   return (
-    <section className="py-14 md:py-16 lg:py-20 border-y border-border">
-      <Container>
-        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground text-center mb-8">
+    <Section size="small" className="border-y border-border">
+      <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground text-center mb-8">
           Built on technologies trusted by millions
         </p>
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
@@ -30,7 +29,6 @@ export function PoweredBy() {
             </motion.span>
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

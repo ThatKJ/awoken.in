@@ -1,7 +1,6 @@
 "use client"
 
 import Cal from "@calcom/embed-react"
-import { Container } from "@/components/shared/container"
 import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Card, CardHeader, CardBody } from "@/components/shared/card"
@@ -254,24 +253,23 @@ export default function BookPage() {
         </motion.div>
       </Section>
 
-      <section id="book" className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <div id="book">
+        <Section className="pb-16 md:pb-20 lg:pb-24">
           <SectionHeader
             title="Schedule Your Audit"
             description="Pick a time that works for you."
           />
-          <div className="rounded-2xl border border-border shadow-sm overflow-hidden mx-auto max-w-5xl min-h-[500px] sm:min-h-[600px] md:min-h-[700px]">
+          <div className="rounded-2xl border border-border shadow-sm overflow-hidden mx-auto max-w-5xl             min-h-[500px] sm:min-h-[600px] md:min-h-[700px]">
             <Cal
               calLink={config.calLink}
               style={{ width: "100%", height: "100%", minHeight: "500px" }}
               config={{ layout: "month_view" }}
             />
           </div>
-        </Container>
-      </section>
+        </Section>
+      </div>
 
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section className="pb-16 md:pb-20 lg:pb-24">
           <SectionHeader title="Frequently Asked Questions" />
           <div className="max-w-3xl mx-auto">
             {faqs.map((faq, i) => (
@@ -294,11 +292,9 @@ export default function BookPage() {
               </motion.div>
             ))}
           </div>
-        </Container>
-      </section>
+      </Section>
 
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section className="pb-16 md:pb-20 lg:pb-24">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Need help before booking?
@@ -321,8 +317,7 @@ export default function BookPage() {
               </Button>
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

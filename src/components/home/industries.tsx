@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Building2, Stethoscope, GraduationCap, Dumbbell, Briefcase, Store } from "lucide-react"
 import { ArrowRight } from "lucide-react"
@@ -18,8 +18,7 @@ const industries = [
 
 export function Industries() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
+    <Section className="bg-surface">
         <SectionHeader
           eyebrow="Industries"
           title="We work across industries, but always start with your specific problem."
@@ -46,7 +45,6 @@ export function Industries() {
             )
           })}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

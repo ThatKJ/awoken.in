@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { implementationTimeline } from "@/data/implementation-timeline"
 import { CheckCircle } from "lucide-react"
 
@@ -26,8 +26,7 @@ export const metadata: Metadata = {
 export default function HowWeWorkPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section size="hero">
           <div className="max-w-xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               How We Work
@@ -36,10 +35,8 @@ export default function HowWeWorkPage() {
               Every engagement follows a proven process. We discover your operational bottlenecks, diagnose root causes, prioritize improvements, implement solutions, and measure results. Technology is applied only where it creates measurable value.
             </p>
           </div>
-        </Container>
-      </section>
-      <section className="pb-20 md:pb-24 lg:pb-[120px]">
-        <Container>
+      </Section>
+      <Section className="pb-20 md:pb-24 lg:pb-[120px]">
           <div className="max-w-3xl mx-auto">
             {implementationTimeline.map((step, i) => (
               <div key={step.week} className="relative pl-10 sm:pl-12 pb-8 sm:pb-12 last:pb-0">
@@ -65,18 +62,15 @@ export default function HowWeWorkPage() {
               </div>
             ))}
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      </Section>
+      <Section>
           <div className="max-w-3xl mx-auto rounded-xl border border-border bg-surface p-4 sm:p-6 lg:p-8">
             <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Philosophy</h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
               Most AI projects fail because companies start with technology. We start with understanding. We study how your business operates, identify what's broken, and design the ideal workflow before choosing any technology. Every system we build must create measurable business value—faster operations, recovered revenue, or better customer experience. If it doesn't, we don't build it.
             </p>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

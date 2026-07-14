@@ -1,14 +1,13 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { integrationCategories } from "@/data/integrations"
 
 export function IntegrationEcosystem() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section>
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Integration Ecosystem
           </h2>
@@ -42,7 +41,6 @@ export function IntegrationEcosystem() {
             </motion.div>
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

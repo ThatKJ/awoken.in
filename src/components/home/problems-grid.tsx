@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { problems } from "@/data/problems"
 import { Phone, Timer, Settings, Link, Users, Database, UserRound, Frown } from "lucide-react"
 
@@ -9,9 +9,8 @@ const icons = [Phone, Timer, Settings, Link, Users, Database, UserRound, Frown]
 
 export function ProblemsGrid() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section>
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Every Growing Business Leaks Revenue
           </h2>
@@ -43,7 +42,6 @@ export function ProblemsGrid() {
             )
           })}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

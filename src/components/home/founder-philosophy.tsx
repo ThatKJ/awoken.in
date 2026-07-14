@@ -1,14 +1,13 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { philosophyPoints } from "@/data/philosophy"
 
 export function FounderPhilosophy() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
-        <div className="max-w-3xl mx-auto">
+    <Section className="bg-surface">
+      <div className="max-w-3xl mx-auto">
           {philosophyPoints.map((point, i) => (
             <motion.blockquote
               key={i}
@@ -29,7 +28,6 @@ export function FounderPhilosophy() {
             </motion.blockquote>
           ))}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

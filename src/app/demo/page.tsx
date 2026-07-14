@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { Play, Headphones, Mic, MessageSquare } from "lucide-react"
 import Link from "next/link"
@@ -28,9 +28,8 @@ export const metadata: Metadata = {
 export default function DemoPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
+      <Section size="hero">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 See Our Systems in Action
@@ -114,8 +113,7 @@ export default function DemoPage() {
               </div>
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

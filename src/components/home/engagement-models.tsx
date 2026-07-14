@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { engagementTiers } from "@/data/engagement-models"
@@ -10,9 +10,8 @@ import Link from "next/link"
 
 export function EngagementModels() {
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section>
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Engagement Models
           </h2>
@@ -97,7 +96,6 @@ className={`rounded-xl border-2 flex flex-col h-full p-6 lg:p-8 relative ${
             )}
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

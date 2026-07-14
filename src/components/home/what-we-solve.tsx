@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import { ChevronDown, Clock, FileText, Users, Puzzle, BarChart3, MessageSquare, Package, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
+
 
 const problems = [
   {
@@ -70,8 +71,7 @@ export function WhatWeSolve() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-16 md:py-20 lg:py-24">
-      <Container>
+    <Section>
         <SectionHeader
           eyebrow="What We Solve"
           title="We fix operational problems that cost you money."
@@ -131,7 +131,6 @@ export function WhatWeSolve() {
             )
           })}
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

@@ -1,16 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { Button } from "@/components/ui/button"
 import { Headphones, Play, Mic, MessageSquare } from "lucide-react"
 import Link from "next/link"
 
 export function LiveDemo() {
   return (
-    <section className="py-16 md:py-20 lg:py-24 bg-surface">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <Section className="bg-surface">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Experience an AI Employee in Action
@@ -55,8 +54,7 @@ export function LiveDemo() {
             <PhoneMockup />
           </motion.div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }
 

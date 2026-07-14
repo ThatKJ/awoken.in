@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { workflowNodes } from "@/data/workflow"
 import { ArrowDown } from "lucide-react"
 
@@ -14,9 +14,8 @@ export function WorkflowDiagram() {
   })
 
   return (
-    <section ref={ref} className="py-16 md:py-20 lg:py-24 bg-surface relative overflow-hidden">
-      <Container>
-        <div className="text-center mb-12 md:mb-14 lg:mb-16">
+    <Section ref={ref} className="bg-surface relative overflow-hidden">
+      <div className="text-center mb-12 md:mb-14 lg:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             How It Works
           </h2>
@@ -77,7 +76,6 @@ export function WorkflowDiagram() {
             })}
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   )
 }

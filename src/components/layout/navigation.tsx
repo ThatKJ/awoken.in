@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Container } from "@/components/shared/container"
 import { navItems, ctaButtons, stickyCta } from "@/data/navigation"
 import Link from "next/link"
 
@@ -54,59 +55,47 @@ export function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 sm:h-20 lg:h-24 xl:h-28 items-center justify-between gap-2">
-            {/* Tablet & below: wordmark on left */}
-            <Link href="/" className="lg:hidden flex items-center shrink-0">
-              <img src="/logo.svg" alt="Awoken — Business Intelligence & Implementation Consultancy" className="h-10 sm:h-12 md:h-14 w-auto" />
-            </Link>
-
-            {/* Desktop: logo */}
-            <Link href="/" className="hidden lg:flex items-center shrink-0">
+        <Container>
+          <div className="flex h-16 sm:h-[72px] lg:h-20 items-center justify-between gap-3 sm:gap-4 min-w-0">
+            <Link href="/" className="flex items-center shrink-0 min-w-0">
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="h-10 w-auto lg:h-16 xl:h-20"
+                className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 xl:h-16 2xl:h-20"
               />
             </Link>
 
-            {/* Spacer */}
-            <div className="hidden lg:block flex-1 min-w-4" />
-
-            {/* Desktop: nav */}
-            <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+            {/* Desktop: nav — flex-1 centers links without fixed spacers */}
+            <nav className="hidden lg:flex items-center min-w-0 flex-1 justify-center gap-2 xl:gap-4 2xl:gap-6 mx-2 xl:mx-4">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
+                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2 shrink-0"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Spacer */}
-            <div className="hidden lg:block flex-1 min-w-4" />
-
-            {/* Tablet-only CTA */}
-            <div className="hidden sm:flex lg:hidden items-center">
+            {/* Tablet-only CTA — sm size to avoid crowding hamburger */}
+            <div className="hidden md:flex lg:hidden items-center shrink-0">
               <Link href={ctaButtons.primary.href}>
-                <Button variant="primary" size="md" className="whitespace-nowrap text-sm">
+                <Button variant="primary" size="sm" className="whitespace-nowrap">
                   {ctaButtons.primary.label}
                 </Button>
               </Link>
             </div>
 
             {/* Desktop: CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
               <Link href={ctaButtons.secondary.href}>
-                <Button variant="ghost" size="sm" className="hidden xl:inline-flex text-sm">
+                <Button variant="ghost" size="sm" className="hidden xl:inline-flex">
                   {ctaButtons.secondary.label}
                 </Button>
               </Link>
               <Link href={ctaButtons.primary.href}>
-                <Button variant="primary" size="md" className="text-sm whitespace-nowrap">
+                <Button variant="primary" size="md" className="whitespace-nowrap">
                   {ctaButtons.primary.label}
                 </Button>
               </Link>
@@ -114,14 +103,14 @@ export function Navigation() {
 
             {/* Hamburger — min 44px touch target */}
             <button
-              className="lg:hidden flex items-center justify-center w-11 h-11 -mr-2 shrink-0"
+              className="lg:hidden flex items-center justify-center w-11 h-11 shrink-0"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
             </button>
           </div>
-        </div>
+        </Container>
       </header>
 
       {/* Mobile Drawer */}
@@ -144,7 +133,7 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-sm bg-background lg:hidden flex flex-col"
+              className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-xs sm:max-w-sm bg-background lg:hidden flex flex-col"
             >
               {/* Drawer Header */}
               <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20 border-b border-border shrink-0">
@@ -200,7 +189,7 @@ export function Navigation() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 40 }}
-            className="fixed right-8 bottom-48 z-30 hidden lg:flex flex-col gap-2"
+            className="fixed right-4 xl:right-8 bottom-24 z-30 hidden lg:flex flex-col gap-2"
           >
             <Link href={stickyCta.primary.href}>
               <Button variant="primary" size="sm">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 import { philosophyPoints } from "@/data/philosophy"
 
 export const metadata: Metadata = {
@@ -25,8 +25,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="pt-24 sm:pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      <Section size="hero">
           <div className="max-w-xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               About Awoken
@@ -35,10 +34,8 @@ export default function AboutPage() {
               We help businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems. Business Intelligence &amp; Implementation Consultancy.
             </p>
           </div>
-        </Container>
-      </section>
-      <section className="pb-16 md:pb-20 lg:pb-24">
-        <Container>
+      </Section>
+      <Section>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             <div>
               <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Mission</h2>
@@ -72,8 +69,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }

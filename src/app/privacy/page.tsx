@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Container } from "@/components/shared/container"
+import { Section } from "@/components/shared/section"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -28,9 +28,8 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <section className="pt-28 md:pt-36 lg:pt-[140px] pb-16 md:pb-20 lg:pb-24">
-        <Container>
-          <div className="max-w-3xl mx-auto">
+      <Section size="hero" className="pt-28 md:pt-36">
+        <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">Privacy Policy</h1>
             <p className="text-sm text-muted-foreground mb-12">Last updated: July 2026</p>
 
@@ -85,8 +84,7 @@ export default function PrivacyPage() {
               </div>
             </div>
           </div>
-        </Container>
-      </section>
+      </Section>
     </>
   )
 }
