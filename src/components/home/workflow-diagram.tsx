@@ -20,14 +20,14 @@ export function WorkflowDiagram() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             How It Works
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             From lead capture to revenue dashboard. Every step is automated end-to-end.
           </p>
         </div>
         <div className="relative max-w-3xl mx-auto">
-          <div className="hidden lg:block absolute left-[31px] top-0 bottom-0 w-px bg-border" />
+          <div className="hidden lg:block absolute left-7 top-0 bottom-0 w-px bg-border" />
           <motion.div
-            className="hidden lg:block absolute left-[31px] top-0 w-px bg-accent"
+            className="hidden lg:block absolute left-7 top-0 w-px bg-accent"
             style={{
               height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
             }}
@@ -50,11 +50,11 @@ export function WorkflowDiagram() {
                 >
                   <div className="relative z-10 flex-shrink-0">
                     <motion.div
-                      className="w-[62px] h-[62px] rounded-xl border-2 border-border bg-background flex items-center justify-center"
+                      className="w-14 h-14 rounded-xl border-2 border-border bg-background flex items-center justify-center shrink-0"
                       whileHover={{ borderColor: "#F97316" }}
                     >
                       <motion.span
-                        className="text-lg font-bold text-muted-foreground"
+                        className="text-base font-bold text-muted-foreground"
                         style={{ color: nodeProgress }}
                       >
                         {String(i + 1).padStart(2, "0")}

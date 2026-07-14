@@ -16,7 +16,7 @@ export function EngagementModels() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Engagement Models
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Custom pricing tailored to your business. Every engagement starts with understanding your unique needs.
           </p>
         </div>

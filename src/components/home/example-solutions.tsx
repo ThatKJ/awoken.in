@@ -16,7 +16,7 @@ export function ExampleSolutions() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Example Solutions
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             These are conceptual implementations showing how we approach common business challenges. Each one is adaptable to your specific needs.
           </p>
         </div>

@@ -15,7 +15,7 @@ export function ProblemsGrid() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Every Growing Business Leaks Revenue
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             These are the problems we solve. Each one costs you money every day it goes unfixed.
           </p>
         </div>

@@ -243,7 +243,7 @@ export function Process() {
                     <current.icon className="h-6 w-6 text-accent" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[10px] font-semibold text-accent uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
                       Step {active + 1}
                     </span>
                     <h3 className="text-xl xl:text-2xl font-bold mt-0.5">{current.title}</h3>
@@ -255,7 +255,7 @@ export function Process() {
                 </p>
 
                 <div className="mb-6">
-                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                     Duration
                   </span>
                   <p className="text-sm font-medium text-foreground mt-0.5">
@@ -264,7 +264,7 @@ export function Process() {
                 </div>
 
                 <div className="mb-6">
-                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                     Deliverables
                   </span>
                   <ul className="mt-3 space-y-2">
@@ -278,7 +278,7 @@ export function Process() {
                 </div>
 
                 <div className="pt-5 border-t border-border">
-                  <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                     Business Outcome
                   </span>
                   <p className="text-sm font-medium text-foreground mt-1">
@@ -306,7 +306,7 @@ export function Process() {
                       <Icon className="h-4 w-4 text-accent" />
                     </div>
                     <div className="min-w-0">
-                      <span className="text-[10px] font-semibold text-accent">Step {i + 1}</span>
+                      <span className="text-xs font-semibold text-accent">Step {i + 1}</span>
                       <h3 className="text-sm font-bold mt-0.5">{step.title}</h3>
                     </div>
                   </div>
@@ -331,13 +331,13 @@ export function Process() {
                           {step.description}
                         </p>
                         <div>
-                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                             Duration
                           </span>
                           <p className="text-sm font-medium mt-0.5">{step.duration}</p>
                         </div>
                         <div>
-                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                             Deliverables
                           </span>
                           <ul className="mt-2 space-y-1.5">
@@ -350,7 +350,7 @@ export function Process() {
                           </ul>
                         </div>
                         <div className="pt-3 border-t border-border">
-                          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                             Business Outcome
                           </span>
                           <p className="text-sm font-medium text-foreground mt-1">{step.outcome}</p>

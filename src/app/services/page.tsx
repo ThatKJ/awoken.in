@@ -6,7 +6,23 @@ import { ArrowRight, PhoneCall, Target, Calendar, Database, Send, Star, Bot, Spa
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI solutions that solve real problems.",
+  title: "Services",
+  description:
+    "AI consulting services for local businesses. Lead qualification, CRM automation, AI receptionist, inventory tracking, and custom operational systems. Every solution starts with diagnosis.",
+  openGraph: {
+    title: "Services | Awoken",
+    description:
+      "AI consulting services for local businesses. Lead qualification, CRM automation, AI receptionist, inventory tracking, and custom operational systems.",
+    url: "https://awoken.in/services",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Services" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | Awoken",
+    description:
+      "AI consulting services for local businesses. Lead qualification, CRM automation, AI receptionist, inventory tracking, and custom operational systems.",
+    images: ["/og-image.png"],
+  },
 }
 
 const icons = [PhoneCall, Target, Calendar, Database, Send, Star, Bot, Sparkles]
@@ -20,7 +36,7 @@ export default function ServicesPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Services
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Every solution starts with understanding your business. We diagnose operational bottlenecks, then build systems that solve specific problems. Technology follows diagnosis, never the other way around.
             </p>
           </div>

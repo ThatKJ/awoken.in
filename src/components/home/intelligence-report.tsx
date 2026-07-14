@@ -64,7 +64,7 @@ export function IntelligenceReport() {
                 </div>
                 <div className="min-w-0">
                   <p className="text-xs sm:text-sm font-semibold truncate">Awoken Intelligence Report</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground">Prepared for [Your Business]</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Prepared for [Your Business]</p>
                 </div>
               </div>
               <div className="space-y-3 sm:space-y-4">

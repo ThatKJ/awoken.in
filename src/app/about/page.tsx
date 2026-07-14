@@ -3,7 +3,23 @@ import { Container } from "@/components/shared/container"
 import { philosophyPoints } from "@/data/philosophy"
 
 export const metadata: Metadata = {
-  description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.",
+  title: "About",
+  description:
+    "Learn about Awoken's mission to help businesses recover lost revenue through operational diagnosis and AI implementation. Business Intelligence & Implementation Consultancy.",
+  openGraph: {
+    title: "About | Awoken",
+    description:
+      "Learn about Awoken's mission to help businesses recover lost revenue through operational diagnosis and AI implementation.",
+    url: "https://awoken.in/about",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "About Awoken" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Awoken",
+    description:
+      "Learn about Awoken's mission to help businesses recover lost revenue through operational diagnosis and AI implementation.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function AboutPage() {
@@ -15,7 +31,7 @@ export default function AboutPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               About Awoken
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               We help businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems. Business Intelligence &amp; Implementation Consultancy.
             </p>
           </div>

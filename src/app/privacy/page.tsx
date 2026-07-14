@@ -1,4 +1,30 @@
+import type { Metadata } from "next"
 import { Container } from "@/components/shared/container"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Awoken's privacy policy. Learn how we collect, use, and protect your personal information when you book a consultation or use our services.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Privacy Policy | Awoken",
+    description:
+      "Awoken's privacy policy. Learn how we collect, use, and protect your personal information.",
+    url: "https://awoken.in/privacy",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Privacy Policy" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Awoken",
+    description:
+      "Awoken's privacy policy. Learn how we collect, use, and protect your personal information.",
+    images: ["/og-image.png"],
+  },
+}
+
 export default function PrivacyPage() {
   return (
     <>

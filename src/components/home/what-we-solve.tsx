@@ -112,15 +112,15 @@ export function WhatWeSolve() {
                     >
                       <div className="pb-5 sm:pb-6 pl-12 sm:pl-14 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                         <div>
-                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Investigate</p>
+                          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Investigate</p>
                           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{problem.investigation}</p>
                         </div>
                         <div>
-                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Solve</p>
+                          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 sm:mb-2">How We Solve</p>
                           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{problem.solution}</p>
                         </div>
                         <div>
-                          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-accent mb-1.5 sm:mb-2">Expected Outcome</p>
+                          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent mb-1.5 sm:mb-2">Expected Outcome</p>
                           <p className="text-xs sm:text-sm font-medium">{problem.outcome}</p>
                         </div>
                       </div>

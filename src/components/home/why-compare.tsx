@@ -44,7 +44,7 @@ export function WhyCompare() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded-xl border border-border overflow-hidden">
             <div className="bg-surface/50 p-4 sm:p-6">
-              <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4 text-center">Traditional Agency</p>
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4 text-center">Traditional Agency</p>
               <div className="space-y-2.5 sm:space-y-3">
                 {comparisons.map((item) => (
                   <div key={item.traditional} className="flex items-start gap-2 sm:gap-3">
@@ -55,7 +55,7 @@ export function WhyCompare() {
               </div>
             </div>
             <div className="bg-accent/5 p-4 sm:p-6">
-              <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-accent mb-3 sm:mb-4 text-center">Awoken</p>
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent mb-3 sm:mb-4 text-center">Awoken</p>
               <div className="space-y-2.5 sm:space-y-3">
                 {comparisons.map((item) => (
                   <motion.div

@@ -6,7 +6,23 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  description: "Outcome-focused solutions for your business. We diagnose operational bottlenecks and build systems that solve specific problems.",
+  title: "Solutions",
+  description:
+    "Outcome-focused AI solutions for local businesses. Lead qualification systems, CRM automation, AI receptionists, inventory tracking, and custom dashboards. Every solution is diagnosis-first.",
+  openGraph: {
+    title: "Solutions | Awoken",
+    description:
+      "Outcome-focused AI solutions for local businesses. Lead qualification systems, CRM automation, AI receptionists, inventory tracking, and custom dashboards.",
+    url: "https://awoken.in/solutions",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Solutions" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Solutions | Awoken",
+    description:
+      "Outcome-focused AI solutions for local businesses. Lead qualification systems, CRM automation, AI receptionists, inventory tracking, and custom dashboards.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function SolutionsPage() {
@@ -18,7 +34,7 @@ export default function SolutionsPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Solutions
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Every solution starts with a diagnosis. We identify the bottlenecks in your operations before recommending any technology. These are examples of what we build.
             </p>
           </div>

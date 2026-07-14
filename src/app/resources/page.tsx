@@ -4,7 +4,23 @@ import { resources } from "@/data/resources"
 import { BookOpen, FileText, Download, ClipboardCheck, Calculator, Map } from "lucide-react"
 
 export const metadata: Metadata = {
-  description: "Operational assessment guides, workflow templates, and resources to help you identify bottlenecks in your business.",
+  title: "Resources",
+  description:
+    "Free operational assessment guides, workflow templates, checklists, and resources to help you identify bottlenecks and revenue leaks in your business.",
+  openGraph: {
+    title: "Resources | Awoken",
+    description:
+      "Free operational assessment guides, workflow templates, checklists, and resources to help you identify bottlenecks and revenue leaks in your business.",
+    url: "https://awoken.in/resources",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Resources" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resources | Awoken",
+    description:
+      "Free operational assessment guides, workflow templates, and resources to identify business bottlenecks.",
+    images: ["/og-image.png"],
+  },
 }
 
 const typeIcons: Record<string, React.ReactNode> = {
@@ -24,7 +40,7 @@ export default function ResourcesPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Resources
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Guides, templates, and resources to help you identify operational bottlenecks and understand where technology can create value in your business.
             </p>
           </div>

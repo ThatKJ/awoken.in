@@ -11,7 +11,7 @@ export function FinalCTA() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Let's understand your business before recommending technology.
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Start with a free Business Intelligence Audit. We'll identify your biggest bottlenecks and highest-impact opportunities.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">

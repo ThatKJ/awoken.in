@@ -15,7 +15,7 @@ export function BusinessOutcomes() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Business Outcomes
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Every metric represents real business value. Faster response. More appointments. Zero missed opportunities.
           </p>
         </div>

@@ -44,7 +44,7 @@ export function RevenueCalculator() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               {calculatorConfig.title}
             </h2>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl">
               {calculatorConfig.description}
             </p>
             <div className="mt-8 space-y-6">

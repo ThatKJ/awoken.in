@@ -14,7 +14,7 @@ export function WhyProjectsFail() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Why Most AI Projects Fail
             </h2>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               We've seen it happen repeatedly. Companies invest in AI without understanding their own workflows first.
             </p>
           </div>

@@ -17,7 +17,7 @@ export function SolutionBlueprints() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Solution Blueprints
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Each solution is designed around a specific business outcome. Technology supports the outcome, not the other way around.
           </p>
         </div>

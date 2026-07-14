@@ -6,7 +6,23 @@ import Link from "next/link"
 import { BOOKING_URL } from "@/lib/constants"
 
 export const metadata: Metadata = {
-  description: "See how we build operational systems that solve real business problems.",
+  title: "Live Demo",
+  description:
+    "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
+  openGraph: {
+    title: "Live Demo | Awoken",
+    description:
+      "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
+    url: "https://awoken.in/demo",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Live Demo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Live Demo | Awoken",
+    description:
+      "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function DemoPage() {
@@ -19,7 +35,7 @@ export default function DemoPage() {
               <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 See Our Systems in Action
               </h1>
-              <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+              <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 See how the systems we build handle real business operations. Every solution is designed around specific operational bottlenecks, not generic automation.
               </p>
               <ul className="mt-8 space-y-3">

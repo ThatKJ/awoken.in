@@ -128,7 +128,7 @@ export function Framework() {
                     />
                     <div className="group rounded-xl border border-border bg-background p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-[10px] font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
+                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
                           Step {i + 1}
                         </span>
                         <div className="w-8 h-8 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
@@ -158,7 +158,7 @@ export function Framework() {
                           <Icon className="h-[18px] w-[18px] text-accent" />
                         </div>
                         <div>
-                          <span className="text-[10px] font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
+                          <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
                             Step {i + 1}
                           </span>
                           <h3 className="text-lg font-bold mt-0.5">{step.title}</h3>

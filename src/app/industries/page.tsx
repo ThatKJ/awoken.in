@@ -6,7 +6,23 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  description: "We help businesses across industries identify operational bottlenecks and implement solutions that solve real problems.",
+  title: "Industries",
+  description:
+    "AI automation solutions for real estate, healthcare, education, fitness, professional services, and small businesses. Every solution is tailored to your industry workflows.",
+  openGraph: {
+    title: "Industries | Awoken",
+    description:
+      "AI automation solutions for real estate, healthcare, education, fitness, professional services, and small businesses.",
+    url: "https://awoken.in/industries",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Industries We Serve" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industries | Awoken",
+    description:
+      "AI automation solutions for real estate, healthcare, education, fitness, professional services, and small businesses.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function IndustriesPage() {
@@ -18,7 +34,7 @@ export default function IndustriesPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Industries
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Every industry has unique workflows. We design systems around how your business operates, not the other way around.
             </p>
           </div>

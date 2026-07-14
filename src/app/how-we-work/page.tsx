@@ -4,7 +4,23 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 import { CheckCircle } from "lucide-react"
 
 export const metadata: Metadata = {
-  description: "From discovery to deployment. Every engagement follows a proven methodology: understand, diagnose, prioritize, implement, measure.",
+  title: "How We Work",
+  description:
+    "From discovery to deployment in six steps. Every engagement follows a proven methodology: understand, diagnose, prioritize, implement, measure, and optimize.",
+  openGraph: {
+    title: "How We Work | Awoken",
+    description:
+      "From discovery to deployment in six steps. Every engagement follows a proven methodology: understand, diagnose, prioritize, implement, measure, and optimize.",
+    url: "https://awoken.in/how-we-work",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "How Awoken Works" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How We Work | Awoken",
+    description:
+      "From discovery to deployment in six steps. Every engagement follows a proven methodology.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function HowWeWorkPage() {
@@ -16,7 +32,7 @@ export default function HowWeWorkPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               How We Work
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Every engagement follows a proven process. We discover your operational bottlenecks, diagnose root causes, prioritize improvements, implement solutions, and measure results. Technology is applied only where it creates measurable value.
             </p>
           </div>
@@ -31,7 +47,7 @@ export default function HowWeWorkPage() {
                 <div className="absolute left-[-4px] top-1 w-[9px] h-[9px] rounded-full bg-accent border-2 border-background" />
                 <div className="rounded-xl border border-border p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-2 sm:mb-3">
-                    <span className="text-[10px] sm:text-sm font-bold text-accent uppercase">{step.week}</span>
+                    <span className="text-xs sm:text-sm font-bold text-accent uppercase">{step.week}</span>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">{step.title}</h3>
                   </div>
                   <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4 leading-relaxed">

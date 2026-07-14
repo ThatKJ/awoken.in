@@ -3,7 +3,23 @@ import { Container } from "@/components/shared/container"
 import { integrationCategories } from "@/data/integrations"
 
 export const metadata: Metadata = {
-  description: "We work with your existing tools. Every system we build connects with your CRM, phone system, calendar, and more.",
+  title: "Integrations",
+  description:
+    "We work with your existing tools. Every system we build connects with your CRM, phone system, calendar, email, and business applications.",
+  openGraph: {
+    title: "Integrations | Awoken",
+    description:
+      "We work with your existing tools. Every system we build connects with your CRM, phone system, calendar, email, and business applications.",
+    url: "https://awoken.in/integrations",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Integrations" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Integrations | Awoken",
+    description:
+      "We work with your existing tools. Every system we build connects with your CRM, phone system, calendar, email, and business applications.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function IntegrationsPage() {
@@ -15,7 +31,7 @@ export default function IntegrationsPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Integrations
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               We work with your existing tools. Every system we build is designed to connect with what you already use.
             </p>
           </div>

@@ -5,7 +5,27 @@ import { CheckCircle, Calendar, Mail, Video, ListChecks, Home, BookOpen, PlayCir
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  description: "Your Business Intelligence Audit is confirmed. We'll review your operations before the meeting.",
+  title: "Booking Confirmed",
+  description:
+    "Your Business Intelligence Audit is confirmed. We'll review your business operations before the meeting so we can focus on solutions.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+  openGraph: {
+    title: "Booking Confirmed | Awoken",
+    description:
+      "Your Business Intelligence Audit is confirmed. We'll review your business operations before the meeting so we can focus on solutions.",
+    url: "https://awoken.in/thank-you",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Booking Confirmed" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Booking Confirmed | Awoken",
+    description:
+      "Your Business Intelligence Audit is confirmed.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function ThankYouPage() {

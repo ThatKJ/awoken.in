@@ -55,18 +55,18 @@ export function Navigation() {
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 sm:h-20 lg:h-[88px] xl:h-[120px] items-center justify-between gap-2">
+          <div className="flex h-16 sm:h-20 lg:h-24 xl:h-28 items-center justify-between gap-2">
             {/* Tablet & below: wordmark on left */}
             <Link href="/" className="lg:hidden flex items-center shrink-0">
-              <img src="/logo.svg" alt="Awoken" className="h-[72px] sm:h-16 md:h-[90px] w-auto" />
+              <img src="/logo.svg" alt="Awoken — Business Intelligence & Implementation Consultancy" className="h-10 sm:h-12 md:h-14 w-auto" />
             </Link>
 
             {/* Desktop: logo */}
             <Link href="/" className="hidden lg:flex items-center shrink-0">
               <img
                 src="/logo.svg"
-                alt="Awoken"
-                className="h-10 w-auto lg:h-[96px] xl:h-[124px]"
+                alt="Awoken — Business Intelligence & Implementation Consultancy"
+                className="h-10 w-auto lg:h-16 xl:h-20"
               />
             </Link>
 
@@ -74,12 +74,12 @@ export function Navigation() {
             <div className="hidden lg:block flex-1 min-w-4" />
 
             {/* Desktop: nav */}
-            <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm xl:text-[15px] font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
+                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2"
                 >
                   {item.label}
                 </Link>
@@ -99,7 +99,7 @@ export function Navigation() {
             </div>
 
             {/* Desktop: CTAs */}
-            <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+            <div className="hidden lg:flex items-center gap-3">
               <Link href={ctaButtons.secondary.href}>
                 <Button variant="ghost" size="sm" className="hidden xl:inline-flex text-sm">
                   {ctaButtons.secondary.label}

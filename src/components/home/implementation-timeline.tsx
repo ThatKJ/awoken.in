@@ -53,38 +53,34 @@ export function ImplementationTimeline() {
                 "
               >
                 {/* Week */}
-                <div className="mb-8 flex h-12 items-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/10">
-                    <span className="text-base font-bold text-accent">
+                <div className="mb-6 flex items-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 shrink-0">
+                    <span className="text-sm font-bold text-accent">
                       {step.week}
                     </span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <div className="h-28">
-                  <h3 className="text-2xl md:text-[30px] font-semibold leading-tight tracking-tight">
-                    {step.title}
-                  </h3>
-                </div>
+                <h3 className="text-xl md:text-2xl font-semibold leading-tight tracking-tight mb-3">
+                  {step.title}
+                </h3>
 
                 {/* Description */}
-                <div className="mt-2 h-36">
-                  <p className="text-base md:text-lg leading-8 text-muted-foreground">
-                    {step.description}
-                  </p>
-                </div>
+                <p className="text-sm md:text-base leading-relaxed text-muted-foreground mb-6">
+                  {step.description}
+                </p>
 
                 {/* Deliverables */}
-                <div className="mt-auto border-t border-border/60 pt-8">
-                  <ul className="space-y-4">
+                <div className="mt-auto border-t border-border/60 pt-6">
+                  <ul className="space-y-3">
                     {step.deliverables.map((deliverable) => (
                       <li
                         key={deliverable}
-                        className="flex items-start gap-4"
+                        className="flex items-start gap-3"
                       >
-                        <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-accent" />
-                        <span className="text-base leading-7 text-muted-foreground">
+                        <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span className="text-sm text-muted-foreground">
                           {deliverable}
                         </span>
                       </li>

@@ -38,7 +38,7 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           <div className="max-w-xs">
             <Link href="/" className="flex items-center mb-4">
-              <img src="/logo.svg" alt="Awoken" className="h-10 w-auto lg:h-[150px]" />
+              <img src="/logo.svg" alt="Awoken — Business Intelligence & Implementation Consultancy" className="h-10 w-auto md:h-12 lg:h-14" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Business Intelligence &amp; Implementation Consultancy. We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.
@@ -66,7 +66,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Awoken. All rights reserved.
           </p>

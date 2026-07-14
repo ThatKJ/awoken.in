@@ -7,7 +7,23 @@ import { CheckCircle, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  description: "Custom pricing tailored to your business. Starter, Growth, and Enterprise engagement models designed around your needs.",
+  title: "Engagement Models",
+  description:
+    "Flexible engagement models for every business: Starter, Growth, and Enterprise. Custom pricing tailored to your unique needs. No long-term contracts.",
+  openGraph: {
+    title: "Engagement Models | Awoken",
+    description:
+      "Flexible engagement models for every business: Starter, Growth, and Enterprise. Custom pricing tailored to your unique needs.",
+    url: "https://awoken.in/engagement",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Engagement Models" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engagement Models | Awoken",
+    description:
+      "Flexible engagement models for every business: Starter, Growth, and Enterprise. Custom pricing tailored to your unique needs.",
+    images: ["/og-image.png"],
+  },
 }
 
 export default function EngagementPage() {
@@ -19,7 +35,7 @@ export default function EngagementPage() {
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Engagement Models
             </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[650px]">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               Custom engagement tailored to your business. Every engagement starts with understanding your unique needs.
             </p>
           </div>

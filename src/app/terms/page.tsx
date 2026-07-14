@@ -1,4 +1,30 @@
+import type { Metadata } from "next"
 import { Container } from "@/components/shared/container"
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description:
+    "Terms of service for Awoken. Understand the terms governing our business intelligence consulting and AI implementation services.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "Terms of Service | Awoken",
+    description:
+      "Terms of service for Awoken. Understand the terms governing our business intelligence consulting and AI implementation services.",
+    url: "https://awoken.in/terms",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Terms of Service" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Awoken",
+    description:
+      "Terms of service for Awoken. Understand the terms governing our business intelligence consulting and AI implementation services.",
+    images: ["/og-image.png"],
+  },
+}
+
 export default function TermsPage() {
   return (
     <>

@@ -14,7 +14,7 @@ export function IndustriesGrid() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Industries We Serve
           </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl lg:max-w-[650px] mx-auto">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Every industry has unique workflows. We design systems around how your business operates.
           </p>
         </div>
