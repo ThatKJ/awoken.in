@@ -4,7 +4,6 @@ import { resources } from "@/data/resources"
 import { BookOpen, FileText, Download, ClipboardCheck, Calculator, Map } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Resources — Business Intelligence Guides & Templates",
   description: "Operational assessment guides, workflow templates, and resources to help you identify bottlenecks in your business.",
 }
 

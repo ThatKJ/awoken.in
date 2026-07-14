@@ -3,7 +3,6 @@ import { Container } from "@/components/shared/container"
 import { philosophyPoints } from "@/data/philosophy"
 
 export const metadata: Metadata = {
-  title: "About — Business Intelligence & Implementation Consultancy",
   description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.",
 }
 

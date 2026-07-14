@@ -6,7 +6,6 @@ import { CONTACT_EMAIL } from "@/lib/constants"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Contact — Book a Strategy Call | Awoken",
   description: "Book a free strategy call and discover where AI can create the biggest impact in your business.",
 }
 

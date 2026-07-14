@@ -4,7 +4,6 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 import { CheckCircle } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "How We Work — Business Intelligence & Implementation Process",
   description: "From discovery to deployment. Every engagement follows a proven methodology: understand, diagnose, prioritize, implement, measure.",
 }
 

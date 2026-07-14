@@ -5,7 +5,6 @@ import { CheckCircle, Calendar, Mail, Video, ListChecks, Home, BookOpen, PlayCir
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "You're Booked | Awoken",
   description: "Your Business Intelligence Audit is confirmed. We'll review your operations before the meeting.",
 }
 

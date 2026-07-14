@@ -6,7 +6,6 @@ import Link from "next/link"
 import { BOOKING_URL } from "@/lib/constants"
 
 export const metadata: Metadata = {
-  title: "Demo — See Our Systems in Action",
   description: "See how we build operational systems that solve real business problems.",
 }
 

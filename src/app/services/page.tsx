@@ -6,7 +6,6 @@ import { ArrowRight, PhoneCall, Target, Calendar, Database, Send, Star, Bot, Spa
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Services — Business Intelligence & Implementation Consultancy",
   description: "We help businesses identify operational bottlenecks, prioritize improvements, and implement AI solutions that solve real problems.",
 }
 

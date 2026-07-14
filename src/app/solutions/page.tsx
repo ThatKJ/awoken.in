@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Solutions — Business Intelligence & Implementation Consultancy",
   description: "Outcome-focused solutions for your business. We diagnose operational bottlenecks and build systems that solve specific problems.",
 }
 

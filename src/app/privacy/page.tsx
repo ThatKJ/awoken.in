@@ -1,10 +1,4 @@
-import type { Metadata } from "next"
 import { Container } from "@/components/shared/container"
-
-export const metadata: Metadata = {
-  title: "Privacy Policy — Awoken",
-}
-
 export default function PrivacyPage() {
   return (
     <>

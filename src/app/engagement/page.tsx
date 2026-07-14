@@ -7,7 +7,6 @@ import { CheckCircle, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Engagement Models — Revenue Systems for Modern Businesses",
   description: "Custom pricing tailored to your business. Starter, Growth, and Enterprise engagement models designed around your needs.",
 }
 
