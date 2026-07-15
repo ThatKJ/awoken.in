@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Link from "next/link"
 import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
 import {
@@ -13,7 +12,6 @@ import {
   Rocket,
   RefreshCw,
   Check,
-  ArrowRight,
   ChevronDown,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -371,27 +369,6 @@ export function Process() {
         </div>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-20 md:mt-28"
-        >
-          <p className="text-lg md:text-xl font-bold text-foreground">
-            Ready to understand your business?
-          </p>
-          <p className="text-sm md:text-base text-muted-foreground mt-2 mb-6 max-w-lg mx-auto">
-            Every engagement starts with a Business Intelligence Audit.
-          </p>
-          <Link
-            href="/book"
-            className="inline-flex h-12 px-7 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors items-center gap-2"
-          >
-            Book Your Free Audit
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </motion.div>
     </Section>
   )
 }
