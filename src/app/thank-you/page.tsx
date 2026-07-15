@@ -60,7 +60,7 @@ export default function ThankYouPage() {
                 <span className="text-base">Prepare your biggest workflow challenges</span>
               </div>
             </div>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-10 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4">
               <Link href="/">
                 <Button variant="primary" size="lg">
                   <Home className="mr-2 h-4 w-4" />

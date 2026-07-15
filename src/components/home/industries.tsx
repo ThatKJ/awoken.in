@@ -34,7 +34,7 @@ export function Industries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-xl border border-border bg-background p-5 sm:p-6 lg:p-8 hover:shadow-lg transition-all duration-200 group"
+                className="rounded-xl border border-border bg-background p-6 lg:p-8 hover:shadow-lg transition-all duration-200 group"
               >
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-5">
                   <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />

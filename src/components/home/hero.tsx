@@ -30,7 +30,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[clamp(2rem,8vw,5rem)] sm:text-[clamp(2.5rem,7vw,5.5rem)] md:text-[clamp(3rem,6vw,6rem)] xl:text-[clamp(3.5rem,5.5vw,6.5rem)] font-bold tracking-tight leading-[1.05]"
+            className="text-[clamp(1.75rem,8vw,5rem)] sm:text-[clamp(2.25rem,7vw,5.5rem)] md:text-[clamp(2.75rem,6vw,6rem)] xl:text-[clamp(3.25rem,5.5vw,6.5rem)] font-bold tracking-tight leading-[1.05]"
           >
             Find the bottlenecks holding your business back.
           </motion.h1>

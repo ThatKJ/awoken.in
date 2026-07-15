@@ -44,7 +44,7 @@ export default function EngagementPage() {
             {engagementTiers.map((tier) => (
               <div
                 key={tier.id}
-className={`rounded-xl border-2 p-5 sm:p-6 lg:p-8 relative flex flex-col h-full ${
+className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full ${
                    tier.badge ? "border-accent" : "border-border"
                  }`}
               >

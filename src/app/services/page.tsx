@@ -47,7 +47,7 @@ export default function ServicesPage() {
               return (
                 <div
                   key={blueprint.title}
-                  className="rounded-xl border border-border bg-background p-5 sm:p-6 lg:p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
+                  className="rounded-xl border border-border bg-background p-6 lg:p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
                 >
                   <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-4 sm:mb-6 shrink-0">
                     <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />

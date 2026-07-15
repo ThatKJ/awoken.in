@@ -24,6 +24,7 @@ export function IntelligenceReport() {
               eyebrow="The Awoken Intelligence Report"
               title="Every engagement starts with a structured operational assessment."
               description="Before we recommend any technology, we deliver a comprehensive report that gives you complete clarity about your business."
+              titleClassName="lg:text-4xl xl:text-5xl"
             />
             <div className="space-y-3 sm:space-y-4">
               {reportSections.map((section, i) => {
@@ -56,7 +57,7 @@ export function IntelligenceReport() {
             transition={{ duration: 0.6 }}
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
-            <div className="rounded-2xl border border-border bg-background p-5 sm:p-6 lg:p-8 shadow-xl overflow-hidden">
+            <div className="rounded-xl border border-border bg-background p-6 lg:p-8 shadow-xl overflow-hidden">
               <div className="flex items-center gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-border">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center shrink-0">
                   <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
@@ -85,7 +86,7 @@ export function IntelligenceReport() {
                 </div>
               </div>
             </div>
-            <div className="hidden sm:block absolute -bottom-3 -right-3 w-full h-full rounded-2xl border border-border -z-10 bg-surface" />
+            <div className="hidden sm:block absolute -bottom-3 -right-3 w-full h-full rounded-xl border border-border -z-10 bg-surface" />
           </motion.div>
         </div>
     </Section>

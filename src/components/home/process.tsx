@@ -233,7 +233,7 @@ export function Process() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="group rounded-2xl border border-border bg-background p-8 xl:p-10 shadow-sm"
+                className="group rounded-xl border border-border bg-background p-8 xl:p-10 shadow-sm"
               >
                 <div className="w-10 h-1 rounded-full bg-accent/60 mb-6" />
 
@@ -298,7 +298,7 @@ export function Process() {
               <div key={step.title} className="rounded-xl border border-border bg-background overflow-hidden">
                 <button
                   onClick={() => setExpanded(isOpen ? null : i)}
-                  className="flex items-center justify-between w-full p-5 text-left"
+                  className="flex items-center justify-between w-full p-6 text-left"
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">

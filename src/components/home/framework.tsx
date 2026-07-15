@@ -125,7 +125,7 @@ export function Framework() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.15 }}
                     />
-                    <div className="group rounded-xl border border-border bg-background p-5 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
+                    <div className="group rounded-xl border border-border bg-background p-6 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
                       <div className="flex items-center gap-3 mb-3">
                         <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
                           Step {i + 1}
@@ -151,7 +151,7 @@ export function Framework() {
 
                   {/* Desktop card */}
                   <div className={`hidden md:block w-1/2 ${isLeft ? "pr-10 text-right" : "pl-10"}`}>
-                    <div className="group rounded-xl border border-border bg-background p-7 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300">
+                    <div className="group rounded-xl border border-border bg-background p-8 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300">
                       <div className={`flex items-center gap-3 mb-3 ${isLeft ? "flex-row-reverse" : ""}`}>
                         <div className="w-9 h-9 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 group-hover:scale-105 transition-all duration-300">
                           <Icon className="h-[18px] w-[18px] text-accent" />

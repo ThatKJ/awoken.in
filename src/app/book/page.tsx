@@ -141,10 +141,10 @@ export default function BookPage() {
             biggest impact.
           </p>
           <div className="mt-8">
-            <Button variant="primary" size="xl" asChild>
+            <Button variant="primary" size="xl" asChild className="w-full sm:w-fit px-4 sm:px-8 text-sm sm:text-base md:text-[17px]">
               <a href="#book">
                 Book a Free Business Intelligence Audit
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
               </a>
             </Button>
           </div>

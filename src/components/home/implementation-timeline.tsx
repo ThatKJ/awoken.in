@@ -39,7 +39,7 @@ export function ImplementationTimeline() {
                   flex
                   w-full
                   flex-col
-                  rounded-2xl
+                  rounded-xl
                   border
                   border-border
                   bg-background
