@@ -17,7 +17,6 @@ export function Hero() {
   return (
     <section className="relative min-h-dvh flex items-center pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden">
       <Container className="relative z-10">
-        <div className="mx-auto w-full max-w-5xl xl:max-w-[75%] 2xl:max-w-[1280px]">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,7 +29,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[clamp(1.75rem,8vw,5rem)] sm:text-[clamp(2.25rem,7vw,5.5rem)] md:text-[clamp(2.75rem,6vw,6rem)] xl:text-[clamp(3.25rem,5.5vw,6.5rem)] font-bold tracking-tight leading-[1.05]"
+            className="text-[clamp(1.75rem,8vw,5rem)] sm:text-[clamp(2.25rem,7vw,5.5rem)] md:text-[clamp(2.75rem,6vw,6rem)] xl:text-[clamp(3.25rem,5.5vw,6.5rem)] font-bold tracking-tight leading-[1.05] max-w-full lg:max-w-[80%]"
           >
             Find the bottlenecks holding your business back.
           </motion.h1>
@@ -38,7 +37,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-[700px]"
+            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-[700px] lg:max-w-[760px] xl:max-w-[800px]"
           >
             We help businesses uncover operational inefficiencies, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
           </motion.p>
@@ -67,10 +66,10 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-12 md:pt-16 border-t border-border"
           >
-            <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 text-center uppercase tracking-wider font-medium">
+            <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 uppercase tracking-wider font-medium">
               Businesses don't need more software. They need clarity.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-12">
               {trustIcons.map((item) => {
                 const Icon = item.icon
                 return (
@@ -84,7 +83,6 @@ export function Hero() {
               })}
             </div>
           </motion.div>
-        </div>
       </Container>
     </section>
   )
