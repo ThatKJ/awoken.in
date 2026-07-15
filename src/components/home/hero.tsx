@@ -64,23 +64,25 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-12 sm:mt-16 md:mt-20 pt-8 sm:pt-12 md:pt-16 border-t border-border"
+            className="mt-12 sm:mt-16 md:mt-20 pt-10 sm:pt-14 md:pt-20 border-t border-border"
           >
-            <p className="text-xs sm:text-sm text-muted-foreground mb-4 sm:mb-6 uppercase tracking-wider font-medium">
-              Businesses don't need more software. They need clarity.
-            </p>
-            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-              {trustIcons.map((item) => {
-                const Icon = item.icon
-                return (
-                  <div key={item.label} className="flex items-center gap-2 sm:gap-3 min-w-0">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
+            <div className="mx-auto max-w-full xl:max-w-[70%] text-center">
+              <p className="text-base sm:text-base md:text-lg font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-6 sm:mb-8 lg:mb-10">
+                Businesses don't need more software. They need clarity.
+              </p>
+              <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
+                {trustIcons.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div key={item.label} className="flex flex-col items-center text-center gap-3 min-w-0">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
+                      </div>
+                      <span className="text-sm sm:text-base font-semibold whitespace-nowrap">{item.label}</span>
                     </div>
-                    <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{item.label}</span>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
           </motion.div>
       </Container>
