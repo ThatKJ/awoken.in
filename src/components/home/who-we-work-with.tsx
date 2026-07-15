@@ -16,7 +16,7 @@ export function WhoWeWorkWith() {
             Not every business is a good fit. Being selective helps us deliver better results.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {fitCriteria.map((criteria) => (
             <motion.div
               key={criteria.category}

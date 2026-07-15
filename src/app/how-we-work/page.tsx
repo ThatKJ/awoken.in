@@ -27,7 +27,7 @@ export default function HowWeWorkPage() {
   return (
     <>
       <Section size="hero">
-          <div className="max-w-xl">
+          <div className="max-w-2xl xl:max-w-3xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               How We Work
             </h1>

@@ -40,7 +40,7 @@ export function WhyCompare() {
           title="A fundamentally different approach."
           description="We don't sell technology. We solve business problems. The difference is in how we start."
         />
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded-xl border border-border overflow-hidden">
             <div className="bg-surface/50 p-4 sm:p-6">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4 text-center">Traditional Agency</p>

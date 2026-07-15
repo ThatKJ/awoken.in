@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section className="relative min-h-dvh flex items-center pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden">
       <Container className="relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto w-full max-w-5xl xl:max-w-[75%] 2xl:max-w-[1280px]">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}

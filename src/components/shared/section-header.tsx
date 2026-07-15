@@ -38,7 +38,7 @@ export function SectionHeader({
       {description && (
         <p
           className={cn(
-            "mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-2xl lg:max-w-[700px]",
+            "mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-2xl lg:max-w-[750px] xl:max-w-[800px]",
             descriptionClassName
           )}
         >

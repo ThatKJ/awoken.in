@@ -9,7 +9,7 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 export function ImplementationTimeline() {
   return (
     <Section className="py-20 md:py-24 lg:py-32">
-      <div className="mx-auto mb-14 md:mb-16 lg:mb-20 max-w-3xl text-center">
+      <div className="mx-auto mb-14 md:mb-16 lg:mb-20 max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Your First 30 Days
           </h2>

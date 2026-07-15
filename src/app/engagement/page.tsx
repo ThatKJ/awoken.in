@@ -30,7 +30,7 @@ export default function EngagementPage() {
   return (
     <>
       <Section size="hero">
-          <div className="max-w-xl">
+          <div className="max-w-2xl xl:max-w-3xl">
             <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Engagement Models
             </h1>
@@ -40,7 +40,7 @@ export default function EngagementPage() {
           </div>
       </Section>
       <Section className="pb-16 md:pb-20 lg:pb-[72px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {engagementTiers.map((tier) => (
               <div
                 key={tier.id}

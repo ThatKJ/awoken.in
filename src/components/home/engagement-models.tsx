@@ -19,7 +19,7 @@ export function EngagementModels() {
             Custom pricing tailored to your business. Every engagement starts with understanding your unique needs.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {engagementTiers.map((tier, i) => (
             <motion.div
               key={tier.id}
