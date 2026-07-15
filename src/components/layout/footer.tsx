@@ -38,7 +38,7 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between gap-12">
           <div className="max-w-xs">
             <Link href="/" className="flex items-center mb-4">
-              <img src="/logo.svg" alt="Awoken — Business Intelligence & Implementation Consultancy" className="h-10 w-auto md:h-12 lg:h-14" />
+              <img src="/logo.svg" alt="Awoken — Business Intelligence & Implementation Consultancy" className="h-12 w-auto md:h-14 lg:h-20" />
             </Link>
             <p className="text-sm text-muted-foreground">
               Business Intelligence &amp; Implementation Consultancy. We help businesses identify operational bottlenecks, prioritize improvements, and implement AI systems that solve real problems.

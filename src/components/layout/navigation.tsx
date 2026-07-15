@@ -56,12 +56,12 @@ export function Navigation() {
         )}
       >
         <Container>
-          <div className="flex h-16 sm:h-[72px] lg:h-20 xl:h-24 2xl:h-28 items-center justify-between gap-3 sm:gap-4 min-w-0">
+          <div className="flex h-16 sm:h-[72px] lg:h-24 xl:h-28 2xl:h-[120px] items-center justify-between gap-3 sm:gap-4 min-w-0">
             <Link href="/" className="flex items-center shrink-0 min-w-0">
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 xl:h-20 2xl:h-24"
+                className="h-12 w-auto sm:h-14 md:h-16 lg:h-20 xl:h-24 2xl:h-28"
               />
             </Link>
 
