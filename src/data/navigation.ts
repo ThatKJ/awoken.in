@@ -19,10 +19,6 @@ export const ctaButtons = {
     label: "Book Free Audit",
     href: "/book",
   },
-  secondary: {
-    label: "See How It Works",
-    href: "/how-we-work",
-  },
 };
 
 export const stickyCta = {

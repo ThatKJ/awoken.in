@@ -216,12 +216,7 @@ export function Navigation() {
             </nav>
 
             {/* Right column */}
-            <div className="hidden md:flex items-center justify-end gap-2 lg:gap-4 xl:gap-6 shrink-0">
-              <Link href={ctaButtons.secondary.href} className="hidden xl:inline-flex">
-                <Button variant="ghost" size="sm">
-                  {ctaButtons.secondary.label}
-                </Button>
-              </Link>
+            <div className="hidden md:flex items-center justify-end shrink-0">
               <Link href={ctaButtons.primary.href}>
                 <Button variant="primary" size="md">
                   {ctaButtons.primary.label}
@@ -277,15 +272,10 @@ export function Navigation() {
                   ))}
                 </div>
               </nav>
-              <div className="px-4 sm:px-6 pb-6 sm:pb-8 pt-4 border-t border-border shrink-0 flex flex-col gap-3">
+              <div className="px-4 sm:px-6 pb-6 sm:pb-8 pt-4 border-t border-border shrink-0">
                 <Link href={ctaButtons.primary.href} onClick={close}>
                   <Button variant="primary" className="w-full" size="lg">
                     {ctaButtons.primary.label}
-                  </Button>
-                </Link>
-                <Link href={ctaButtons.secondary.href} onClick={close}>
-                  <Button variant="outline" className="w-full" size="lg">
-                    {ctaButtons.secondary.label}
                   </Button>
                 </Link>
               </div>
