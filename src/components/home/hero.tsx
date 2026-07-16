@@ -15,9 +15,9 @@ const trustIcons = [
 
 export function Hero() {
   return (
-    <section className="relative flex items-start lg:items-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden bg-background">
+    <section className="relative flex items-start lg:items-center pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden bg-background">
       <Container className="relative z-10">
-        <div className="mx-auto text-center max-w-7xl">
+        <div className="mx-auto text-center" style={{ width: "min(92vw,1400px)" }}>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,15 +30,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-[clamp(1.75rem,8vw,5rem)] sm:text-[clamp(2.25rem,7vw,5.5rem)] md:text-[clamp(2.75rem,6vw,6rem)] xl:text-[clamp(3.25rem,5.5vw,6.5rem)] font-bold tracking-tight leading-[1.05]"
+            className="text-[clamp(1.75rem,8vw,5rem)] sm:text-[clamp(2.25rem,7vw,5.5rem)] md:text-[clamp(2.75rem,5.5vw,6rem)] xl:text-[clamp(3.25rem,5vw,6.5rem)] font-bold tracking-tight leading-[1.1] mx-auto"
+            style={{ maxWidth: "min(1300px,90vw)" }}
           >
-            Find the bottlenecks holding<br />your business back.
+            Find the bottlenecks holding your business back.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mx-auto max-w-3xl"
+            className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed mx-auto"
+            style={{ maxWidth: "70ch" }}
           >
             We help businesses uncover operational inefficiencies, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
           </motion.p>
