@@ -84,10 +84,10 @@ export function Navigation() {
         )}
       >
         <Container>
-          <div className="grid grid-cols-[auto_1fr_auto] items-center min-h-16 md:min-h-[72px] lg:min-h-20">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center min-h-16 md:min-h-[72px] lg:min-h-20 -ml-2 md:-ml-3 lg:-ml-6 -mr-2 md:-mr-3 lg:-mr-6">
             <Link
               href="/"
-              className="flex items-center shrink-0 pr-6 md:pr-8 lg:pr-10"
+              className="flex items-center shrink-0 pr-6 md:pr-8 lg:pr-12"
               onClick={(e) => { if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}
             >
               <img
@@ -107,7 +107,7 @@ export function Navigation() {
             </button>
 
             {/* Tablet navigation with More dropdown */}
-            <nav className="hidden md:flex lg:hidden items-center justify-center gap-[clamp(12px,1.5vw,24px)] min-w-0">
+            <nav className="hidden md:flex lg:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
               {tabletPrimaryItems.map((item) => (
                 <Link
                   key={item.href}
@@ -155,12 +155,12 @@ export function Navigation() {
             </nav>
 
             {/* Desktop navigation - all items */}
-            <nav className="hidden lg:flex items-center justify-center gap-[clamp(20px,1.8vw,42px)] min-w-0">
+            <nav className="hidden lg:flex items-center justify-center gap-[clamp(24px,2.5vw,64px)] min-w-0">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
+                  className="text-sm xl:text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
                 >
                   {item.label}
                 </Link>
@@ -168,7 +168,7 @@ export function Navigation() {
             </nav>
 
             {/* Right column */}
-            <div className="hidden md:flex items-center justify-end gap-2 lg:gap-3 shrink-0">
+            <div className="hidden md:flex items-center justify-end gap-2 lg:gap-4 xl:gap-6 shrink-0">
               <Link href={ctaButtons.secondary.href} className="hidden lg:inline-flex">
                 <Button variant="ghost" size="sm">
                   {ctaButtons.secondary.label}
