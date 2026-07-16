@@ -57,31 +57,7 @@ export default function IntegrationsPage() {
             ))}
           </div>
       </Section>
-      <Section className="bg-background">
-          <div className="rounded-xl border border-border bg-surface p-6 lg:p-8 max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold mb-3">Our Tech Stack</h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              We select the best technology for each use case. Here is the stack we work with most frequently.
-            </p>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              {[
-                { category: "AI Models", items: "OpenAI, Anthropic, Gemini" },
-                { category: "Voice", items: "Retell AI, ElevenLabs, Twilio" },
-                { category: "Automation", items: "n8n, Make" },
-                { category: "CRM", items: "HubSpot, GoHighLevel, Salesforce" },
-                { category: "Databases", items: "Supabase, PostgreSQL" },
-                { category: "Messaging", items: "WhatsApp, SMS, Email" },
-                { category: "Scheduling", items: "Cal.com, Google Calendar" },
-                { category: "Payments", items: "Stripe, Razorpay" },
-              ].map((group) => (
-                <div key={group.category} className="flex flex-col items-center">
-                  <p className="text-sm font-medium text-muted-foreground text-center">{group.category}</p>
-                  <p className="text-sm text-center">{group.items}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-      </Section>
+      
     </>
   )
 }
