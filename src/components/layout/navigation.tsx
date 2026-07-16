@@ -121,7 +121,7 @@ export function Navigation() {
       >
         <Container>
           <div className={cn("flex items-center justify-between gap-3 min-w-0", navHeight)}>
-            <Link href="/" className="flex items-center shrink-0">
+            <Link href="/" className="flex items-center shrink-0" onClick={(e) => { if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}>
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
@@ -320,7 +320,7 @@ export function Navigation() {
               className="fixed top-0 left-0 bottom-0 z-50 w-full max-w-xs sm:max-w-sm bg-background flex flex-col"
             >
               <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20 border-b border-border shrink-0">
-                <Link href="/" className="flex items-center" onClick={close}>
+                <Link href="/" className="flex items-center" onClick={(e) => { close(); if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}>
                   <img src="/icon.svg" alt="Awoken" className="h-8 w-8" />
                 </Link>
                 <button

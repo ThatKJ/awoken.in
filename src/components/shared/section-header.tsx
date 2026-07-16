@@ -32,7 +32,7 @@ export function SectionHeader({
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={cn(
         align === "center" ? "text-center" : "text-left",
-        "mb-12 sm:mb-14 md:mb-16",
+        "mb-10 sm:mb-12 md:mb-14",
         className
       )}
     >
@@ -67,7 +67,7 @@ export function SectionHeader({
       {description && (
         <p
           className={cn(
-            "mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-2xl lg:max-w-[750px] xl:max-w-[800px]",
+            "mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-2xl lg:max-w-3xl",
             descriptionClassName
           )}
         >

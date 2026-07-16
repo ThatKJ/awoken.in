@@ -100,10 +100,10 @@ export function Footer() {
                 <img
                   src="/logo.svg"
                   alt="Awoken — Business Intelligence & Implementation Consultancy"
-                  className="w-[160px] md:w-[180px] lg:w-[200px] h-auto"
+                  className="w-auto max-w-[180px] lg:max-w-[200px] h-auto"
                 />
               </Link>
-              <p className="mt-6 max-w-[440px] text-sm text-muted-foreground leading-relaxed">
+              <p className="mt-6 max-w-sm text-sm text-muted-foreground leading-relaxed">
                 Awoken helps businesses identify operational bottlenecks,
                 prioritize the highest-impact improvements,
                 and implement AI systems that solve real business problems.

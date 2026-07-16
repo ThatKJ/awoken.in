@@ -39,7 +39,7 @@ export default function EngagementPage() {
             </p>
           </div>
       </Section>
-      <Section className="bg-background-alt pb-16 md:pb-20 lg:pb-[72px]">
+      <Section className="bg-background-alt">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {engagementTiers.map((tier) => (
               <div

@@ -36,7 +36,7 @@ export default function HowWeWorkPage() {
             </p>
           </div>
       </Section>
-      <Section className="bg-background-alt pb-20 md:pb-24 lg:pb-[120px]">
+      <Section className="bg-background-alt">
           <div className="max-w-3xl mx-auto">
             {implementationTimeline.map((step, i) => (
               <div key={step.week} className="relative pl-10 sm:pl-12 pb-8 sm:pb-12 last:pb-0">

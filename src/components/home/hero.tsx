@@ -15,7 +15,7 @@ const trustIcons = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-dvh flex items-start lg:items-center pt-24 sm:pt-28 md:pt-[120px] lg:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden bg-background">
+    <section className="relative flex items-start lg:items-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden bg-background">
       <Container className="relative z-10">
         <div className="mx-auto text-center max-w-7xl">
           <motion.p
@@ -66,9 +66,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          className="mt-12 sm:mt-16 md:mt-20 pt-10 sm:pt-14 md:pt-20 border-t border-border"
+          className="mt-10 sm:mt-14 md:mt-16 pt-8 sm:pt-12 md:pt-16 border-t border-border"
         >
-          <div className="mx-auto max-w-full xl:max-w-[70%] text-center">
+            <div className="mx-auto max-w-4xl text-center">
             <p className="text-base sm:text-base md:text-lg font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-6 sm:mb-8 lg:mb-10">
               Businesses don't need more software. They need clarity.
             </p>

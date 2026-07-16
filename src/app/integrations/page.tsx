@@ -35,7 +35,7 @@ export default function IntegrationsPage() {
             </p>
           </div>
       </Section>
-      <Section className="bg-background-alt pb-20 md:pb-24 lg:pb-[120px]">
+      <Section className="bg-background-alt">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {integrationCategories.map((category) => (
               <div key={category.name}>

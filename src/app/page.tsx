@@ -13,10 +13,10 @@ export default function HomePage() {
     <>
       <Hero />
       <Framework />
+      <IntelligenceReport />
       <WhatWeSolve />
       <WhyCompare />
       <Industries />
-      <IntelligenceReport />
       <Examples />
       <Process />
       <FinalCTA />

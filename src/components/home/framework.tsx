@@ -79,7 +79,7 @@ export function Framework() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
   return (
-    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-background-alt overflow-hidden">
+    <Section ref={sectionRef} className="bg-background-alt overflow-hidden">
         <SectionHeader
           eyebrow="The Awoken Intelligence Framework"
           title="A structured approach to operational clarity."
