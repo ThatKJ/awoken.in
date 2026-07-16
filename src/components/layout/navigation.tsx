@@ -70,8 +70,8 @@ export function Navigation() {
     return () => window.removeEventListener("keydown", onKey)
   }, [mobileOpen, close])
 
-  const tabletPrimaryItems = navItems.filter(i => ["Services", "Industries", "How We Work", "Solutions"].includes(i.label))
-  const tabletSecondaryItems = navItems.filter(i => !["Services", "Industries", "How We Work", "Solutions"].includes(i.label))
+  const tabletPrimaryItems = navItems.filter(i => ["Services", "Industries", "Solutions"].includes(i.label))
+  const tabletSecondaryItems = navItems.filter(i => !["Services", "Industries", "Solutions"].includes(i.label))
 
   return (
     <>
@@ -154,8 +154,56 @@ export function Navigation() {
               )}
             </nav>
 
-            {/* Desktop navigation - all items */}
-            <nav className="hidden lg:flex items-center justify-center gap-[clamp(24px,2.5vw,64px)] min-w-0">
+            {/* Desktop navigation - condensed at lg with More dropdown */}
+            <nav className="hidden lg:flex xl:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
+              {tabletPrimaryItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              {tabletSecondaryItems.length > 0 && (
+                <div className="relative" ref={moreRef}>
+                  <button
+                    onClick={() => setMoreOpen(!moreOpen)}
+                    className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
+                    aria-haspopup="true"
+                    aria-expanded={moreOpen}
+                  >
+                    More
+                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", moreOpen && "rotate-180")} />
+                  </button>
+                  <AnimatePresence>
+                    {moreOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.97 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-border bg-background shadow-xl py-2 z-50"
+                      >
+                        {tabletSecondaryItems.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
+                            onClick={() => setMoreOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )}
+            </nav>
+
+            {/* Desktop navigation - all items at xl+ */}
+            <nav className="hidden xl:flex items-center justify-center gap-[clamp(16px,2.5vw,56px)] min-w-0">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -169,13 +217,13 @@ export function Navigation() {
 
             {/* Right column */}
             <div className="hidden md:flex items-center justify-end gap-2 lg:gap-4 xl:gap-6 shrink-0">
-              <Link href={ctaButtons.secondary.href} className="hidden lg:inline-flex">
+              <Link href={ctaButtons.secondary.href} className="hidden xl:inline-flex">
                 <Button variant="ghost" size="sm">
                   {ctaButtons.secondary.label}
                 </Button>
               </Link>
               <Link href={ctaButtons.primary.href}>
-                <Button variant="primary" size="md" className="whitespace-nowrap">
+                <Button variant="primary" size="md">
                   {ctaButtons.primary.label}
                 </Button>
               </Link>
