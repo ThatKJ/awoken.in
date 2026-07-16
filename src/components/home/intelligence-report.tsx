@@ -16,7 +16,7 @@ const reportSections = [
 
 export function IntelligenceReport() {
   return (
-    <Section>
+    <Section className="bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
           <div>
             <SectionHeader

@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 export default function EngagementPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
           <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               Engagement Models
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -39,13 +39,13 @@ export default function EngagementPage() {
             </p>
           </div>
       </Section>
-      <Section className="pb-16 md:pb-20 lg:pb-[72px]">
+      <Section className="bg-background-alt pb-16 md:pb-20 lg:pb-[72px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {engagementTiers.map((tier) => (
               <div
                 key={tier.id}
-className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full ${
-                   tier.badge ? "border-accent" : "border-border"
+className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ease-out ${
+                   tier.badge ? "border-accent hover:border-accent/20" : "border-border hover:border-accent/20"
                  }`}
               >
                 {tier.badge && (
@@ -56,7 +56,7 @@ className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full ${
                 <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5">{tier.name}</h3>
                 <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">{tier.description}</p>
                 <div className="mb-4 sm:mb-6">
-                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2 sm:mb-3">Ideal for</p>
+                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-2 sm:mb-3">Ideal for</p>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {tier.idealFor.map((item) => (
                       <span key={item} className="text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-surface text-muted-foreground">
@@ -85,7 +85,7 @@ className={`rounded-xl border-2 p-6 lg:p-8 relative flex flex-col h-full ${
             ))}
           </div>
       </Section>
-      <Section>
+      <Section className="bg-background">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Every business is different.</h3>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">

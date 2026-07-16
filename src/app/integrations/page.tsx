@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 export default function IntegrationsPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
           <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               Integrations
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -35,18 +35,18 @@ export default function IntegrationsPage() {
             </p>
           </div>
       </Section>
-      <Section className="pb-20 md:pb-24 lg:pb-[120px]">
+      <Section className="bg-background-alt pb-20 md:pb-24 lg:pb-[120px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {integrationCategories.map((category) => (
               <div key={category.name}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-4">
                   {category.name}
                 </h3>
                 <div className="space-y-3">
                   {category.items.map((item) => (
                     <div
                       key={item.name}
-                      className="rounded-lg border border-border p-3 hover:border-accent/30 transition-colors"
+                      className="rounded-lg border border-border p-3 hover:border-accent/20 hover:-translate-y-1 transition-all duration-300 ease-out"
                     >
                       <p className="text-base font-medium">{item.name}</p>
                       <p className="text-sm text-muted-foreground mt-0.5">{item.description}</p>
@@ -57,8 +57,8 @@ export default function IntegrationsPage() {
             ))}
           </div>
       </Section>
-      <Section>
-          <div className="rounded-xl border border-border bg-surface p-6 lg:p-8 max-w-2xl">
+      <Section className="bg-background">
+          <div className="rounded-xl border border-border bg-surface p-6 lg:p-8 max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold mb-3">Our Tech Stack</h2>
             <p className="text-sm text-muted-foreground mb-4">
               We select the best technology for each use case. Here is the stack we work with most frequently.
@@ -74,9 +74,9 @@ export default function IntegrationsPage() {
                 { category: "Scheduling", items: "Cal.com, Google Calendar" },
                 { category: "Payments", items: "Stripe, Razorpay" },
               ].map((group) => (
-                <div key={group.category}>
-                  <p className="text-sm font-medium text-muted-foreground">{group.category}</p>
-                  <p className="text-sm">{group.items}</p>
+                <div key={group.category} className="flex flex-col items-center">
+                  <p className="text-sm font-medium text-muted-foreground text-center">{group.category}</p>
+                  <p className="text-sm text-center">{group.items}</p>
                 </div>
               ))}
             </div>

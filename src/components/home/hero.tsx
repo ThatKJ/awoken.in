@@ -15,7 +15,7 @@ const trustIcons = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-dvh flex items-center pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden">
+    <section className="relative min-h-dvh flex items-start lg:items-center pt-24 sm:pt-28 md:pt-[120px] lg:pt-40 pb-12 sm:pb-16 md:pb-20 overflow-x-hidden bg-background">
       <Container className="relative z-10">
         <div className="mx-auto text-center max-w-7xl">
           <motion.p

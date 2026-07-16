@@ -15,9 +15,9 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
       <section
         ref={ref}
         className={cn(
-          size === "hero" && "pt-24 sm:pt-28 md:pt-36 lg:pt-40 xl:pt-[140px] pb-16 md:pb-20 lg:pb-24",
-          size === "default" && "py-16 md:py-20 lg:py-24",
-          size === "small" && "py-12 md:py-16 lg:py-20 xl:py-[72px]",
+          size === "hero" && "pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-12 md:pb-16 lg:pb-20",
+          size === "default" && "py-16 sm:py-20 md:py-24 lg:py-28",
+          size === "small" && "py-12 sm:py-14 md:py-16 lg:py-20",
           className
         )}
       >

@@ -7,16 +7,28 @@ import { AlertTriangle, Lightbulb } from "lucide-react"
 
 export function WhyProjectsFail() {
   return (
-    <Section>
+    <Section className="bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
               Why Most AI Projects Fail
             </h2>
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: 100 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="h-[3px] rounded-full bg-accent mt-4 shadow-[0_0_8px_rgba(249,115,22,0.3)]"
+            />
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
               We've seen it happen repeatedly. Companies invest in AI without understanding their own workflows first.
             </p>
-          </div>
+          </motion.div>
           <div className="space-y-6">
             {whyFailPoints.map((point, i) => (
               <motion.div

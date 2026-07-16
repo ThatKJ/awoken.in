@@ -79,7 +79,7 @@ export function Framework() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
   return (
-    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
+    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-background-alt overflow-hidden">
         <SectionHeader
           eyebrow="The Awoken Intelligence Framework"
           title="A structured approach to operational clarity."
@@ -187,9 +187,9 @@ export function Framework() {
                         </p>
                         <ul className="space-y-1.5">
                           {step.items.map((item) => (
-                            <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <li key={item} className={`text-sm text-muted-foreground flex items-start gap-2 ${isLeft ? "flex-row-reverse" : ""}`}>
                               <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-                              {item}
+                              <span>{item}</span>
                             </li>
                           ))}
                         </ul>

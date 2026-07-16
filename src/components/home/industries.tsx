@@ -18,7 +18,7 @@ const industries = [
 
 export function Industries() {
   return (
-    <Section className="bg-surface">
+    <Section className="bg-background-alt">
         <SectionHeader
           eyebrow="Industries"
           title="We work across industries, but always start with your specific problem."
@@ -34,12 +34,12 @@ export function Industries() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-xl border border-border bg-background p-6 lg:p-8 hover:shadow-lg transition-all duration-200 group"
+                className="rounded-xl border border-border bg-background p-6 lg:p-8 hover:-translate-y-2 hover:shadow-xl hover:border-accent/20 transition-all duration-300 ease-out group/card flex flex-col h-full"
               >
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-5">
-                  <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
-                </div>
-                <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 group-hover:text-accent transition-colors">{industry.title}</h3>
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-5 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent group-hover/card:text-accent-foreground group-hover/card:scale-110 transition-all duration-300" />
+                  </div>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold mb-2 sm:mb-3 group-hover:text-accent transition-colors">{industry.title}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
               </motion.div>
             )

@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
           <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               About Awoken
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -35,7 +35,7 @@ export default function AboutPage() {
             </p>
           </div>
       </Section>
-      <Section>
+      <Section className="bg-background-alt">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             <div>
               <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Mission</h2>

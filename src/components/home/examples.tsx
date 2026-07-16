@@ -19,7 +19,7 @@ const examples = [
 
 export function Examples() {
   return (
-    <Section className="bg-surface">
+    <Section className="bg-background-alt">
         <SectionHeader
           eyebrow="Implementation Examples"
           title="Solutions we build after diagnosis, not before."
@@ -37,8 +37,8 @@ export function Examples() {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
               >
                 <Card>
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-4">
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-4 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
+                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent group-hover/card:text-accent-foreground group-hover/card:scale-110 transition-all duration-300" />
                   </div>
                   <CardBody>
                     <h3 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2">{example.title}</h3>

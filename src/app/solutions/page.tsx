@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
           <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               Solutions
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -38,12 +38,12 @@ export default function SolutionsPage() {
             </p>
           </div>
       </Section>
-      <Section>
+      <Section className="bg-background-alt">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
             {serviceBlueprints.map((blueprint) => (
               <div
                 key={blueprint.title}
-                className="rounded-xl border border-border p-6 lg:p-8 flex flex-col h-full hover:shadow-lg transition-all duration-200"
+                className="rounded-xl border border-border bg-background p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 hover:shadow-xl hover:border-accent/20 transition-all duration-300 ease-out group/card"
               >
                 <h3 className="text-2xl font-semibold min-h-[72px] flex items-start mb-5">{blueprint.title}</h3>
                 <p className="text-base text-muted-foreground mb-4 leading-relaxed min-h-[72px]">

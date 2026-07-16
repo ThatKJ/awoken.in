@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 export default function HowWeWorkPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
           <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               How We Work
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
@@ -36,7 +36,7 @@ export default function HowWeWorkPage() {
             </p>
           </div>
       </Section>
-      <Section className="pb-20 md:pb-24 lg:pb-[120px]">
+      <Section className="bg-background-alt pb-20 md:pb-24 lg:pb-[120px]">
           <div className="max-w-3xl mx-auto">
             {implementationTimeline.map((step, i) => (
               <div key={step.week} className="relative pl-10 sm:pl-12 pb-8 sm:pb-12 last:pb-0">
@@ -63,7 +63,7 @@ export default function HowWeWorkPage() {
             ))}
           </div>
       </Section>
-      <Section>
+      <Section className="bg-background">
           <div className="max-w-3xl mx-auto rounded-xl border border-border bg-surface p-4 sm:p-6 lg:p-8">
             <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">Our Philosophy</h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">

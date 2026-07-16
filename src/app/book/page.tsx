@@ -126,13 +126,13 @@ const itemVariants = {
 export default function BookPage() {
   return (
     <>
-      <Section size="hero">
+      <Section size="hero" className="bg-background">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
             Book a Free Business Intelligence Audit
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl lg:max-w-[700px]">
@@ -151,7 +151,7 @@ export default function BookPage() {
         </motion.div>
       </Section>
 
-      <Section className="bg-surface">
+      <Section className="bg-background-alt">
         <SectionHeader
           title="What Happens During the Call"
           description="Here&apos;s exactly how we&apos;ll spend our 30 minutes together."
@@ -188,7 +188,7 @@ export default function BookPage() {
         </motion.div>
       </Section>
 
-      <Section>
+      <Section className="bg-background">
         <SectionHeader title="Who This Is For" />
         <motion.div
           variants={containerVariants}
@@ -219,7 +219,7 @@ export default function BookPage() {
         </motion.div>
       </Section>
 
-      <Section className="bg-surface">
+      <Section className="bg-background-alt">
         <SectionHeader title="What to Prepare" />
         <motion.div
           variants={containerVariants}
@@ -254,7 +254,7 @@ export default function BookPage() {
       </Section>
 
       <div id="book">
-        <Section className="pb-16 md:pb-20 lg:pb-24">
+        <Section className="bg-background pb-16 md:pb-20 lg:pb-24">
           <SectionHeader
             title="Schedule Your Audit"
             description="Pick a time that works for you."
@@ -269,7 +269,7 @@ export default function BookPage() {
         </Section>
       </div>
 
-      <Section className="pb-16 md:pb-20 lg:pb-24">
+      <Section className="bg-background-alt pb-16 md:pb-20 lg:pb-24">
           <SectionHeader title="Frequently Asked Questions" />
           <div className="max-w-3xl mx-auto">
             {faqs.map((faq, i) => (
@@ -294,11 +294,25 @@ export default function BookPage() {
           </div>
       </Section>
 
-      <Section className="pb-16 md:pb-20 lg:pb-24">
+      <Section className="bg-background pb-16 md:pb-20 lg:pb-24">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Need help before booking?
-            </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
+                Need help before booking?
+              </h2>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 100 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="h-[3px] rounded-full bg-accent mx-auto mt-4 shadow-[0_0_8px_rgba(249,115,22,0.3)]"
+              />
+            </motion.div>
             <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               Contact us at{" "}
               <a

@@ -40,12 +40,26 @@ export function RevenueCalculator() {
     <Section className="bg-surface">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-              {calculatorConfig.title}
-            </h2>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl">
-              {calculatorConfig.description}
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+                {calculatorConfig.title}
+              </h2>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 100 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="h-[3px] rounded-full bg-accent mt-4 shadow-[0_0_8px_rgba(249,115,22,0.3)]"
+              />
+              <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl">
+                {calculatorConfig.description}
+              </p>
+            </motion.div>
             <div className="mt-8 space-y-6">
               {calculatorConfig.inputs.map((input) => (
                 <div key={input.key}>

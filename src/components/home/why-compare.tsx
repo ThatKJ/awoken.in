@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
-import { X, Check } from "lucide-react"
+import { CircleX, CircleCheck } from "lucide-react"
 
 const comparisons = [
   {
@@ -34,45 +34,42 @@ const comparisons = [
 
 export function WhyCompare() {
   return (
-    <Section>
-        <SectionHeader
-          eyebrow="Why Awoken"
-          title="A fundamentally different approach."
-          description="We don't sell technology. We solve business problems. The difference is in how we start."
-        />
-        <div className="mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 rounded-xl border border-border overflow-hidden">
-            <div className="bg-surface/50 p-4 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-3 sm:mb-4 text-center">Traditional Agency</p>
-              <div className="space-y-2.5 sm:space-y-3">
-                {comparisons.map((item) => (
-                  <div key={item.traditional} className="flex items-start gap-2 sm:gap-3">
-                    <X className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-destructive shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm text-muted-foreground">{item.traditional}</span>
-                  </div>
-                ))}
+    <Section className="bg-background-alt">
+      <SectionHeader
+        eyebrow="Why Awoken"
+        title="A fundamentally different approach."
+        description="We don't sell technology. We solve business problems. The difference is in how we start."
+      />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-col h-full rounded-3xl border border-gray-200 bg-white p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+          <h3 className="text-3xl font-bold text-muted-foreground mb-8">Traditional Agency</h3>
+          <div className="flex-1 space-y-5">
+            {comparisons.map((item) => (
+              <div key={item.traditional} className="flex items-start gap-3">
+                <CircleX className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                <span className="text-lg text-muted-foreground">{item.traditional}</span>
               </div>
-            </div>
-            <div className="bg-accent/5 p-4 sm:p-6">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-accent mb-3 sm:mb-4 text-center">Awoken</p>
-              <div className="space-y-2.5 sm:space-y-3">
-                {comparisons.map((item) => (
-                  <motion.div
-                    key={item.awoken}
-                    initial={{ opacity: 0, x: 12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4 }}
-                    className="flex items-start gap-2 sm:gap-3"
-                  >
-                    <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-sm font-medium">{item.awoken}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex flex-col h-full rounded-3xl border border-orange-200 bg-gradient-to-b from-orange-50 to-white p-10 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+        >
+          <h3 className="text-3xl font-bold text-accent mb-8">Awoken</h3>
+          <div className="flex-1 space-y-5">
+            {comparisons.map((item) => (
+              <div key={item.awoken} className="flex items-start gap-3">
+                <CircleCheck className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+                <span className="text-lg font-medium">{item.awoken}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </Section>
   )
 }

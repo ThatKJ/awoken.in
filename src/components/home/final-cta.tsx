@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <Section className="pb-24 md:pb-32 lg:pb-40">
+    <Section className="pb-24 md:pb-32 lg:pb-40 bg-orange-glow">
       <div className="max-w-2xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
           Before we recommend anything,<br />

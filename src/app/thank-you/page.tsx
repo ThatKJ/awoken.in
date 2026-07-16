@@ -31,12 +31,12 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <>
-    <Section size="hero" className="pt-28 md:pt-36">
+    <Section size="hero" className="bg-background pt-28 md:pt-36">
       <div className="max-w-xl mx-auto text-center">
           <div className="mx-auto w-20 h-20 rounded-full bg-green-500/10 flex items-center justify-center mb-8">
             <CheckCircle className="h-16 w-16 text-green-500" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
             You&apos;re booked.
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">

@@ -159,7 +159,7 @@ export function Process() {
   const current = steps[active]
 
   return (
-    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-surface overflow-hidden">
+    <Section ref={sectionRef} className="py-24 md:py-28 lg:py-36 bg-background overflow-hidden">
         <SectionHeader
           eyebrow="Our Process"
           title="From discovery to deployment, in six steps."
@@ -231,13 +231,13 @@ export function Process() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="group rounded-xl border border-border bg-background p-8 xl:p-10 shadow-sm"
+                className="group/card rounded-xl border border-border bg-background p-8 xl:p-10 shadow-sm hover:-translate-y-2 hover:shadow-xl hover:border-accent/20 transition-all duration-300 ease-out"
               >
                 <div className="w-10 h-1 rounded-full bg-accent/60 mb-6" />
 
                 <div className="flex items-start gap-5 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-accent/5 flex items-center justify-center shrink-0">
-                    <current.icon className="h-6 w-6 text-accent" />
+                  <div className="w-12 h-12 rounded-xl bg-accent/5 flex items-center justify-center shrink-0 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
+                    <current.icon className="h-6 w-6 text-accent group-hover/card:text-accent-foreground group-hover/card:scale-110 transition-all duration-300" />
                   </div>
                   <div className="min-w-0">
                     <span className="text-xs font-semibold text-accent uppercase tracking-wider">
@@ -293,14 +293,14 @@ export function Process() {
             const Icon = step.icon
             const isOpen = expanded === i
             return (
-              <div key={step.title} className="rounded-xl border border-border bg-background overflow-hidden">
+              <div key={step.title} className="rounded-xl border border-border bg-background overflow-hidden hover:-translate-y-2 hover:shadow-xl hover:border-accent/20 transition-all duration-300 ease-out group/card">
                 <button
                   onClick={() => setExpanded(isOpen ? null : i)}
                   className="flex items-center justify-between w-full p-6 text-left"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                      <Icon className="h-4 w-4 text-accent" />
+                    <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
+                      <Icon className="h-4 w-4 text-accent group-hover/card:text-accent-foreground group-hover/card:scale-110 transition-all duration-300" />
                     </div>
                     <div className="min-w-0">
                       <span className="text-xs font-semibold text-accent">Step {i + 1}</span>

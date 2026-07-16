@@ -71,7 +71,7 @@ export function WhatWeSolve() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <Section>
+    <Section className="bg-background">
         <SectionHeader
           eyebrow="What We Solve"
           title="We fix operational problems that cost you money."

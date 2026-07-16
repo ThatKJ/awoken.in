@@ -8,18 +8,30 @@ import { implementationTimeline } from "@/data/implementation-timeline"
 
 export function ImplementationTimeline() {
   return (
-    <Section className="py-20 md:py-24 lg:py-32">
-      <div className="mx-auto mb-14 md:mb-16 lg:mb-20 max-w-4xl text-center">
+    <Section className="bg-background">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12 sm:mb-14 md:mb-16"
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Your First 30 Days
           </h2>
-
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 100 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="h-[3px] rounded-full bg-accent mx-auto mt-4 shadow-[0_0_8px_rgba(249,115,22,0.3)]"
+          />
           <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
             From discovery to deployment in four weeks. Every implementation
             follows a proven process designed to deliver measurable business
             outcomes.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 items-stretch">
           {implementationTimeline.map((step, i) => (
@@ -38,23 +50,26 @@ export function ImplementationTimeline() {
                 className="
                   flex
                   w-full
+                  h-full
                   flex-col
                   rounded-xl
                   border
                   border-border
                   bg-background
                   p-6 lg:p-8
-                  shadow-sm
                   transition-all
                   duration-300
-                  hover:-translate-y-1
-                  hover:shadow-lg
+                  ease-out
+                  hover:-translate-y-2
+                  hover:shadow-xl
+                  hover:border-accent/20
+                  group/card
                 "
               >
                 {/* Week */}
                 <div className="mb-6 flex items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 shrink-0">
-                    <span className="text-sm font-bold text-accent">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300 shrink-0">
+                    <span className="text-sm font-bold text-accent group-hover/card:text-accent-foreground transition-colors">
                       {step.week}
                     </span>
                   </div>

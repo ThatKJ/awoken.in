@@ -27,10 +27,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Section size="hero">
+    <Section size="hero" className="bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
           <div>
-            <h1 className="text-[clamp(1.875rem,5vw,3.5rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
               Let's Understand Your Business
             </h1>
             <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">

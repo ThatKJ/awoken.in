@@ -11,12 +11,26 @@ export function LiveDemo() {
     <Section className="bg-surface">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-              Experience an AI Employee in Action
-            </h2>
-<p className="mt-4 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-[700px]">
-               See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically. Every conversation is designed to help businesses recover more revenue.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+                Experience an AI Employee in Action
+              </h2>
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 100 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="h-[3px] rounded-full bg-accent mt-4 shadow-[0_0_8px_rgba(249,115,22,0.3)]"
+              />
+              <p className="mt-4 text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-[700px]">
+                See how Awoken answers calls, qualifies leads, books appointments, and follows up automatically. Every conversation is designed to help businesses recover more revenue.
+              </p>
+            </motion.div>
             <ul className="mt-8 space-y-3">
               {[
                 "Answers instantly, 24/7",
