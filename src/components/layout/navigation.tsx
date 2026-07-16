@@ -93,7 +93,7 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="w-auto h-10 sm:h-12 md:h-14 lg:h-16"
+                className="w-auto h-12 sm:h-14 md:h-16 lg:h-20"
               />
             </Link>
 
