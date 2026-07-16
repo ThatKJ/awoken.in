@@ -84,16 +84,16 @@ export function Navigation() {
         )}
       >
         <Container>
-          <div className="grid grid-cols-[auto_1fr_auto] items-center min-h-16 md:min-h-[68px] lg:min-h-20">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center min-h-16 md:min-h-[72px] lg:min-h-20">
             <Link
               href="/"
-              className="flex items-center shrink-0 pr-3"
+              className="flex items-center shrink-0 pr-6 md:pr-8 lg:pr-10"
               onClick={(e) => { if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}
             >
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="w-auto h-6 sm:h-7 md:h-8 lg:h-9"
+                className="w-auto h-8 sm:h-9 md:h-10 lg:h-11"
               />
             </Link>
 
