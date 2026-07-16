@@ -87,112 +87,130 @@ export function Framework() {
         />
 
         <div className="relative max-w-5xl mx-auto mt-16 md:mt-20">
-          {/* Timeline line — fills on scroll */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2">
-            <motion.div
-              className="w-full bg-accent origin-top"
-              style={{ height: lineHeight }}
-            />
-          </div>
-          <div className="md:hidden absolute left-4 top-0 bottom-0 w-px bg-border">
-            <motion.div
-              className="w-full bg-accent origin-top"
-              style={{ height: lineHeight }}
-            />
-          </div>
-
-          {/* Timeline circles + cards */}
-          <div className="space-y-10 md:space-y-0 relative">
-            {steps.map((step, i) => {
-              const Icon = step.icon
-              const isLeft = i % 2 === 0
-              return (
-                <motion.div
-                  key={step.title}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  variants={cardVariants}
-                  className="md:flex md:items-start relative md:even:flex-row-reverse"
-                >
-                  {/* Mobile layout */}
-                  <div className="md:hidden pl-12 relative">
-                    <motion.div
-                      className="absolute left-[-22px] top-3 w-4 h-4 rounded-full border-2 border-accent bg-background z-10"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.15 }}
-                    />
-                    <div className="group rounded-xl border border-border bg-background p-6 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
-                          Step {i + 1}
-                        </span>
-                        <div className="w-8 h-8 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
-                          <Icon className="h-4 w-4 text-accent" />
-                        </div>
-                        <h3 className="text-base font-bold">{step.title}</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                        {step.description}
-                      </p>
-                      <ul className="space-y-1.5">
-                        {step.items.map((item) => (
-                          <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+          {/* MOBILE LAYOUT */}
+          <div className="md:hidden relative">
+            <div className="absolute left-[16px] top-0 bottom-0 w-px bg-border">
+              <motion.div
+                className="w-full bg-accent origin-top"
+                style={{ height: lineHeight }}
+              />
+            </div>
+            <div className="space-y-8">
+              {steps.map((step, i) => {
+                const Icon = step.icon
+                return (
+                  <motion.div
+                    key={step.title}
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    variants={cardVariants}
+                    className="flex gap-4"
+                  >
+                    <div className="flex flex-col items-center w-8 shrink-0 relative z-10">
+                      <motion.div
+                        className="w-4 h-4 rounded-full border-2 border-accent bg-background mt-2"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.15 }}
+                      />
                     </div>
-                  </div>
-
-                  {/* Desktop card */}
-                  <div className={`hidden md:block w-1/2 ${isLeft ? "pr-10 text-right" : "pl-10"}`}>
-                    <div className="group rounded-xl border border-border bg-background p-8 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300">
-                      <div className={`flex items-center gap-3 mb-3 ${isLeft ? "flex-row-reverse" : ""}`}>
-                        <div className="w-9 h-9 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 group-hover:scale-105 transition-all duration-300">
-                          <Icon className="h-[18px] w-[18px] text-accent" />
-                        </div>
-                        <div>
+                    <div className="flex-1 min-w-0">
+                      <div className="group rounded-xl border border-border bg-background p-6 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300">
+                        <div className="flex items-center gap-3 mb-4">
                           <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
                             Step {i + 1}
                           </span>
-                          <h3 className="text-lg font-bold mt-0.5">{step.title}</h3>
+                          <div className="w-8 h-8 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors duration-300">
+                            <Icon className="h-4 w-4 text-accent" />
+                          </div>
+                          <h3 className="text-base font-bold">{step.title}</h3>
                         </div>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                          {step.description}
+                        </p>
+                        <ul className="space-y-2">
+                          {step.items.map((item) => (
+                            <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <p className={`text-sm text-muted-foreground mb-4 leading-relaxed ${isLeft ? "" : ""}`}>
-                        {step.description}
-                      </p>
-                      <ul className={`space-y-1.5 ${isLeft ? "" : ""}`}>
-                        {step.items.map((item) => (
-                          <li key={item} className={`text-sm text-muted-foreground flex items-start gap-2 ${isLeft ? "flex-row-reverse" : ""}`}>
-                            <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
                     </div>
-                  </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </div>
 
-                  {/* Desktop timeline circle */}
-                  <div className="hidden md:flex absolute left-1/2 top-7 -translate-x-1/2 z-10">
-                    <motion.div
-                      className="w-4 h-4 rounded-full border-2 border-accent bg-background"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: i * 0.15 }}
-                    />
-                  </div>
+          {/* DESKTOP LAYOUT — unchanged */}
+          <div className="hidden md:block relative">
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2">
+              <motion.div
+                className="w-full bg-accent origin-top"
+                style={{ height: lineHeight }}
+              />
+            </div>
+            <div className="space-y-0 relative">
+              {steps.map((step, i) => {
+                const Icon = step.icon
+                const isLeft = i % 2 === 0
+                return (
+                  <motion.div
+                    key={step.title}
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    variants={cardVariants}
+                    className="flex items-start relative even:flex-row-reverse"
+                  >
+                    <div className={`w-1/2 ${isLeft ? "pr-10 text-right" : "pl-10"}`}>
+                      <div className="group rounded-xl border border-border bg-background p-8 shadow-sm hover:shadow-lg hover:border-accent/30 hover:-translate-y-0.5 transition-all duration-300">
+                        <div className={`flex items-center gap-3 mb-3 ${isLeft ? "flex-row-reverse" : ""}`}>
+                          <div className="w-9 h-9 rounded-lg bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 group-hover:scale-105 transition-all duration-300">
+                            <Icon className="h-[18px] w-[18px] text-accent" />
+                          </div>
+                          <div>
+                            <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
+                              Step {i + 1}
+                            </span>
+                            <h3 className="text-lg font-bold mt-0.5">{step.title}</h3>
+                          </div>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                          {step.description}
+                        </p>
+                        <ul className="space-y-1.5">
+                          {step.items.map((item) => (
+                            <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                              <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
 
-                  {/* Spacer for the other side */}
-                  <div className="hidden md:block w-1/2" />
-                </motion.div>
-              )
-            })}
+                    <div className="absolute left-1/2 top-7 -translate-x-1/2 z-10">
+                      <motion.div
+                        className="w-4 h-4 rounded-full border-2 border-accent bg-background"
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.15 }}
+                      />
+                    </div>
+
+                    <div className="w-1/2" />
+                  </motion.div>
+                )
+              })}
+            </div>
           </div>
         </div>
 
