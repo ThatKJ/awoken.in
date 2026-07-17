@@ -348,7 +348,7 @@ export function Framework() {
         className="hidden md:block relative"
         style={{ height: `${CONTAINER_VH}vh` }}
       >
-        <div className="sticky top-[120px] h-[calc(100vh-120px)]">
+        <div className="sticky top-[48px] h-[calc(100vh-48px)]">
           <div className="flex flex-col h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 md:pt-20">
             <div className="shrink-0 mb-14 text-center">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent">
