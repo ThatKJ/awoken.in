@@ -6,6 +6,7 @@ const routes: { path: string; priority: number; changefreq: MetadataRoute.Sitema
   { path: "", priority: 1.0, changefreq: "daily" },
   { path: "/services", priority: 0.9, changefreq: "weekly" },
   { path: "/pricing", priority: 0.9, changefreq: "weekly" },
+  { path: "/pricing", priority: 0.9, changefreq: "weekly" },
   { path: "/about", priority: 0.8, changefreq: "monthly" },
   { path: "/contact", priority: 0.8, changefreq: "monthly" },
   { path: "/privacy-policy", priority: 0.3, changefreq: "yearly" },
