@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/shared/container"
@@ -13,28 +13,6 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [showSticky, setShowSticky] = useState(false)
-  const [moreOpen, setMoreOpen] = useState(false)
-  const moreRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!moreOpen) return
-    const handler = (e: MouseEvent) => {
-      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
-        setMoreOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handler)
-    return () => document.removeEventListener("mousedown", handler)
-  }, [moreOpen])
-
-  useEffect(() => {
-    if (!moreOpen) return
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMoreOpen(false)
-    }
-    window.addEventListener("keydown", handler)
-    return () => window.removeEventListener("keydown", handler)
-  }, [moreOpen])
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,7 +30,6 @@ export function Navigation() {
 
   const close = useCallback(() => {
     setMobileOpen(false)
-    setMoreOpen(false)
   }, [])
 
   useEffect(() => {
@@ -72,9 +49,6 @@ export function Navigation() {
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   }, [mobileOpen, close])
-
-  const tabletPrimaryItems = navItems.filter(i => ["Services", "How It Works", "Industries"].includes(i.label))
-  const tabletSecondaryItems = navItems.filter(i => !["Services", "How It Works", "Industries"].includes(i.label))
 
   return (
     <>
@@ -109,104 +83,8 @@ export function Navigation() {
               <Menu className="h-6 w-6" />
             </button>
 
-            {/* Tablet navigation with More dropdown */}
-            <nav className="hidden md:flex lg:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
-              {tabletPrimaryItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              {tabletSecondaryItems.length > 0 && (
-                <div className="relative" ref={moreRef}>
-                  <button
-                    onClick={() => setMoreOpen(!moreOpen)}
-                    className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
-                    aria-haspopup="true"
-                    aria-expanded={moreOpen}
-                  >
-                    More
-                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", moreOpen && "rotate-180")} />
-                  </button>
-                  <AnimatePresence>
-                    {moreOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-border bg-background shadow-xl py-2 z-50"
-                      >
-                        {tabletSecondaryItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
-                            onClick={() => setMoreOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )}
-            </nav>
-
-            {/* Desktop navigation - condensed at lg with More dropdown */}
-            <nav className="hidden lg:flex xl:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
-              {tabletPrimaryItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
-                >
-                  {item.label}
-                </Link>
-              ))}
-              {tabletSecondaryItems.length > 0 && (
-                <div className="relative" ref={moreRef}>
-                  <button
-                    onClick={() => setMoreOpen(!moreOpen)}
-                    className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap shrink-0"
-                    aria-haspopup="true"
-                    aria-expanded={moreOpen}
-                  >
-                    More
-                    <ChevronDown className={cn("h-3.5 w-3.5 transition-transform duration-200", moreOpen && "rotate-180")} />
-                  </button>
-                  <AnimatePresence>
-                    {moreOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 6, scale: 0.97 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 6, scale: 0.97 }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute top-full right-0 mt-2 w-44 rounded-xl border border-border bg-background shadow-xl py-2 z-50"
-                      >
-                        {tabletSecondaryItems.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-surface transition-colors"
-                            onClick={() => setMoreOpen(false)}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              )}
-            </nav>
-
-            {/* Desktop navigation - all items at xl+ */}
-            <nav className="hidden xl:flex items-center justify-center gap-[clamp(16px,2.5vw,56px)] min-w-0">
+            {/* Tablet + Desktop navigation (no More dropdown) */}
+            <nav className="hidden md:flex items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
