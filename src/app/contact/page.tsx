@@ -92,7 +92,7 @@ export default function ContactPage() {
               <iframe
                 src="https://cal.com/awoken-in/strategy-call?embed=1"
                 width="100%"
-                height="650 sm:height-900"
+                height="650"
                 frameBorder="0"
                 title="Book a Strategy Call"
                 className="w-full min-h-[500px] sm:min-h-[700px]"
