@@ -5,7 +5,6 @@ import { Industries } from "@/components/home/industries"
 import { WhyCompare } from "@/components/home/why-compare"
 import { IntelligenceReport } from "@/components/home/intelligence-report"
 import { Examples } from "@/components/home/examples"
-import { Process } from "@/components/home/process"
 import { FinalCTA } from "@/components/home/final-cta"
 
 export default function HomePage() {
@@ -18,7 +17,6 @@ export default function HomePage() {
       <WhyCompare />
       <Industries />
       <Examples />
-      <Process />
       <FinalCTA />
     </>
   )

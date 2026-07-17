@@ -41,7 +41,10 @@ export function Navigation() {
       const y = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       setScrolled(y > 80)
-      setShowSticky(y > 600 && y < docHeight - 600)
+
+      const frameworkEl = document.getElementById("framework-section")
+      const pastFramework = !frameworkEl || y >= frameworkEl.offsetTop + frameworkEl.offsetHeight - 100
+      setShowSticky(y > 600 && y < docHeight - 600 && pastFramework)
     }
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
@@ -84,7 +87,7 @@ export function Navigation() {
         )}
       >
         <Container>
-          <div className="grid grid-cols-[auto_1fr_auto] items-center min-h-16 md:min-h-20 lg:min-h-24 -ml-2 md:-ml-3 lg:-ml-6 -mr-2 md:-mr-3 lg:-mr-6">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center h-[70px] -ml-2 md:-ml-3 lg:-ml-6 -mr-2 md:-mr-3 lg:-mr-6">
             <Link
               href="/"
               className="flex items-center shrink-0 pr-6 md:pr-10 lg:pr-14"
@@ -93,7 +96,7 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="w-auto h-16 sm:h-20 md:h-24 lg:h-28"
+                className="w-auto h-10 sm:h-12 md:h-14"
               />
             </Link>
 
@@ -107,7 +110,7 @@ export function Navigation() {
             </button>
 
             {/* Tablet navigation with More dropdown */}
-            <nav className="hidden md:flex lg:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
+            <nav className="hidden md:flex lg:hidden items-center gap-8 min-w-0 justify-center">
               {tabletPrimaryItems.map((item) => (
                 <Link
                   key={item.href}
@@ -155,7 +158,7 @@ export function Navigation() {
             </nav>
 
             {/* Desktop navigation - condensed at lg with More dropdown */}
-            <nav className="hidden lg:flex xl:hidden items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
+            <nav className="hidden lg:flex xl:hidden items-center gap-8 min-w-0 justify-center">
               {tabletPrimaryItems.map((item) => (
                 <Link
                   key={item.href}
@@ -203,7 +206,7 @@ export function Navigation() {
             </nav>
 
             {/* Desktop navigation - all items at xl+ */}
-            <nav className="hidden xl:flex items-center justify-center gap-[clamp(16px,2.5vw,56px)] min-w-0">
+            <nav className="hidden xl:flex items-center gap-8 min-w-0 justify-center">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
