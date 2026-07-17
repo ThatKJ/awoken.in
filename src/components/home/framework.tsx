@@ -351,13 +351,13 @@ export function Framework() {
         <div className="sticky top-0 h-screen">
           <div className="flex flex-col h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 md:pt-20">
             <div className="shrink-0 mb-12 text-center">
-              <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent">
                 The Awoken Framework
               </p>
-              <h2 className="mt-2 text-sm sm:text-base md:text-xl lg:text-2xl font-bold tracking-tight leading-snug mx-auto max-w-3xl">
+              <h2 className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight leading-snug mx-auto max-w-3xl">
                 A structured approach to operational clarity.
               </h2>
-              <p className="mt-6 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mx-auto max-w-xl">
+              <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-xl">
                 Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes.
               </p>
             </div>
