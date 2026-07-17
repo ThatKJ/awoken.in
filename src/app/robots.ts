@@ -6,9 +6,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/thank-you"],
+        disallow: ["/api/", "/app/", "/admin/", "/dashboard/", "/private/"],
       },
     ],
     sitemap: "https://awoken.in/sitemap.xml",
+    host: "https://awoken.in",
   }
 }
