@@ -73,8 +73,8 @@ export function Navigation() {
     return () => window.removeEventListener("keydown", onKey)
   }, [mobileOpen, close])
 
-  const tabletPrimaryItems = navItems.filter(i => ["Services", "Industries", "Integrations"].includes(i.label))
-  const tabletSecondaryItems = navItems.filter(i => !["Services", "Industries", "Integrations"].includes(i.label))
+  const tabletPrimaryItems = navItems.filter(i => ["Services", "How It Works", "Industries"].includes(i.label))
+  const tabletSecondaryItems = navItems.filter(i => !["Services", "How It Works", "Industries"].includes(i.label))
 
   return (
     <>

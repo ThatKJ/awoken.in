@@ -6,11 +6,10 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "How It Works", href: "/how-we-work" },
   { label: "Industries", href: "/industries" },
-  { label: "Integrations", href: "/integrations" },
   { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const ctaButtons = {
