@@ -250,7 +250,7 @@ function StepIndicator({ index, currentStep }: { index: number; currentStep: num
   const isActive = index === currentStep
 
   return (
-    <div className="flex items-center gap-4 py-[11px] group select-none">
+    <div className="flex items-center gap-1 py-[11px] group select-none">
       <div className="relative z-10">
         <div className="bg-neutral-50 rounded-full p-[3px]">
           {isActive && (
@@ -350,20 +350,20 @@ export function Framework() {
       >
         <div className="sticky top-0 h-screen">
           <div className="flex flex-col h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 md:pt-20">
-            <div className="shrink-0 mb-12 text-center">
+            <div className="shrink-0 mb-14 text-center">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent">
                 The Awoken Framework
               </p>
               <h2 className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight leading-snug mx-auto max-w-3xl">
                 A structured approach to operational clarity.
               </h2>
-              <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-xl">
+              <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-[700px]">
                 Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes.
               </p>
             </div>
 
             <div className="flex-1 grid grid-cols-[auto_minmax(0,1fr)] gap-10 min-h-0">
-                <div className="w-full pt-[90px]">
+                <div className="w-full pt-[50px]">
                   <div className="flex flex-col items-start gap-0 relative">
                     <div className="absolute left-[19px] top-[11px] bottom-[11px] w-px bg-border/30 rounded-full" />
                     <motion.div
@@ -377,7 +377,7 @@ export function Framework() {
                 </div>
 
                 <div className="min-w-0 w-full">
-                  <div className="relative h-[62vh] w-full max-w-[860px] min-w-[760px] mx-auto">
+                  <div className="relative h-[57vh] w-full max-w-[790px] min-w-[700px] -mt-10 mx-auto">
                     {steps.map((step, i) => (
                       <DesktopCard
                         key={step.title}
