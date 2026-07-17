@@ -84,7 +84,7 @@ export function Navigation() {
             </button>
 
             {/* Tablet + Desktop navigation (no More dropdown) */}
-            <nav className="hidden md:flex items-center justify-center gap-[clamp(16px,2vw,36px)] min-w-0">
+            <nav className="hidden md:flex items-center justify-center gap-10 min-w-0">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
