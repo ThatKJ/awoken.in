@@ -63,7 +63,7 @@ const steps = [
 const stepIcons = [Search, Stethoscope, Target, Building2, LineChart] as const
 const stepLabels = ["Discover", "Diagnose", "Prioritize", "Implement", "Measure"]
 
-const PER_STEP_VH = 130
+const PER_STEP_VH = 70
 const CONTAINER_VH = steps.length * PER_STEP_VH
 
 const mobileCardVariants: Variants = {
