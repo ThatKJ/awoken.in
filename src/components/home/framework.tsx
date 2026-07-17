@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { motion, useScroll, useMotionValue } from "framer-motion"
+import { motion, useScroll, useSpring } from "framer-motion"
 import type { Variants } from "framer-motion"
 import { SectionHeader } from "@/components/shared/section-header"
 import { Search, Stethoscope, Target, Building2, LineChart, Check, ArrowRight } from "lucide-react"
@@ -307,28 +307,16 @@ export function Framework() {
     offset: ["start start", "end end"],
   })
 
-  // Direction-aware smoothing: forward is slow cinematic, reverse is fast escape
-  const smoothProgress = useMotionValue(0)
-  const prevRawRef = useRef(0)
-
-  useEffect(() => {
-    const unsub = scrollYProgress.on("change", (v) => {
-      const prev = smoothProgress.get()
-      const isReverse = v < prevRawRef.current
-      prevRawRef.current = v
-
-      // Forward (0.2): slow cinematic follow
-      // Reverse (0.85): ~4x faster for quick escape
-      const factor = isReverse ? 0.85 : 0.2
-      smoothProgress.set(prev + (v - prev) * factor)
-    })
-    return unsub
-  }, [scrollYProgress, smoothProgress])
+  const lineProgress = useSpring(scrollYProgress, {
+    stiffness: 60,
+    damping: 28,
+    mass: 0.6,
+  })
 
   const [currentStep, setCurrentStep] = useState(0)
 
   useEffect(() => {
-    const unsub = smoothProgress.on("change", (v) => {
+    const unsub = scrollYProgress.on("change", (v) => {
       const newStep = Math.min(Math.max(Math.floor(v * steps.length), 0), steps.length - 1)
       if (newStep !== currentStepRef.current) {
         currentStepRef.current = newStep
@@ -336,7 +324,7 @@ export function Framework() {
       }
     })
     return unsub
-  }, [smoothProgress])
+  }, [scrollYProgress])
 
   return (
     <section ref={sectionRef} id="framework-section" className="bg-neutral-50">
@@ -380,7 +368,7 @@ export function Framework() {
                     <div className="absolute left-[19px] top-[11px] bottom-[11px] w-px bg-border/30 rounded-full" />
                     <motion.div
                       className="absolute left-[19px] top-[11px] w-px bg-accent rounded-full origin-top"
-                      style={{ scaleY: smoothProgress }}
+                      style={{ scaleY: lineProgress }}
                     />
                     {steps.map((_, i) => (
                       <StepIndicator key={i} index={i} currentStep={currentStep} />
