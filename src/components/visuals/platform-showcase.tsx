@@ -26,7 +26,7 @@ export function PlatformShowcase({
   children,
   type = "browser",
   title = "Awoken Dashboard",
-  url = "app.awoken.io",
+  url = "app.awoken.in",
   className,
 }: PlatformShowcaseProps) {
   return (
