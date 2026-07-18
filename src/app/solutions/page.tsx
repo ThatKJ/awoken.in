@@ -39,9 +39,8 @@ export default function SolutionsPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/10 bg-accent/5 text-accent text-xs font-semibold tracking-wide mb-4"
+            className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-soft" />
             Solutions
           </motion.p>
           <motion.h1

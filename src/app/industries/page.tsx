@@ -55,7 +55,7 @@ export default function IndustriesPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-accent text-base font-bold tracking-wide uppercase mb-4 sm:mb-6"
+            className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-4 sm:mb-6"
           >
             Industries
           </motion.p>

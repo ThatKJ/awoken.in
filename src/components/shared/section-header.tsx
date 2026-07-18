@@ -34,12 +34,9 @@ export function SectionHeader({
       )}
     >
       {eyebrow && (
-        <div className={cn(
-          "inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/10 bg-accent/5 text-accent text-xs font-semibold tracking-wide mb-4 sm:mb-5"
-        )}>
-          <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-soft" />
+        <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-4 sm:mb-5">
           {eyebrow}
-        </div>
+        </p>
       )}
       <h2 className={cn(
         "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]",
