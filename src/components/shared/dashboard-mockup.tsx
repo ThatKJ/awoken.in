@@ -133,7 +133,7 @@ export function DashboardMockup({
         <div className="w-2.5 h-2.5 rounded-full bg-amber-400/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-emerald-400/60" />
         <div className="ml-4 flex-1 max-w-[200px] h-5 rounded-md bg-border/50 flex items-center px-2">
-          <span className="text-[9px] text-muted-foreground/60 truncate">app.awoken.io/dashboard</span>
+          <span className="text-[9px] text-muted-foreground/60 truncate">app.awoken.in/dashboard</span>
         </div>
       </div>
 
