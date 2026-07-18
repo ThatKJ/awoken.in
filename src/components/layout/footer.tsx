@@ -35,13 +35,6 @@ const socialLinks = [
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-  { label: "Careers", href: "/careers" },
-]
-
-const servicesLinks = [
-  { label: "Business Intelligence", href: "/services" },
-  { label: "AI Consulting", href: "/services" },
-  { label: "AI Implementation", href: "/services" },
 ]
 
 const resourcesLinks = [
@@ -114,7 +107,6 @@ export function Footer() {
           <SocialLinks className="mt-3" />
           <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
             <LinkColumn title="Company" links={companyLinks} />
-            <LinkColumn title="Services" links={servicesLinks} />
             <LinkColumn title="Resources" links={resourcesLinks} />
             <LinkColumn title="Legal" links={legalLinks} />
           </div>
@@ -134,9 +126,8 @@ export function Footer() {
               </p>
               <SocialLinks className="mt-6" />
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12 xl:gap-16">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
               <LinkColumn title="Company" links={companyLinks} />
-              <LinkColumn title="Services" links={servicesLinks} />
               <LinkColumn title="Resources" links={resourcesLinks} />
               <LinkColumn title="Legal" links={legalLinks} />
             </div>
