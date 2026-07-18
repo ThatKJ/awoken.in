@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/shared/container"
-import { ArrowRight, BarChart3, Search, Lightbulb, CheckCircle } from "lucide-react"
+import { DashboardMockup } from "@/components/shared/dashboard-mockup"
+import { ArrowRight, Search, BarChart3, Lightbulb, CheckCircle, TrendingUp, Clock, Users as UsersIcon } from "lucide-react"
 
 const trustIcons = [
   { icon: Search, label: "Understand" },
@@ -12,6 +13,27 @@ const trustIcons = [
   { icon: Lightbulb, label: "Prioritize" },
   { icon: CheckCircle, label: "Implement" },
 ]
+
+function HeroDashboard() {
+  return (
+    <DashboardMockup
+      title="Business Intelligence"
+      subtitle="Operational health overview"
+      metrics={[
+        { label: "Revenue Impact", value: "₹18-42L", change: "+28%", positive: true },
+        { label: "Bottlenecks", value: "12", change: "Identified" },
+        { label: "Quick Wins", value: "5", change: "This week", positive: true },
+        { label: "Team Efficiency", value: "73%", change: "+18%", positive: true },
+      ]}
+      rows={[
+        { label: "Lead response time improved", value: "< 1 min", status: "success" },
+        { label: "Manual data entry eliminated", value: "95%", status: "success" },
+        { label: "Inventory accuracy gap", value: "3.2%", status: "warning" },
+        { label: "Admin overhead reduced", value: "52%", status: "success" },
+      ]}
+    />
+  )
+}
 
 export function Hero() {
   return (
@@ -64,15 +86,25 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* Dashboard preview */}
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          className="mt-10 sm:mt-14 md:mt-16 max-w-4xl mx-auto"
+        >
+          <HeroDashboard />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="mt-10 sm:mt-14 md:mt-16 pt-8 sm:pt-12 md:pt-16 border-t border-border"
         >
-            <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <p className="text-base sm:text-base md:text-lg font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-6 sm:mb-8 lg:mb-10">
-              Businesses don't need more software. They need clarity.
+              Businesses don&apos;t need more software. They need clarity.
             </p>
             <div className="flex flex-wrap justify-center gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
               {trustIcons.map((item) => {

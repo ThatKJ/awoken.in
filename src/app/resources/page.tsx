@@ -1,71 +1,113 @@
-import type { Metadata } from "next"
-import { Section } from "@/components/shared/section"
-import { resources } from "@/data/resources"
-import { BookOpen, FileText, Download, ClipboardCheck, Calculator, Map } from "lucide-react"
+"use client"
 
-export const metadata: Metadata = {
-  title: "Resources",
-  description:
-    "Free operational assessment guides, workflow templates, checklists, and resources to help you identify bottlenecks and revenue leaks in your business.",
-  openGraph: {
-    title: "Resources | Awoken",
-    description:
-      "Free operational assessment guides, workflow templates, checklists, and resources to help you identify bottlenecks and revenue leaks in your business.",
-    url: "https://awoken.in/resources",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Resources" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Resources | Awoken",
-    description:
-      "Free operational assessment guides, workflow templates, and resources to identify business bottlenecks.",
-    images: ["/og-image.png"],
-  },
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { Section } from "@/components/shared/section"
+import { SectionHeader } from "@/components/shared/section-header"
+import { Card, CardBody } from "@/components/shared/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { resources } from "@/data/resources"
+import { ArrowRight, BookOpen, FileText, Download, ClipboardCheck, Calculator, Search } from "lucide-react"
+
+const typeIcons: Record<string, React.ElementType> = {
+  playbook: BookOpen,
+  guide: FileText,
+  template: Download,
+  checklist: ClipboardCheck,
+  calculator: Calculator,
 }
 
-const typeIcons: Record<string, React.ReactNode> = {
-  playbook: <BookOpen className="h-5 w-5 group-hover/card:scale-110 transition-all duration-300" />,
-  guide: <FileText className="h-5 w-5 group-hover/card:scale-110 transition-all duration-300" />,
-  template: <Download className="h-5 w-5 group-hover/card:scale-110 transition-all duration-300" />,
-  checklist: <ClipboardCheck className="h-5 w-5 group-hover/card:scale-110 transition-all duration-300" />,
-  calculator: <Calculator className="h-5 w-5 group-hover/card:scale-110 transition-all duration-300" />,
+function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
 }
 
 export default function ResourcesPage() {
   return (
     <>
       <Section size="hero" className="bg-background">
-          <div className="max-w-2xl xl:max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
-              Resources
-            </h1>
-            <p className="mt-4 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              Guides, templates, and resources to help you identify operational bottlenecks and understand where technology can create value in your business.
-            </p>
-          </div>
+        <div className="max-w-3xl">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-accent text-base font-bold tracking-wide uppercase mb-4 sm:mb-6"
+          >
+            Resources
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]"
+          >
+            Guides and tools to help you find&nbsp;inefficiencies.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+            className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+          >
+            Free operational assessment guides, workflow templates, and checklists to help you identify bottlenecks in your business.
+          </motion.p>
+        </div>
       </Section>
+
       <Section className="bg-background-alt">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {resources.map((resource) => (
-              <div
-                key={resource.title}
-                className="rounded-xl border border-border bg-background p-6 lg:p-8 flex flex-col h-full hover:-translate-y-2 hover:shadow-xl hover:border-accent/20 transition-all duration-300 ease-out group/card"
-              >
-                <div className="w-11 h-11 rounded-lg bg-accent/10 flex items-center justify-center mb-6 shrink-0 group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
-                  {typeIcons[resource.type]}
-                </div>
-                <div className="mb-5 min-h-[80px]">
-                  <p className="text-sm font-medium text-muted-foreground uppercase tracking-[0.25em] mb-1">
-                    {resource.type}
-                  </p>
-                  <h3 className="text-lg font-semibold">{resource.title}</h3>
-                </div>
-                <p className="text-base text-muted-foreground leading-relaxed flex-1">
-                  {resource.description}
-                </p>
-              </div>
-            ))}
+        <SectionHeader
+          eyebrow="Library"
+          title="Explore resources."
+          description="Free tools to start identifying opportunities in your business."
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {resources.map((resource, i) => {
+            const Icon = typeIcons[resource.type] || FileText
+            return (
+              <AnimatedSection key={resource.title} delay={i * 0.04}>
+                <Card>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center group-hover/card:bg-accent group-hover/card:text-accent-foreground transition-all duration-300">
+                      <Icon className="h-5 w-5 text-accent group-hover/card:text-accent-foreground transition-all" />
+                    </div>
+                    <Badge variant="soft" className="text-[10px]">{resource.type}</Badge>
+                  </div>
+                  <h3 className="text-lg font-bold mb-2">{resource.title}</h3>
+                  <CardBody>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{resource.description}</p>
+                  </CardBody>
+                </Card>
+              </AnimatedSection>
+            )
+          })}
+        </div>
+      </Section>
+
+      <Section className="bg-background">
+        <div className="max-w-3xl mx-auto text-center">
+          <SectionHeader
+            eyebrow="Need More?"
+            title="Not sure where to start?"
+            description="A 30-minute diagnostic conversation to map your operations and identify where improvement creates the biggest impact."
+          />
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8">
+            <Link href="/book">
+              <Button variant="primary" size="xl">
+                Book Free Business Intelligence Audit
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
+        </div>
       </Section>
     </>
   )

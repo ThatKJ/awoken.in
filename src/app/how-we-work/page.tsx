@@ -13,6 +13,9 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion"
+import { DashboardMockup } from "@/components/shared/dashboard-mockup"
+import { WorkflowDiagram } from "@/components/shared/workflow-diagram"
+import { BeforeAfter } from "@/components/shared/before-after"
 import {
   ArrowRight,
   ArrowDown,
@@ -22,7 +25,6 @@ import {
   Rocket,
   BarChart3,
   CheckCircle,
-  X,
   Clock,
   Shield,
   Lock,
@@ -112,23 +114,6 @@ const deliverables = [
   { icon: BookOpen, title: "Documentation" },
   { icon: RefreshCw, title: "Ongoing Support" },
 ]
-
-const comparisonData = {
-  traditional: [
-    "Sell software first",
-    "Generic templates",
-    "One-size-fits-all",
-    "Limited strategy",
-    "Deliver and disappear",
-  ],
-  awoken: [
-    "Business-first",
-    "Strategy-driven",
-    "Custom implementation",
-    "Long-term partnership",
-    "Continuous optimization",
-  ],
-}
 
 const timelineSteps = [
   {
@@ -415,22 +400,16 @@ export default function HowWeWorkPage() {
                   </p>
                 </div>
               </div>
-              <div className="rounded-2xl border border-border bg-background p-8 sm:p-10 lg:p-12 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full" />
-                <div className="relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
-                    <Lightbulb className="h-5 w-5 text-accent" />
-                  </div>
-                  <p className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-snug italic">
-                    &ldquo;We do not automate tasks.
-                    <br />
-                    We redesign how businesses operate.&rdquo;
-                  </p>
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <p className="text-sm font-semibold">— Understand First. Recommend Second. Build Third.</p>
-                  </div>
-                </div>
-              </div>
+              <WorkflowDiagram
+                nodes={[
+                  { icon: Search, label: "Discover", subtitle: "Learn your business" },
+                  { icon: ClipboardCheck, label: "Diagnose", subtitle: "Business Intelligence Audit" },
+                  { icon: PenTool, label: "Design", subtitle: "AI Strategy" },
+                  { icon: Rocket, label: "Build", subtitle: "Implementation" },
+                  { icon: BarChart3, label: "Optimize", subtitle: "Continuous improvement" },
+                ]}
+                direction="horizontal"
+              />
             </div>
           </AnimatedSection>
         </div>
@@ -531,7 +510,7 @@ export default function HowWeWorkPage() {
 
       {/* ─── WHAT MAKES OUR PROCESS DIFFERENT ─── */}
       <Section className="bg-background">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12 sm:mb-14">
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
@@ -543,39 +522,46 @@ export default function HowWeWorkPage() {
               <div className="h-[3px] rounded-full bg-accent mx-auto mt-4 w-[100px] shadow-[0_0_8px_rgba(249,115,22,0.3)]" />
             </div>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <AnimatedSection delay={0.1}>
-              <div className="rounded-2xl border border-red-200 bg-red-50/50 p-8 sm:p-10">
-                <h3 className="text-lg sm:text-xl font-bold mb-6 flex items-center gap-3">
-                  <X className="h-5 w-5 text-red-500" />
-                  Traditional Agencies
-                </h3>
-                <ul className="space-y-4">
-                  {comparisonData.traditional.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm sm:text-base text-muted-foreground">
-                      <X className="h-4 w-4 text-red-400 shrink-0" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <BeforeAfter
+              beforeLabel="Traditional Agency"
+              afterLabel="Awoken"
+              beforeTitle="Before"
+              afterTitle="After"
+              items={[
+                { label: "Sell software first", before: false, after: true },
+                { label: "Generic templates", before: false, after: true },
+                { label: "One-size-fits-all", before: false, after: true },
+                { label: "Strategy-driven approach", before: false, after: true },
+                { label: "Long-term partnership", before: false, after: true },
+              ]}
+            />
+            <div className="space-y-4">
+              <div className="rounded-xl border border-border bg-background-alt p-6 sm:p-8">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                  <BarChart3 className="h-5 w-5 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Why It Matters</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Traditional agencies sell what they have. We build what you need. 
+                  This fundamental difference means you never pay for technology that 
+                  doesn&apos;t solve your real problem.
+                </p>
+                <ul className="mt-4 space-y-2">
+                  {[
+                    "Lower total cost of ownership",
+                    "Faster time to value",
+                    "Solutions your team actually adopts",
+                    "Measurable business outcomes",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-3.5 w-3.5 text-accent shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/50 p-8 sm:p-10">
-                <h3 className="text-lg sm:text-xl font-bold mb-6 flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  Awoken
-                </h3>
-                <ul className="space-y-4">
-                  {comparisonData.awoken.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm sm:text-base text-foreground font-medium">
-                      <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
+            </div>
           </div>
         </div>
       </Section>
@@ -594,6 +580,28 @@ export default function HowWeWorkPage() {
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Every engagement follows a structured framework designed to understand your business first, build the right solution second, and continuously optimize for long-term growth.
             </p>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.1}>
+          <div className="max-w-3xl mx-auto mb-14 sm:mb-16">
+            <DashboardMockup
+              title="Client Progress Dashboard"
+              subtitle="Real-time engagement tracking"
+              chart="line"
+              metrics={[
+                { label: "Phase Completion", value: "100%", change: "On track", positive: true },
+                { label: "Bottlenecks Resolved", value: "12", change: "All cleared", positive: true },
+                { label: "Time Saved/Week", value: "22 hrs", change: "+35%", positive: true },
+                { label: "ROI Realized", value: "₹31L", change: "Exceeding target", positive: true },
+              ]}
+              rows={[
+                { label: "Discovery completed", value: "Week 1", status: "success" },
+                { label: "Audit report delivered", value: "Week 2", status: "success" },
+                { label: "Implementation phase", value: "In progress", status: "success" },
+                { label: "Team training scheduled", value: "Week 5", status: "warning" },
+              ]}
+            />
           </div>
         </AnimatedSection>
 

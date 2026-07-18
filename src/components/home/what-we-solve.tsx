@@ -4,9 +4,9 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
+import { BeforeAfter } from "@/components/shared/before-after"
 import { ChevronDown, Clock, FileText, Users, Puzzle, BarChart3, MessageSquare, Package, Settings } from "lucide-react"
 import { cn } from "@/lib/utils"
-
 
 const problems = [
   {
@@ -67,17 +67,28 @@ const problems = [
   },
 ]
 
+const comparisonItems = [
+  { label: "Process speed", before: true, after: true },
+  { label: "Manual data entry", before: false, after: true },
+  { label: "Lead response time", before: false, after: true },
+  { label: "System integration", before: false, after: true },
+  { label: "Reporting lag", before: false, after: true },
+]
+
 export function WhatWeSolve() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <Section className="bg-background">
-        <SectionHeader
-          eyebrow="What We Solve"
-          title="We fix operational problems that cost you money."
-          description="Every engagement starts with identifying the specific bottlenecks in your business. These are the most common."
-        />
-        <div className="max-w-3xl mx-auto divide-y divide-border">
+      <SectionHeader
+        eyebrow="What We Solve"
+        title="We fix operational problems that cost you money."
+        description="Every engagement starts with identifying the specific bottlenecks in your business. These are the most common."
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto">
+        {/* Accordion */}
+        <div className="divide-y divide-border self-start">
           {problems.map((problem, i) => {
             const Icon = problem.icon
             const isOpen = openIndex === i
@@ -131,6 +142,25 @@ export function WhatWeSolve() {
             )
           })}
         </div>
+
+        {/* Before/After visual */}
+        <div className="lg:sticky lg:top-24 self-start">
+          <BeforeAfter
+            beforeTitle="Before Awoken"
+            afterTitle="After Awoken"
+            items={comparisonItems}
+          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-4 text-xs sm:text-sm text-muted-foreground text-center leading-relaxed"
+          >
+            We don&apos;t just add software — we transform how your business operates from the ground up.
+          </motion.p>
+        </div>
+      </div>
     </Section>
   )
 }

@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import { Section } from "@/components/shared/section"
 import { SectionHeader } from "@/components/shared/section-header"
-import { FileText, Search, Zap, Target, Route, TrendingUp } from "lucide-react"
+import { DashboardMockup } from "@/components/shared/dashboard-mockup"
+import { Search, Zap, Target, Route, TrendingUp, FileText } from "lucide-react"
 
 const reportSections = [
   { icon: Search, title: "Current Workflow", description: "Complete mapping of how your operations run today." },
@@ -14,81 +15,66 @@ const reportSections = [
   { icon: TrendingUp, title: "Expected Business Impact", description: "Projected ROI for each recommendation." },
 ]
 
+function ReportDashboard() {
+  return (
+    <DashboardMockup
+      title="Assessment Summary"
+      subtitle="Awoken Intelligence Report"
+      chart="line"
+      metrics={[
+        { label: "Opportunities Found", value: "12", change: "+3 this quarter", positive: true },
+        { label: "Annual Impact", value: "₹18-42L", change: "Projected ROI" },
+        { label: "Quick Wins", value: "5", change: "< 2 weeks each", positive: true },
+        { label: "Implementation", value: "8-12 wks", change: "Phased rollout" },
+      ]}
+      rows={[
+        { label: "Workflow bottlenecks identified", value: "7", status: "success" },
+        { label: "Manual processes automated", value: "95%", status: "success" },
+        { label: "Systems integration points", value: "4", status: "warning" },
+        { label: "Team training required", value: "Minimal", status: "success" },
+      ]}
+    />
+  )
+}
+
 export function IntelligenceReport() {
   return (
     <Section className="bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
-          <div>
-            <SectionHeader
-              align="left"
-              eyebrow="The Awoken Intelligence Report"
-              title="Every engagement starts with a structured operational assessment."
-              description="Before we recommend any technology, we deliver a comprehensive report that gives you complete clarity about your business."
-              titleClassName="lg:text-4xl xl:text-5xl"
-            />
-            <div className="space-y-3 sm:space-y-4">
-              {reportSections.map((section, i) => {
-                const Icon = section.icon
-                return (
-                  <motion.div
-                    key={section.title}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="flex items-start gap-3 sm:gap-4"
-                  >
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-xs sm:text-sm font-semibold">{section.title}</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{section.description}</p>
-                    </div>
-                  </motion.div>
-                )
-              })}
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, x: 12 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative mx-auto w-full max-w-md lg:max-w-none"
-          >
-            <div className="rounded-xl border border-border bg-background p-6 lg:p-8 shadow-xl overflow-hidden">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-border">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center shrink-0">
-                  <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs sm:text-sm font-semibold truncate">Awoken Intelligence Report</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Prepared for [Your Business]</p>
-                </div>
-              </div>
-              <div className="space-y-3 sm:space-y-4">
-                {reportSections.slice(0, 4).map((section) => (
-                  <div key={section.title} className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent shrink-0" />
-                    <span className="text-xs sm:text-sm text-muted-foreground">{section.title}</span>
+        <div>
+          <SectionHeader
+            align="left"
+            eyebrow="The Awoken Intelligence Report"
+            title="Every engagement starts with a structured operational assessment."
+            description="Before we recommend any technology, we deliver a comprehensive report that gives you complete clarity about your business."
+            titleClassName="lg:text-4xl xl:text-5xl"
+          />
+          <div className="space-y-3 sm:space-y-4">
+            {reportSections.map((section, i) => {
+              const Icon = section.icon
+              return (
+                <motion.div
+                  key={section.title}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-3 sm:gap-4"
+                >
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-accent" />
                   </div>
-                ))}
-              </div>
-              <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-border">
-                <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <span className="text-muted-foreground">Total identified opportunities</span>
-                  <span className="font-semibold text-accent">12</span>
-                </div>
-                <div className="flex items-center justify-between text-xs sm:text-sm mt-2">
-                  <span className="text-muted-foreground">Estimated annual impact</span>
-                  <span className="font-semibold">₹18-42 lakhs</span>
-                </div>
-              </div>
-            </div>
-            <div className="hidden sm:block absolute -bottom-3 -right-3 w-full h-full rounded-xl border border-border -z-10 bg-surface" />
-          </motion.div>
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm font-semibold">{section.title}</p>
+                    <p className="text-xs sm:text-sm text-muted-foreground">{section.description}</p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
+        <ReportDashboard />
+      </div>
     </Section>
   )
 }
