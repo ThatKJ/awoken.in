@@ -70,7 +70,7 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="w-auto h-16 sm:h-20 md:h-24 lg:h-28"
+                className="w-auto h-20 sm:h-24 md:h-28 lg:h-32"
               />
             </Link>
 
@@ -129,7 +129,7 @@ export function Navigation() {
             >
               <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20 border-b border-border shrink-0">
                 <Link href="/" className="flex items-center" onClick={(e) => { close(); if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}>
-                  <img src="/icon.svg" alt="Awoken" className="h-8 w-8" />
+                  <img src="/icon.svg" alt="Awoken" className="h-10 w-10" />
                 </Link>
                 <button
                   className="flex items-center justify-center w-11 h-11"

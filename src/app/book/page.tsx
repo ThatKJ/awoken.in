@@ -295,7 +295,7 @@ export default function BookPage() {
       </Section>
 
       <Section className="bg-background pb-16 md:pb-20 lg:pb-24">
-          <div className="text-center">
+          <div className="flex flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

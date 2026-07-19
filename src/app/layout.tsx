@@ -88,11 +88,9 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "any" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [
-      { rel: "mask-icon", url: "/favicon.svg", color: "#111111" },
-    ],
+    shortcut: { url: "/favicon.ico" },
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
   other: {
     "apple-mobile-web-app-title": "Awoken",
     "theme-color": "#FFFFFF",

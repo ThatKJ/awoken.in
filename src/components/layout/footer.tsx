@@ -91,7 +91,7 @@ export function Footer() {
         {/* ─── MOBILE ─── */}
         <div className="md:hidden flex flex-col">
           <Link href="/" className="inline-flex items-center">
-            <img src="/logo.svg" alt="Awoken" className="w-[100px] h-auto" />
+            <img src="/logo.svg" alt="Awoken" className="w-[140px] h-auto" />
           </Link>
           <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
             Awoken helps businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
@@ -111,7 +111,7 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-20">
             <div className="lg:max-w-sm xl:max-w-md">
               <Link href="/" className="inline-flex items-center">
-                <img src="/logo.svg" alt="Awoken" className="w-auto max-w-[180px] lg:max-w-[200px] h-auto" />
+                <img src="/logo.svg" alt="Awoken" className="w-auto max-w-[220px] lg:max-w-[260px] h-auto" />
               </Link>
               <p className="mt-6 max-w-sm text-sm text-muted-foreground leading-relaxed">
                 Awoken helps businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
