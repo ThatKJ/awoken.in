@@ -157,34 +157,6 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="bg-background">
-        <SectionHeader
-          eyebrow="Timeline"
-          title="Our journey so far."
-          description="Building a company that puts understanding before action."
-        />
-        <div className="max-w-3xl mx-auto">
-          {milestones.map((m, i) => (
-            <AnimatedSection key={m.year} delay={i * 0.1}>
-              <div className="relative pl-14 sm:pl-16 pb-8 sm:pb-10 last:pb-0">
-                {i < milestones.length - 1 && (
-                  <div className="absolute left-[19px] sm:left-[23px] top-[44px] bottom-0 w-px bg-gradient-to-b from-accent/30 to-accent/5" />
-                )}
-                <div className="absolute left-0 top-0">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <span className="text-xs font-bold text-accent">{m.year.slice(-2)}</span>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">{m.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-1">{m.description}</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </Section>
-
       <Section className="bg-background-alt">
         <div className="max-w-3xl mx-auto text-center">
           <SectionHeader

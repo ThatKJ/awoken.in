@@ -172,7 +172,7 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-4 sm:mb-6"
+            className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-4 sm:mb-6"
           >
             Blog
           </motion.p>
@@ -363,7 +363,7 @@ export default function BlogPage() {
           <div className="max-w-5xl mx-auto">
             <AnimatedSection>
               <div className="text-center mb-10 sm:mb-12">
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+                <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3">
                   Popular
                 </p>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -496,7 +496,7 @@ export default function BlogPage() {
       <Section className="bg-background">
         <AnimatedSection>
           <div className="text-center mb-10 sm:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+            <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3">
               Topics
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">

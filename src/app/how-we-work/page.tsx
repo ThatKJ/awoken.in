@@ -327,7 +327,7 @@ export default function HowWeWorkPage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-4 sm:mb-6"
+            className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-4 sm:mb-6"
           >
             How We Work
           </motion.p>
@@ -421,7 +421,7 @@ export default function HowWeWorkPage() {
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12 sm:mb-14">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
+              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
                 Process
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -483,7 +483,7 @@ export default function HowWeWorkPage() {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12 sm:mb-14">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
+              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
                 Deliverables
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -513,7 +513,7 @@ export default function HowWeWorkPage() {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-12 sm:mb-14">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
+              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
                 Comparison
               </p>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -570,7 +570,7 @@ export default function HowWeWorkPage() {
       <Section className="bg-background-alt">
         <AnimatedSection>
           <div className="text-center mb-14 sm:mb-16">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
+            <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
               Our Client Journey
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -727,7 +727,7 @@ export default function HowWeWorkPage() {
       <Section className="bg-background">
         <AnimatedSection>
           <div className="text-center mb-12 sm:mb-14">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3 sm:mb-4">
+            <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
               FAQ
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -802,7 +802,7 @@ export default function HowWeWorkPage() {
       <Section className="bg-background">
         <AnimatedSection>
           <div className="text-center mb-10 sm:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+            <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3">
               Values
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">

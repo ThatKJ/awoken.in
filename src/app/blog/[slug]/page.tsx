@@ -268,7 +268,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
         <Section className="bg-background-alt">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10 sm:mb-12">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent mb-3">
+              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3">
                 Related
               </p>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">

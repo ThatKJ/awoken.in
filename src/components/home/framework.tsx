@@ -351,7 +351,7 @@ export function Framework() {
         <div className="sticky top-[48px] h-[calc(100vh-48px)]">
           <div className="flex flex-col h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 md:pt-20">
             <div className="shrink-0 mb-14 text-center">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 text-center mx-auto max-w-max">
                 The Awoken Framework
               </p>
               <h2 className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight leading-snug mx-auto max-w-3xl">

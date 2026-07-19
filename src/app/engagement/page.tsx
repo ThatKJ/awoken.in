@@ -21,6 +21,7 @@ function AnimatedSection({ children, delay = 0 }: { children: React.ReactNode; d
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      className="h-full"
     >
       {children}
     </motion.div>
@@ -82,7 +83,7 @@ export default function EngagementPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {engagementTiers.map((tier, i) => (
             <AnimatedSection key={tier.id} delay={i * 0.08}>
-              <Card gradient={!!tier.badge}>
+              <Card gradient={!!tier.badge} className="relative h-full">
                 {tier.badge && (
                   <Badge variant="accent" className="absolute -top-2.5 left-4">{tier.badge}</Badge>
                 )}
@@ -92,7 +93,7 @@ export default function EngagementPage() {
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Ideal for</p>
                   <div className="flex flex-wrap gap-1.5">
                     {tier.idealFor.map((item) => (
-                      <span key={item} className="text-xs px-2 py-1 rounded-full bg-surface text-muted-foreground">
+                      <span key={item} className="text-xs px-2 py-1 rounded-md bg-accent/5 text-muted-foreground">
                         {item}
                       </span>
                     ))}
@@ -110,7 +111,7 @@ export default function EngagementPage() {
                 </CardBody>
                 <CardFooter>
                   <Link href={tier.cta.href}>
-                    <Button variant={tier.cta.variant as "primary" | "outline"} size="md" className="w-full">
+                    <Button variant={tier.cta.variant as "primary" | "secondary" | "outline"} size="md" className="w-full">
                       {tier.cta.label}
                       <ArrowRight className="h-4 w-4" />
                     </Button>
