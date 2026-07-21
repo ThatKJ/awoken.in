@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react"
 import { motion, useScroll, useSpring } from "framer-motion"
 import type { Variants } from "framer-motion"
 import { SectionHeader } from "@/components/shared/section-header"
-import { Search, Stethoscope, Target, Building2, LineChart, Check, ArrowRight } from "lucide-react"
+import { Search, Stethoscope, Target, Building2, LineChart, Check, ArrowRight, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const steps = [
@@ -209,42 +209,6 @@ function DesktopCard({
   )
 }
 
-function MobileCard({ step, index }: { step: (typeof steps)[number]; index: number }) {
-  const Icon = stepIcons[index]
-  return (
-    <motion.div
-      custom={index}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      variants={mobileCardVariants}
-    >
-      <div className="group rounded-2xl border border-border bg-background p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-accent/20 transition-all duration-300">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 group-hover:scale-105 transition-all duration-300">
-            <Icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent" />
-          </div>
-          <div>
-            <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
-              Step {index + 1}
-            </span>
-            <h3 className="text-base sm:text-lg font-bold mt-0.5">{step.title}</h3>
-          </div>
-        </div>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
-        <ul className="space-y-2">
-          {step.items.map((item) => (
-            <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-              <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  )
-}
-
 function StepIndicator({ index, currentStep }: { index: number; currentStep: number }) {
   const isPast = index < currentStep
   const isActive = index === currentStep
@@ -301,9 +265,18 @@ export function Framework() {
   const containerRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
   const currentStepRef = useRef(0)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1100px)")
+    setIsDesktop(mql.matches)
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
+    mql.addEventListener("change", handler)
+    return () => mql.removeEventListener("change", handler)
+  }, [])
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isDesktop ? containerRef : undefined,
     offset: ["start start", "end end"],
   })
 
@@ -327,25 +300,132 @@ export function Framework() {
   }, [scrollYProgress])
 
   return (
-    <section ref={sectionRef} id="framework-section" className="bg-neutral-50">
+    <section ref={sectionRef} id="framework-section" className="bg-neutral-50 max-w-full">
       <div className="md:hidden">
-        <div className="mx-auto w-full max-w-full lg:max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="mx-auto w-full px-4 sm:px-6">
             <SectionHeader
             eyebrow="The Awoken Framework"
             title="A structured approach to operational clarity."
             description="Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes."
+            className="mb-6 md:!mb-0"
           />
         </div>
-        <div className="space-y-6 px-4 sm:px-6 pb-16">
-          {steps.map((step, i) => (
-            <MobileCard key={step.title} step={step} index={i} />
-          ))}
+        <div className="max-w-lg mx-auto px-4 pb-16">
+          {steps.map((step, i) => {
+            const Icon = stepIcons[i]
+            return (
+              <motion.div
+                key={step.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                variants={mobileCardVariants}
+              >
+                <div>
+                  <div className="rounded-2xl border border-border bg-background p-6 shadow-sm hover:shadow-lg hover:border-accent/20 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center">
+                        <Icon className="h-4 w-4 text-accent" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
+                          Step {i + 1}
+                        </span>
+                        <h3 className="text-base font-bold mt-0.5">{step.title}</h3>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                    <ul className="space-y-2">
+                      {step.items.map((item) => (
+                        <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {i < steps.length - 1 && (
+                    <div className="flex justify-center py-6">
+                      <div className="flex flex-col items-center gap-0">
+                        <div className="w-px h-5 bg-gradient-to-b from-accent/40 to-accent/15" />
+                        <ChevronDown className="h-4 w-4 text-accent/40" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
       </div>
 
+      {/* ─── TABLET: Arrow-flow timeline (768–1099px) ─── */}
+      {!isDesktop && (
+      <div className="hidden md:block">
+        <div className="mx-auto w-full px-4 sm:px-6 md:px-8">
+          <SectionHeader
+            eyebrow="The Awoken Framework"
+            title="A structured approach to operational clarity."
+            description="Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes."
+            className="!mb-4 md:!mb-6 !max-w-full"
+          />
+        </div>
+        <div className="mx-auto pb-16" style={{ width: "min(calc(100% - 48px), 900px)" }}>
+          {steps.map((step, i) => {
+            const Icon = stepIcons[i]
+            return (
+              <motion.div
+                key={step.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                variants={mobileCardVariants}
+              >
+                <div>
+                  <div className="rounded-2xl border border-border bg-background p-6 shadow-sm hover:shadow-lg hover:border-accent/20 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-accent" />
+                      </div>
+                      <div>
+                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
+                          Step {i + 1}
+                        </span>
+                        <h3 className="text-base sm:text-lg font-bold mt-0.5">{step.title}</h3>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                    <ul className="space-y-2">
+                      {step.items.map((item) => (
+                        <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {i < steps.length - 1 && (
+                    <div className="flex justify-center py-8">
+                      <div className="flex flex-col items-center gap-0">
+                        <div className="w-px h-6 bg-gradient-to-b from-accent/40 to-accent/15" />
+                        <ChevronDown className="h-5 w-5 text-accent/40" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+      )}
+
+      {isDesktop && (
       <div
         ref={containerRef}
-        className="hidden md:block relative"
+        className="relative"
         style={{ height: `${CONTAINER_VH}vh` }}
       >
         <div className="sticky top-[48px] h-[calc(100vh-48px)]">
@@ -392,6 +472,7 @@ export function Framework() {
           </div>
         </div>
       </div>
+      )}
     </section>
   )
 }

@@ -569,7 +569,7 @@ export default function HowWeWorkPage() {
       {/* ─── TIMELINE ─── */}
       <Section className="bg-background-alt">
         <AnimatedSection>
-          <div className="text-center mb-14 sm:mb-16">
+          <div className="text-center mb-10 sm:mb-12 md:mb-6 lg:mb-16">
             <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 mb-3 sm:mb-4">
               Our Client Journey
             </p>
@@ -641,51 +641,55 @@ export default function HowWeWorkPage() {
           </div>
         </div>
 
-        {/* ─── TABLET: 3x2 GRID ─── */}
-        <div className="hidden md:block lg:hidden max-w-3xl mx-auto">
+        {/* ─── TABLET: CENTERED VERTICAL TIMELINE ─── */}
+        <div className="hidden md:block lg:hidden max-w-2xl mx-auto">
           <div className="relative">
-            <div className="grid grid-cols-3 gap-5">
-              {timelineSteps.map((step, i) => {
-                const Icon = step.icon as React.ElementType
-                return (
-                  <FadeInUp key={step.num} delay={i * 0.08}>
-                    <div className="group rounded-xl border border-border bg-background p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-accent/20">
+            {timelineSteps.map((step, i) => {
+              const Icon = step.icon as React.ElementType
+              return (
+                <FadeInUp key={step.num} delay={i * 0.08}>
+                  <div className="relative pb-10 last:pb-0">
+                    {i < timelineSteps.length - 1 && (
+                      <div className="absolute left-1/2 -translate-x-1/2 top-10 bottom-0 w-px bg-gradient-to-b from-accent/30 to-accent/5" />
+                    )}
+                    <div className="relative z-10 w-10 h-10 mx-auto mb-5 rounded-full bg-background-alt border-2 border-accent/30 flex items-center justify-center transition-all duration-300">
+                      <div className="w-2.5 h-2.5 rounded-full bg-accent" />
+                    </div>
+                    <div className="rounded-xl border border-border bg-background p-5 sm:p-6 transition-all duration-300 hover:shadow-md hover:border-accent/20">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-[10px] font-bold text-accent/50">{step.num}</span>
+                        <span className="text-xs font-bold text-accent/50">{step.num}</span>
                         <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
                           <Icon className="h-3.5 w-3.5 text-accent" />
                         </div>
+                        <h3 className="text-sm font-bold">{step.title}</h3>
                       </div>
-                      <h3 className="text-sm font-bold mb-0.5">{step.title}</h3>
-                      <span className="text-[10px] font-medium text-accent block mb-2.5">{step.period}</span>
+                      <span className="text-xs font-medium text-accent block mb-2.5">{step.period}</span>
                       <ul className="space-y-1">
                         {step.items.map((item) => (
-                          <li key={item} className="text-xs text-muted-foreground leading-relaxed">{item}</li>
+                          <li key={item} className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item}</li>
                         ))}
                       </ul>
                     </div>
-                  </FadeInUp>
-                )
-              })}
-            </div>
+                  </div>
+                </FadeInUp>
+              )
+            })}
           </div>
         </div>
 
-        {/* ─── MOBILE: VERTICAL ─── */}
+        {/* ─── MOBILE: CENTERED VERTICAL TIMELINE ─── */}
         <div className="md:hidden max-w-lg mx-auto">
           <div className="relative">
             {timelineSteps.map((step, i) => {
               const Icon = step.icon as React.ElementType
               return (
                 <FadeInUp key={step.num} delay={i * 0.1}>
-                  <div className="relative pl-14 pb-8 last:pb-0">
+                  <div className="relative pb-8 last:pb-0">
                     {i < timelineSteps.length - 1 && (
-                      <div className="absolute left-[22px] top-10 bottom-0 w-px bg-gradient-to-b from-accent/30 to-accent/5" />
+                      <div className="absolute left-1/2 -translate-x-1/2 top-9 bottom-0 w-px bg-gradient-to-b from-accent/30 to-accent/5" />
                     )}
-                    <div className="absolute left-0 top-0">
-                      <div className="relative z-10 w-[44px] h-[44px] rounded-full bg-background-alt border-2 border-accent/30 flex items-center justify-center transition-all duration-300">
-                        <div className="w-2.5 h-2.5 rounded-full bg-accent" />
-                      </div>
+                    <div className="relative z-10 w-9 h-9 mx-auto mb-4 rounded-full bg-background-alt border-2 border-accent/30 flex items-center justify-center transition-all duration-300">
+                      <div className="w-2 h-2 rounded-full bg-accent" />
                     </div>
                     <div className="rounded-xl border border-border bg-background p-4 transition-all duration-300 hover:shadow-md hover:border-accent/20">
                       <div className="flex items-center gap-2.5 mb-2.5">

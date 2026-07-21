@@ -70,21 +70,21 @@ export function Navigation() {
               <img
                 src="/logo.svg"
                 alt="Awoken — Business Intelligence & Implementation Consultancy"
-                className="w-auto h-20 sm:h-24 md:h-28 lg:h-32"
+                className="w-auto h-20 sm:h-24 md:h-24 lg:h-32"
               />
             </Link>
 
-            {/* Mobile hamburger */}
+            {/* Mobile + Tablet hamburger */}
             <button
-              className="md:hidden flex items-center justify-center w-11 h-11 justify-self-end"
+              className="min-[1100px]:hidden flex items-center justify-center w-11 h-11 justify-self-end"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
             </button>
 
-            {/* Tablet + Desktop navigation (no More dropdown) */}
-            <nav className="hidden md:flex items-center justify-center gap-10 min-w-0">
+            {/* Desktop navigation (≥1100px) */}
+            <nav className="hidden min-[1100px]:flex items-center justify-center gap-10 min-w-0">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
@@ -96,8 +96,8 @@ export function Navigation() {
               ))}
             </nav>
 
-            {/* Right column */}
-            <div className="hidden md:flex items-center justify-end shrink-0">
+            {/* Desktop CTA (≥1100px) */}
+            <div className="hidden min-[1100px]:flex items-center justify-end shrink-0">
               <Link href={ctaButtons.primary.href}>
                 <Button variant="primary" size="md">
                   {ctaButtons.primary.label}
@@ -129,7 +129,7 @@ export function Navigation() {
             >
               <div className="flex items-center justify-between px-4 sm:px-6 h-16 sm:h-20 border-b border-border shrink-0">
                 <Link href="/" className="flex items-center" onClick={(e) => { close(); if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }) } }}>
-                  <img src="/icon.svg" alt="Awoken" className="h-10 w-10" />
+                  <img src="/logo.svg" alt="Awoken" className="h-12 sm:h-16 w-auto" />
                 </Link>
                 <button
                   className="flex items-center justify-center w-11 h-11"
@@ -171,7 +171,7 @@ export function Navigation() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 40 }}
-            className="fixed right-4 xl:right-8 bottom-24 z-30 hidden lg:flex flex-col gap-2"
+            className="fixed right-4 xl:right-8 bottom-24 z-30 hidden min-[1100px]:flex flex-col gap-2"
           >
             <Link href={stickyCta.primary.href}>
               <Button variant="primary" size="sm">
