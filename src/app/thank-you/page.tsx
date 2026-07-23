@@ -12,19 +12,20 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: { canonical: "https://www.awoken.in/thank-you" },
   openGraph: {
     title: "Booking Confirmed | Awoken",
     description:
       "Your Business Intelligence Audit is confirmed. We'll review your business operations before the meeting so we can focus on solutions.",
-    url: "https://awoken.in/thank-you",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Booking Confirmed" }],
+    url: "https://www.awoken.in/thank-you",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "Booking Confirmed" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Booking Confirmed | Awoken",
     description:
       "Your Business Intelligence Audit is confirmed.",
-    images: ["/og-image.png"],
+    images: ["/og-image.svg"],
   },
 }
 

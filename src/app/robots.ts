@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/app/", "/admin/", "/dashboard/", "/private/"],
       },
     ],
-    sitemap: "https://awoken.in/sitemap.xml",
-    host: "https://awoken.in",
+    sitemap: "https://www.awoken.in/sitemap.xml",
+    host: "https://www.awoken.in",
   }
 }

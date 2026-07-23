@@ -21,23 +21,24 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const baseUrl = "https://awoken.in";
+const baseUrl = "https://www.awoken.in";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Awoken | AI Revenue Recovery for Local Businesses",
+    default: "Awoken | Where is your business losing opportunities?",
     template: "%s | Awoken",
   },
   description:
-    "Awoken helps businesses recover lost revenue through AI-powered lead qualification, instant follow-up, appointment booking, CRM automation, and business intelligence.",
+    "We find the hidden bottlenecks costing you revenue. Business Intelligence & AI Implementation Consultancy — identify gaps, automate workflows, recover lost revenue.",
   keywords: [
-    "AI Automation",
-    "Lead Recovery",
-    "CRM Automation",
-    "Revenue Recovery",
     "Business Intelligence",
     "AI Consulting",
+    "Revenue Recovery",
+    "Operational Efficiency",
+    "Lead Recovery",
+    "CRM Automation",
+    "AI Automation",
     "Appointment Booking",
     "Customer Engagement",
     "Local Business Automation",
@@ -45,29 +46,32 @@ export const metadata: Metadata = {
   authors: [{ name: "Awoken" }],
   creator: "Awoken",
   publisher: "Awoken",
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Awoken",
     url: baseUrl,
-    title: "Awoken | AI Revenue Recovery for Local Businesses",
+    title: "Awoken | Where is your business losing opportunities?",
     description:
-      "Awoken helps businesses recover lost revenue through AI-powered lead qualification, instant follow-up, appointment booking, CRM automation, and business intelligence.",
+      "We find the hidden bottlenecks costing you revenue. Business Intelligence & AI Implementation Consultancy — identify gaps, automate workflows, recover lost revenue.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Awoken — Business Intelligence & Implementation Consultancy",
+        alt: "Awoken — Business Intelligence & AI Implementation Consultancy",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Awoken | AI Revenue Recovery for Local Businesses",
+    title: "Awoken | Where is your business losing opportunities?",
     description:
-      "Awoken helps businesses recover lost revenue through AI-powered lead qualification, instant follow-up, appointment booking, CRM automation, and business intelligence.",
-    images: ["/og-image.png"],
+      "We find the hidden bottlenecks costing you revenue. Business Intelligence & AI Implementation Consultancy — identify gaps, automate workflows, recover lost revenue.",
+    images: ["/og-image.svg"],
     creator: "@awoken_in",
   },
   robots: {

@@ -32,21 +32,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | ${SITE_NAME}`,
     description: post.description,
+    alternates: { canonical: `https://www.awoken.in/blog/${post.slug}` },
     openGraph: {
       title: `${post.title} | ${SITE_NAME}`,
       description: post.description,
-      url: `https://awoken.in/blog/${post.slug}`,
+      url: `https://www.awoken.in/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author.name],
       tags: post.tags,
-      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: post.title }],
+      images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${post.title} | ${SITE_NAME}`,
       description: post.description,
-      images: ["/og-image.png"],
+      images: ["/og-image.svg"],
     },
   }
 }
@@ -75,7 +76,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(post)
   const { prev, next } = getAdjacentPosts(slug)
-  const siteUrl = "https://awoken.in"
+  const siteUrl = "https://www.awoken.in"
 
   const jsonLd = {
     "@context": "https://schema.org",

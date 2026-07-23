@@ -9,19 +9,20 @@ export const metadata: Metadata = {
   title: "Live Demo",
   description:
     "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
+  alternates: { canonical: "https://www.awoken.in/demo" },
   openGraph: {
     title: "Live Demo | Awoken",
     description:
       "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
-    url: "https://awoken.in/demo",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Awoken Live Demo" }],
+    url: "https://www.awoken.in/demo",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "Awoken Live Demo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Live Demo | Awoken",
     description:
       "See how Awoken's AI systems handle real business operations. Experience an AI receptionist, lead qualification, and CRM automation in action.",
-    images: ["/og-image.png"],
+    images: ["/og-image.svg"],
   },
 }
 
