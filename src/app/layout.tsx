@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "We find the hidden bottlenecks costing you revenue. Business Intelligence & AI Implementation Consultancy — identify gaps, automate workflows, recover lost revenue.",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Awoken — Business Intelligence & AI Implementation Consultancy",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Awoken | Where is your business losing opportunities?",
     description:
       "We find the hidden bottlenecks costing you revenue. Business Intelligence & AI Implementation Consultancy — identify gaps, automate workflows, recover lost revenue.",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
     creator: "@awoken_in",
   },
   robots: {
@@ -87,14 +87,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "any" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
     shortcut: { url: "/favicon.ico" },
   },
-  manifest: "/manifest.json",
+  manifest: "/site.webmanifest",
   other: {
     "apple-mobile-web-app-title": "Awoken",
     "theme-color": "#FFFFFF",
