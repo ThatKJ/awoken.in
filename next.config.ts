@@ -5,6 +5,20 @@ const nextConfig: NextConfig = {
     webpackMemoryOptimizations: true,
     preloadEntriesOnStart: false,
   },
+  async redirects() {
+    return [
+      {
+        source: "/careers/:path*",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/admin/:path*",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
