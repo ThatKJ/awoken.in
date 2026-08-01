@@ -17,7 +17,6 @@ const routes: { path: string; priority: MetadataRoute.Sitemap[number]["priority"
   { path: "/resources", priority: 0.7, changefreq: "monthly" },
   { path: "/faq", priority: 0.6, changefreq: "monthly" },
   { path: "/demo", priority: 0.7, changefreq: "monthly" },
-  { path: "/engagement", priority: 0.7, changefreq: "monthly" },
   { path: "/contact", priority: 0.8, changefreq: "monthly" },
   { path: "/book", priority: 0.9, changefreq: "weekly" },
   { path: "/privacy", priority: 0.3, changefreq: "yearly" },
@@ -28,7 +27,6 @@ const routes: { path: string; priority: MetadataRoute.Sitemap[number]["priority"
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = routes.map(({ path, priority, changefreq }) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
     changeFrequency: changefreq,
     priority,
   }))

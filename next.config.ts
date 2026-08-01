@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/engagement/:path*",
+        destination: "/pricing",
+        permanent: true,
+      },
     ];
   },
 };
