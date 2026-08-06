@@ -4,8 +4,6 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { Navigation } from "@/components/layout/navigation";
-import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/shared/json-ld";
 import { ClarityAnalytics } from "@/components/analytics/clarity";
 
@@ -119,11 +117,9 @@ export default function RootLayout({
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <meta name="format-detection" content="telephone=no" />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-background text-foreground font-sans antialiased">
         <JsonLd />
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {children}
         <Analytics />
         <SpeedInsights />
         <Script

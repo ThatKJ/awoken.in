@@ -42,3 +42,6 @@ session-*.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# supabase cli link artifact
+supabase/.temp/

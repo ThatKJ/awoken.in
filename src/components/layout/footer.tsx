@@ -30,6 +30,7 @@ const companyLinks = [
 ]
 
 const resourcesLinks = [
+  { label: "Free Business Assessment", href: "/assessment" },
   { label: "Blog", href: "/blog" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "FAQ", href: "/faq" },

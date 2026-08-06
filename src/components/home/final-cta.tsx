@@ -15,9 +15,9 @@ export function FinalCTA() {
           In a thirty-minute diagnostic conversation, we map your operations, identify where revenue is leaking, and prioritize the improvements that create measurable impact. You leave with clarity—not a pitch.
         </p>
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <Link href="/book" className="w-full sm:w-auto">
+          <Link href="/assessment" className="w-full sm:w-auto">
             <Button variant="primary" size="xl" className="w-full sm:w-auto text-sm sm:text-base">
-              Request a Diagnostic Conversation
+              Start Free Assessment
               <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
             </Button>
           </Link>

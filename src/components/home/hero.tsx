@@ -72,9 +72,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
           >
-            <Link href="/book">
+            <Link href="/assessment">
               <Button variant="primary" size="xl" className="w-full sm:w-auto text-sm sm:text-base">
-                Book a Free Business Intelligence Audit
+                Start Free Assessment
                 <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
               </Button>
             </Link>
