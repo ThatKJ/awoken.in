@@ -1,10 +1,9 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import { motion, useScroll, useSpring } from "framer-motion"
-import type { Variants } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { SectionHeader } from "@/components/shared/section-header"
-import { Search, Stethoscope, Target, Building2, LineChart, Check, ArrowRight, ChevronDown } from "lucide-react"
+import { Search, Stethoscope, Target, Building2, LineChart, Check, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const steps = [
@@ -63,159 +62,16 @@ const steps = [
 const stepIcons = [Search, Stethoscope, Target, Building2, LineChart] as const
 const stepLabels = ["Discover", "Diagnose", "Prioritize", "Implement", "Measure"]
 
-const PER_STEP_VH = 70
-const CONTAINER_VH = steps.length * PER_STEP_VH
-
-const mobileCardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.18, ease: "easeOut" },
-  }),
-}
-
-const checkVariants: Variants = {
-  hidden: (i: number) => ({
-    opacity: 0,
-    x: -12,
-    transition: { duration: 0.25, ease: "easeOut" },
-  }),
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: { delay: 0.1 + i * 0.07, duration: 0.35, ease: "easeOut" },
-  }),
-}
-
-const desktopCardVariants: Variants = {
-  hiddenAbove: {
-    opacity: 0,
-    scale: 0.98,
-    y: -30,
-    filter: "blur(2px)",
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-  active: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: {
-      type: "spring",
-      stiffness: 65,
-      damping: 24,
-      mass: 1.2,
-    },
-  },
-  hiddenBelow: {
-    opacity: 0,
-    scale: 0.98,
-    y: 40,
-    filter: "blur(2px)",
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-}
-
-function DesktopCard({
-  step,
-  index,
-  currentStep,
-}: {
-  step: (typeof steps)[number]
-  index: number
-  currentStep: number
-}) {
-  const Icon = stepIcons[index]
-  const isActive = index === currentStep
-
-  let variant: string
-  if (index === currentStep) {
-    variant = "active"
-  } else if (index < currentStep) {
-    variant = "hiddenAbove"
-  } else {
-    variant = "hiddenBelow"
-  }
-
-  return (
-    <motion.div
-      className="absolute inset-0 flex items-center justify-center px-2 sm:px-0"
-      initial={false}
-      animate={variant}
-      variants={desktopCardVariants}
-      style={{
-        zIndex: steps.length - index,
-        willChange: "transform, opacity",
-        backfaceVisibility: "hidden",
-      }}
-    >
-      <div className="w-full mx-auto">
-        <div
-          className={cn(
-            "rounded-2xl sm:rounded-[24px] border bg-background p-5 sm:p-6 lg:p-8 transition-all duration-500 ease-out",
-            isActive
-              ? "border-orange-200/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
-              : "border-orange-200/30 shadow-[0_4px_12px_rgba(0,0,0,0.03)]",
-          )}
-        >
-          <div className="flex items-start gap-5 sm:gap-6 mb-7">
-            <motion.div
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
-              animate={
-                isActive
-                  ? { scale: 1.08, backgroundColor: "rgba(249,115,22,0.12)" }
-                  : { scale: 1, backgroundColor: "rgba(249,115,22,0.04)" }
-              }
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            >
-              <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-accent" />
-            </motion.div>
-            <div className="min-w-0">
-              <span className="inline-block text-[11px] sm:text-xs font-semibold text-accent px-3 py-1 rounded-md bg-accent/5 mb-2 tracking-wide">
-                Step {index + 1}
-              </span>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight leading-tight">
-                {step.title}
-              </h3>
-              <p className="text-base font-medium text-muted-foreground/80 mt-1">
-                {step.subtitle}
-              </p>
-            </div>
-          </div>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6 max-w-xl">
-            {step.description}
-          </p>
-          <ul className="space-y-3 pl-3">
-            {step.items.map((item, i) => (
-              <motion.li
-                key={item}
-                custom={i}
-                variants={checkVariants}
-                initial="hidden"
-                animate="visible"
-                className="text-sm sm:text-base text-muted-foreground flex items-start gap-3"
-              >
-                <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Check className="h-3 w-3 text-accent" strokeWidth={2.5} />
-                </div>
-                <span className="leading-snug">{item}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
-function StepIndicator({ index, currentStep }: { index: number; currentStep: number }) {
+function StepIndicator({ index, currentStep, onClick }: { index: number; currentStep: number; onClick: () => void }) {
   const isPast = index < currentStep
   const isActive = index === currentStep
 
   return (
-    <div className="flex items-center gap-1 py-[11px] group select-none">
-      <div className="relative z-10">
+    <button 
+      onClick={onClick} 
+      className="flex items-center gap-4 py-4 lg:py-5 group select-none text-left w-full relative z-10"
+    >
+      <div className="relative shrink-0">
         <div className="bg-neutral-50 rounded-full p-[3px]">
           {isActive && (
             <motion.span
@@ -228,21 +84,16 @@ function StepIndicator({ index, currentStep }: { index: number; currentStep: num
           )}
           <div
             className={cn(
-              "w-[32px] h-[32px] rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-500 ease-out",
+              "w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold transition-all duration-300",
               isPast && "border-accent bg-accent text-accent-foreground",
-              isActive && "border-accent bg-accent text-accent-foreground scale-110 shadow-[0_0_0_4px_rgba(249,115,22,0.15)]",
-              !isPast && !isActive && "border-border/50 text-muted-foreground/35",
+              isActive && "border-accent bg-accent text-accent-foreground shadow-[0_0_0_4px_rgba(249,115,22,0.15)]",
+              !isPast && !isActive && "border-border/60 text-muted-foreground/40 group-hover:border-accent/40",
             )}
           >
             {isPast ? (
               <Check className="h-3.5 w-3.5" strokeWidth={3} />
             ) : isActive ? (
-              <motion.div
-                animate={{ x: [0, 2, 0] }}
-                transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-              >
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
-              </motion.div>
+              <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.5} />
             ) : (
               <span className="font-semibold">{index + 1}</span>
             )}
@@ -251,228 +102,134 @@ function StepIndicator({ index, currentStep }: { index: number; currentStep: num
       </div>
       <span
         className={cn(
-          "text-sm font-medium hidden lg:inline transition-all duration-300",
-          isActive ? "text-foreground font-semibold" : isPast ? "text-muted-foreground/70" : "text-muted-foreground/35",
+          "text-sm lg:text-base font-medium transition-all duration-300",
+          isActive ? "text-foreground font-bold" : isPast ? "text-muted-foreground" : "text-muted-foreground/50 group-hover:text-muted-foreground/80",
         )}
       >
         {stepLabels[index]}
       </span>
-    </div>
+    </button>
   )
 }
 
 export function Framework() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLElement>(null)
-  const currentStepRef = useRef(0)
-  const [isDesktop, setIsDesktop] = useState(false)
-
-  useEffect(() => {
-    const mql = window.matchMedia("(min-width: 1100px)")
-    setIsDesktop(mql.matches)
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches)
-    mql.addEventListener("change", handler)
-    return () => mql.removeEventListener("change", handler)
-  }, [])
-
-  const { scrollYProgress } = useScroll({
-    target: isDesktop ? containerRef : undefined,
-    offset: ["start start", "end end"],
-  })
-
-  const lineProgress = useSpring(scrollYProgress, {
-    stiffness: 60,
-    damping: 28,
-    mass: 0.6,
-  })
-
   const [currentStep, setCurrentStep] = useState(0)
 
-  useEffect(() => {
-    const unsub = scrollYProgress.on("change", (v) => {
-      const newStep = Math.min(Math.max(Math.floor(v * steps.length), 0), steps.length - 1)
-      if (newStep !== currentStepRef.current) {
-        currentStepRef.current = newStep
-        setCurrentStep(newStep)
-      }
-    })
-    return unsub
-  }, [scrollYProgress])
-
   return (
-    <section ref={sectionRef} id="framework-section" className="bg-neutral-50 max-w-full">
-      <div className="md:hidden">
-        <div className="mx-auto w-full px-4 sm:px-6">
-            <SectionHeader
-            eyebrow="The Awoken Framework"
-            title="A structured approach to operational clarity."
-            description="Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes."
-            className="mb-6 md:!mb-0"
-          />
-        </div>
-        <div className="max-w-lg mx-auto px-4 pb-16">
-          {steps.map((step, i) => {
-            const Icon = stepIcons[i]
-            return (
-              <motion.div
-                key={step.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                variants={mobileCardVariants}
-              >
-                <div>
-                  <div className="rounded-2xl border border-border bg-background p-6 shadow-sm hover:shadow-lg hover:border-accent/20 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center">
-                        <Icon className="h-4 w-4 text-accent" />
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
-                          Step {i + 1}
-                        </span>
-                        <h3 className="text-base font-bold mt-0.5">{step.title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
-                    <ul className="space-y-2">
-                      {step.items.map((item) => (
-                        <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="flex justify-center py-6">
-                      <div className="flex flex-col items-center gap-0">
-                        <div className="w-px h-5 bg-gradient-to-b from-accent/40 to-accent/15" />
-                        <ChevronDown className="h-4 w-4 text-accent/40" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* ─── TABLET: Arrow-flow timeline (768–1099px) ─── */}
-      {!isDesktop && (
-      <div className="hidden md:block">
-        <div className="mx-auto w-full px-4 sm:px-6 md:px-8">
+    <section id="framework-section" className="bg-neutral-50 w-full py-16 md:py-24 overflow-hidden">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* Intro */}
+        <div className="mx-auto max-w-3xl text-center mb-10 md:mb-14">
           <SectionHeader
             eyebrow="The Awoken Framework"
             title="A structured approach to operational clarity."
             description="Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes."
-            className="!mb-4 md:!mb-6 !max-w-full"
+            className="!mb-0"
           />
         </div>
-        <div className="mx-auto pb-16" style={{ width: "min(calc(100% - 48px), 900px)" }}>
-          {steps.map((step, i) => {
-            const Icon = stepIcons[i]
-            return (
-              <motion.div
-                key={step.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                variants={mobileCardVariants}
+
+        {/* Framework UI Container */}
+        <div className="mx-auto max-w-[1100px] w-full">
+          
+          {/* Mobile: Horizontal Step Selector */}
+          <div className="md:hidden flex overflow-x-auto gap-2 pb-6 mb-2 snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            {steps.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentStep(i)}
+                className={cn(
+                  "snap-start shrink-0 px-5 py-2.5 rounded-full text-sm font-semibold transition-all border",
+                  currentStep === i 
+                    ? "bg-accent border-accent text-accent-foreground shadow-sm" 
+                    : "bg-background border-border/50 text-muted-foreground hover:border-accent/30"
+                )}
               >
-                <div>
-                  <div className="rounded-2xl border border-border bg-background p-6 shadow-sm hover:shadow-lg hover:border-accent/20 transition-all duration-300">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-accent/5 flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-accent" />
-                      </div>
-                      <div>
-                        <span className="text-xs font-semibold text-accent px-2 py-0.5 rounded-md bg-accent/5">
-                          Step {i + 1}
-                        </span>
-                        <h3 className="text-base sm:text-lg font-bold mt-0.5">{step.title}</h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
-                    <ul className="space-y-2">
-                      {step.items.map((item) => (
-                        <li key={item} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="flex justify-center py-8">
-                      <div className="flex flex-col items-center gap-0">
-                        <div className="w-px h-6 bg-gradient-to-b from-accent/40 to-accent/15" />
-                        <ChevronDown className="h-5 w-5 text-accent/40" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </div>
-      )}
+                {i + 1}. {stepLabels[i]}
+              </button>
+            ))}
+          </div>
 
-      {isDesktop && (
-      <div
-        ref={containerRef}
-        className="relative"
-        style={{ height: `${CONTAINER_VH}vh` }}
-      >
-        <div className="sticky top-[48px] h-[calc(100vh-48px)]">
-          <div className="flex flex-col h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-16 md:pt-20">
-            <div className="shrink-0 mb-14 text-center">
-              <p className="text-accent text-xl font-bold tracking-wide uppercase underline underline-offset-4 decoration-accent/30 text-center mx-auto max-w-max">
-                The Awoken Framework
-              </p>
-              <h2 className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight leading-snug mx-auto max-w-3xl">
-                A structured approach to operational clarity.
-              </h2>
-              <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed mx-auto max-w-[700px]">
-                Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes.
-              </p>
+          <div className="flex flex-col md:flex-row items-start gap-8 lg:gap-16">
+            
+            {/* Desktop/Tablet: Vertical Step Navigation */}
+            <div className="hidden md:flex shrink-0 w-[200px] lg:w-[240px] flex-col relative">
+              <div className="absolute left-[19px] top-[32px] bottom-[32px] w-[1px] bg-border/40" />
+              <div className="absolute left-[18px] top-[32px] bottom-[32px] w-[3px]">
+                <motion.div
+                  className="w-full bg-accent rounded-full origin-top"
+                  initial={false}
+                  animate={{ height: `${(currentStep / (steps.length - 1)) * 100}%` }}
+                  transition={{ type: "spring", stiffness: 60, damping: 15 }}
+                />
+              </div>
+              {steps.map((_, i) => (
+                <StepIndicator key={i} index={i} currentStep={currentStep} onClick={() => setCurrentStep(i)} />
+              ))}
             </div>
 
-            <div className="flex-1 grid grid-cols-[auto_minmax(0,1fr)] gap-10 min-h-0">
-                <div className="w-full pt-[50px]">
-                  <div className="flex flex-col items-start gap-0 relative">
-                    <div className="absolute left-[19px] top-[11px] bottom-[11px] w-px bg-border/30 rounded-full" />
-                    <motion.div
-                      className="absolute left-[19px] top-[11px] w-px bg-accent rounded-full origin-top"
-                      style={{ scaleY: lineProgress }}
-                    />
-                    {steps.map((_, i) => (
-                      <StepIndicator key={i} index={i} currentStep={currentStep} />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="min-w-0 w-full">
-                  <div className="relative h-[57vh] w-full max-w-[790px] min-w-[700px] -mt-10 mx-auto">
-                    {steps.map((step, i) => (
-                      <DesktopCard
-                        key={step.title}
-                        step={step}
-                        index={i}
-                        currentStep={currentStep}
-                      />
-                    ))}
-                  </div>
-                </div>
+            {/* Active Card Container */}
+            <div className="flex-1 w-full min-w-0">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentStep}
+                  initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="w-full"
+                >
+                  {(() => {
+                    const step = steps[currentStep]
+                    const Icon = stepIcons[currentStep]
+                    return (
+                      <div className="rounded-2xl sm:rounded-[24px] border border-orange-200/50 bg-background p-6 sm:p-8 lg:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] h-auto w-full">
+                        <div className="flex items-start gap-5 sm:gap-6 mb-7">
+                          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center shrink-0 bg-accent/10 mt-1">
+                            <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-accent" />
+                          </div>
+                          <div className="min-w-0">
+                            <span className="inline-block text-[11px] sm:text-xs font-semibold text-accent px-3 py-1 rounded-md bg-accent/5 mb-2 tracking-wide uppercase">
+                              Step {currentStep + 1}
+                            </span>
+                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight leading-tight text-foreground">
+                              {step.title}
+                            </h3>
+                            <p className="text-base sm:text-lg font-medium text-muted-foreground/80 mt-1.5">
+                              {step.subtitle}
+                            </p>
+                          </div>
+                        </div>
+                        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-2xl">
+                          {step.description}
+                        </p>
+                        <ul className="space-y-4 pl-1">
+                          {step.items.map((item, i) => (
+                            <motion.li
+                              key={item}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.15 + (i * 0.1), duration: 0.3 }}
+                              className="text-base sm:text-lg text-muted-foreground flex items-start gap-4"
+                            >
+                              <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
+                                <Check className="h-3.5 w-3.5 text-accent" strokeWidth={2.5} />
+                              </div>
+                              <span className="leading-snug">{item}</span>
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
+                    )
+                  })()}
+                </motion.div>
+              </AnimatePresence>
             </div>
+
           </div>
         </div>
       </div>
-      )}
     </section>
   )
 }
+
