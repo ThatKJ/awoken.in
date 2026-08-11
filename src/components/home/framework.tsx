@@ -272,17 +272,16 @@ export function Framework() {
   }, [isInView, currentStep])
 
   return (
-    <section ref={frameworkRef} id="framework-section" className="bg-neutral-50 w-full pt-10 pb-16 md:pt-14 md:pb-24 lg:pt-16 lg:pb-32 overflow-hidden relative">
+    <section ref={frameworkRef} id="framework-section" className="bg-neutral-50 w-full py-16 md:py-24 overflow-hidden relative">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Intro */}
-        <div className="mx-auto max-w-3xl text-center mb-12 md:mb-16 lg:mb-16">
+        <div className="mx-auto max-w-3xl text-center mb-10 md:mb-14">
           <SectionHeader
             eyebrow="The Awoken Framework"
             title="A structured approach to operational clarity."
             description="Every engagement follows our proprietary five-step framework. We begin by understanding how your business operates, identify where time and revenue are being lost, prioritize the highest-impact opportunities, implement the right AI systems, and continuously measure outcomes."
             className="!mb-0"
-            descriptionClassName="!mt-6 md:!mt-7"
           />
         </div>
 
@@ -325,7 +324,7 @@ export function Framework() {
 
             {/* Active Card Container */}
             <div className="flex-1 w-full min-w-0 relative">
-              <motion.div layout className="w-full relative">
+              <motion.div layout className="w-full relative min-h-[500px]">
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.div
                     key={currentStep}
@@ -338,7 +337,7 @@ export function Framework() {
                   >
                     {currentStep === steps.length ? (
                       // Completion State
-                      <div className="rounded-2xl sm:rounded-[24px] border border-orange-200/50 bg-background p-8 sm:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center justify-center text-center min-h-[400px] w-full">
+                      <div className="rounded-2xl sm:rounded-[24px] border border-orange-200/50 bg-background p-8 sm:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center justify-center text-center min-h-[500px] w-full">
                         <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent">
                           <Check className="h-8 w-8" strokeWidth={2.5} />
                         </div>
@@ -360,7 +359,7 @@ export function Framework() {
                       </div>
                     ) : (
                       // Framework Step Card
-                      <div className="rounded-2xl sm:rounded-[24px] border border-orange-200/50 bg-background p-6 sm:p-8 lg:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col w-full h-full">
+                      <div className="rounded-2xl sm:rounded-[24px] border border-orange-200/50 bg-background p-6 sm:p-8 lg:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col w-full h-full min-h-[500px]">
                         
                         <div className="flex-1">
                           {/* Eyebrow & Label */}

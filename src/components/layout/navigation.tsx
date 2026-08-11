@@ -179,7 +179,7 @@ export function Navigation() {
             : "border-transparent bg-transparent"
         )}
       >
-        <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-4 px-4 md:h-[72px] lg:h-[68px] lg:gap-6 lg:px-5 xl:px-6 2xl:px-8 min-[1920px]:px-12">
+        <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center gap-4 px-4 lg:h-[128px] lg:gap-6 lg:px-5 xl:px-6 2xl:px-8 min-[1920px]:px-12">
           <Link
             ref={logoRef}
             href="/"
@@ -190,7 +190,7 @@ export function Navigation() {
             <img
               src="/logo.svg"
               alt="Awoken"
-              className="h-10 w-auto sm:h-11 lg:h-[52px]"
+              className="h-12 w-auto sm:h-14 lg:h-[108px]"
             />
           </Link>
 
