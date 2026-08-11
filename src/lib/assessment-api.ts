@@ -14,71 +14,25 @@ export function generateAssessmentId(): string {
 }
 
 export async function saveAssessment(answers: AssessmentAnswers, report: ReportResult): Promise<SavedAssessment> {
-  const assessmentId = generateAssessmentId()
-  const byKey = (key: string) => report.categories.find((c) => c.key === key)
+  const response = await fetch('/api/assessment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answers, report })
+  });
 
-  const { data, error } = await getSupabase()
-    .from(ASSESSMENT_TABLE)
-    .insert({
-      assessment_id: assessmentId,
-      status: "new",
-      business_name: answers.businessName,
-      industry: answers.industry,
-      employees: answers.employees,
-      revenue: answers.revenue,
-      monthly_leads: answers.monthlyLeads,
-      locations: answers.locations,
-      business_model: answers.businessModel,
-      primary_goal: answers.primaryGoal,
-      lead_channels: answers.leadChannels,
-      leads_per_month: answers.leadsPerMonth,
-      response_time: answers.responseTime,
-      responder: answers.responder,
-      pipeline_stages: answers.pipelineStages,
-      stuck_stage: answers.stuckStage,
-      operational_pains: answers.operationalPains,
-      tools: answers.tools,
-      visibility_scores: answers.visibilityScores,
-      ranked_goals: answers.rankedGoals,
-      contact_name: answers.contactName,
-      contact_email: answers.contactEmail,
-      contact_phone: answers.contactPhone,
-      company_website: answers.companyWebsite,
-      linkedin: answers.linkedin,
-      consent: answers.consent,
-      health_score: report.healthScore,
-      maturity_score: report.maturityScore,
-      ai_readiness: report.aiReadiness,
-      risk_level: report.riskLevel,
-      opportunity_level: report.opportunityLevel,
-      lead_management: byKey("leadManagement")?.score ?? 0,
-      sales_operations: byKey("salesOperations")?.score ?? 0,
-      reporting: byKey("reporting")?.score ?? 0,
-      automation: byKey("automation")?.score ?? 0,
-      visibility: byKey("visibility")?.score ?? 0,
-      customer_journey: byKey("customerJourney")?.score ?? 0,
-      findings: report.bottlenecks,
-      scores: report.categories,
-      quick_wins: report.quickWins,
-      benchmarks: report.benchmarks,
-      opportunity_estimate: report.opportunityEstimate,
-      lead_score: report.leadScore,
-      estimated_deal: report.estimatedDeal,
-      completed_at: new Date().toISOString(),
-    })
-    .select("id, assessment_id")
-    .single()
-
-  if (error) throw new Error(error.message)
-  const row = data as { id: string; assessment_id: string }
-
-  notifyInternal(assessmentId)
-
-  return {
-    id: row.id,
-    assessmentId: row.assessment_id,
-    permalink: `https://www.awoken.in/assessment/${row.assessment_id}`,
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || 'Failed to save assessment');
   }
+
+  const data = await response.json();
+  return {
+    id: data.id,
+    assessmentId: data.assessmentId,
+    permalink: data.permalink,
+  };
 }
 
 export async function sendPreviewEmail(assessmentId: string): Promise<void> {
