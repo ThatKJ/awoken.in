@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Container } from "@/components/shared/container"
-import { Mail } from "lucide-react"
+import { Mail, Phone, MessageCircle } from "lucide-react"
+import { contact, mailtoHref, telHref, whatsappHref } from "@/lib/contact"
 
 const socialLinks = [
   {
@@ -21,7 +22,6 @@ const socialLinks = [
       </svg>
     ),
   },
-  
 ]
 
 const companyLinks = [
@@ -29,11 +29,13 @@ const companyLinks = [
   { label: "Contact", href: "/contact" },
 ]
 
+// Deliberately short — no /assessment (kept dark, outside the acquisition
+// funnel), no /services /solutions /industries /pricing /case-studies
+// /integrations until those routes are intentionally reintroduced.
 const resourcesLinks = [
-  { label: "Free Business Assessment", href: "/assessment" },
   { label: "Blog", href: "/blog" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "FAQ", href: "/faq" },
+  { label: "Book a Call", href: "/book" },
 ]
 
 const legalLinks = [
@@ -42,9 +44,11 @@ const legalLinks = [
   { label: "Cookie Policy", href: "/cookie-policy" },
 ]
 
-function SocialLinks({ className }: { className?: string }) {
+function ContactLinks({ className }: { className?: string }) {
+  const tel = telHref()
+  const wa = whatsappHref()
   return (
-    <div className={`flex items-center gap-4 ${className ?? ""}`}>
+    <div className={`flex items-center gap-2 ${className ?? ""}`}>
       {socialLinks.map((link) => (
         <a
           key={link.label}
@@ -52,18 +56,39 @@ function SocialLinks({ className }: { className?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.label}
-          className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent/5 transition-all duration-200"
+          className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent-light transition-colors duration-200"
         >
           {link.icon}
         </a>
       ))}
       <a
-        href="mailto:contact@awoken.in"
-        aria-label="Email"
-        className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent/5 transition-all duration-200"
+        href={mailtoHref()}
+        aria-label={`Email ${contact.email}`}
+        className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent-light transition-colors duration-200"
       >
         <Mail className="h-5 w-5" />
       </a>
+      {/* Only rendered once a real number is set in src/lib/contact.ts */}
+      {tel && (
+        <a
+          href={tel}
+          aria-label="Call Awoken"
+          className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent-light transition-colors duration-200"
+        >
+          <Phone className="h-5 w-5" />
+        </a>
+      )}
+      {wa && (
+        <a
+          href={wa}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Awoken"
+          className="flex items-center justify-center w-9 h-9 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent-light transition-colors duration-200"
+        >
+          <MessageCircle className="h-5 w-5" />
+        </a>
+      )}
     </div>
   )
 }
@@ -71,8 +96,8 @@ function SocialLinks({ className }: { className?: string }) {
 function LinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div>
-      <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-5">{title}</h4>
-      <ul className="space-y-4">
+      <h4 className="text-eyebrow font-semibold uppercase text-muted-foreground mb-5">{title}</h4>
+      <ul className="space-y-3.5">
         {links.map((link) => (
           <li key={link.label}>
             <Link href={link.href} className="text-sm font-medium text-foreground hover:text-accent transition-colors duration-200">
@@ -87,23 +112,26 @@ function LinkColumn({ title, links }: { title: string; links: { label: string; h
 
 export function Footer() {
   return (
-    <footer className="bg-surface border-t border-border">
-      <Container className="pt-4 md:pt-20 lg:pt-24 pb-4 md:pb-10 lg:pb-14">
+    <footer className="bg-background-alt border-t border-border">
+      <Container className="pt-12 md:pt-20 lg:pt-24 pb-8 md:pb-10 lg:pb-14">
         {/* ─── MOBILE ─── */}
         <div className="md:hidden flex flex-col">
           <Link href="/" className="inline-flex items-center">
             <img src="/logo.svg" alt="Awoken" className="w-[140px] h-auto" />
           </Link>
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-            Awoken helps businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            Awoken re-engages unresponsive real-estate leads over WhatsApp, qualifies buyer intent, and
+            surfaces prospects ready for your sales team.
           </p>
-          <SocialLinks className="mt-3" />
-          <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
+          <ContactLinks className="mt-4" />
+          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-6">
             <LinkColumn title="Company" links={companyLinks} />
             <LinkColumn title="Resources" links={resourcesLinks} />
+          </div>
+          <div className="mt-6">
             <LinkColumn title="Legal" links={legalLinks} />
           </div>
-          <hr className="mt-6 border-border" />
+          <hr className="mt-8 border-border" />
           <p className="mt-4 text-sm text-muted-foreground text-center">&copy; {new Date().getFullYear()} Awoken</p>
         </div>
 
@@ -112,12 +140,13 @@ export function Footer() {
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-20">
             <div className="lg:max-w-sm xl:max-w-md">
               <Link href="/" className="inline-flex items-center">
-                <img src="/logo.svg" alt="Awoken" className="w-auto max-w-[220px] lg:max-w-[260px] h-auto" />
+                <img src="/logo.svg" alt="Awoken" className="w-auto max-w-[180px] h-auto" />
               </Link>
               <p className="mt-6 max-w-sm text-sm text-muted-foreground leading-relaxed">
-                Awoken helps businesses identify operational bottlenecks, prioritize the highest-impact improvements, and implement AI systems that solve real business problems.
+                Awoken re-engages unresponsive real-estate leads over WhatsApp, qualifies buyer intent,
+                and surfaces prospects ready for your sales team.
               </p>
-              <SocialLinks className="mt-6" />
+              <ContactLinks className="mt-6" />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
               <LinkColumn title="Company" links={companyLinks} />
@@ -128,7 +157,7 @@ export function Footer() {
           <hr className="mt-16 border-border" />
           <div className="mt-8 text-center sm:text-left">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} Awoken. Business Intelligence &amp; AI Implementation Consultancy.
+              &copy; {new Date().getFullYear()} Awoken. Built for real-estate sales teams.
             </p>
           </div>
         </div>

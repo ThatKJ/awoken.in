@@ -31,15 +31,19 @@ const sections: LegalSection[] = [
 
         <h3 className="text-base sm:text-lg font-semibold text-foreground">Personal Information</h3>
         <p>
-          When you book a discovery call, submit a contact form, subscribe to our newsletter, or request a proposal, we collect:
+          When you book a discovery call, submit a contact form, submit a pilot request, subscribe to our newsletter, or request a proposal, we collect:
         </p>
         <ul className="list-disc pl-5 space-y-1">
           <li>Full name</li>
           <li>Email address</li>
           <li>Phone number</li>
-          <li>Company name and title</li>
+          <li>Company name, role, and company type</li>
+          <li>For pilot requests: approximate monthly lead volume and old/unresponsive lead database size, lead sources, and current CRM (as free text, informational only)</li>
           <li>Any information you voluntarily share during consultations</li>
         </ul>
+        <p>
+          Pilot request information describes <strong>your company and how your sales operation currently works</strong> — it does not include your own customers&apos; or leads&apos; personal data. We do not collect a client&apos;s customer/lead database through this website. If a pilot moves forward, transferring an old lead segment is handled separately through a dedicated, agreed-upon workflow, not through this site.
+        </p>
 
         <h3 className="text-base sm:text-lg font-semibold text-foreground">Business Information</h3>
         <p>
@@ -136,6 +140,7 @@ const sections: LegalSection[] = [
           <li><strong>Microsoft Clarity</strong> — user behavior analytics to understand how visitors interact with our website.</li>
           <li><strong>Cloudflare</strong> — content delivery network (CDN) and security services.</li>
           <li><strong>Vercel</strong> — website hosting and deployment platform.</li>
+          <li><strong>Supabase</strong> — database storage for form submissions (contact form, pilot requests, assessment reports).</li>
           <li><strong>Cal.com</strong> — scheduling and calendar booking for consultation calls.</li>
           <li><strong>Email Providers</strong> — communication and newsletter distribution.</li>
           <li><strong>CRM Platforms</strong> — managing client relationships and engagement workflows.</li>
@@ -280,7 +285,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
-      lastUpdated="July 2026"
+      lastUpdated="September 2026"
       sections={sections}
       tocLabel="Privacy"
     />

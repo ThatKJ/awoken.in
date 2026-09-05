@@ -1,14 +1,13 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import Cal from "@calcom/embed-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Section } from "@/components/shared/section"
-import { DashboardMockup } from "@/components/shared/dashboard-mockup"
-import { ActivityFeed } from "@/components/visuals/activity-feed"
 import { Button } from "@/components/ui/button"
-import { Mail, Clock, CalendarCheck, Shield, ArrowRight, MessageSquare, HeadphonesIcon, Zap } from "lucide-react"
+import { Shield, ArrowRight, MessageSquare, Clock, HeadphonesIcon } from "lucide-react"
 import { CONTACT_EMAIL } from "@/lib/constants"
+import { config } from "@/lib/config"
 
 const supportCards = [
   {
@@ -32,25 +31,8 @@ const supportCards = [
 ]
 
 export default function ContactPage() {
-  const scriptLoaded = useRef(false)
-
-  useEffect(() => {
-    if (scriptLoaded.current) return
-    scriptLoaded.current = true
-    const script = document.createElement("script")
-    script.type = "text/javascript"
-    script.src = "https://app.cal.com/embed/embed.js"
-    script.async = true
-    document.head.appendChild(script)
-  }, [])
-
   return (
     <>
-      <style>{`
-        .cal-inline-container::-webkit-scrollbar { display: none; }
-        .cal-inline-container { scrollbar-width: none; }
-        .cal-inline-container cal-inline iframe { border-radius: 0 !important; }
-      `}</style>
       <Section size="hero" className="bg-background">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <div>
@@ -137,13 +119,14 @@ export default function ContactPage() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="w-full"
           >
-            <div className="rounded-2xl border border-border shadow-premium overflow-hidden" style={{ maxWidth: "min(100%,1300px)" }}>
-              <div
-                className="cal-inline-container w-full"
-                style={{ minHeight: "500px" }}
-                dangerouslySetInnerHTML={{
-                  __html: `<cal-inline data-cal-link="awoken-in/strategy-call" data-layout="month_view" data-config='{"theme":"dark"}' style="display:flex;width:100%;height:100%;min-height:inherit;position:relative;flex-wrap:wrap"></cal-inline>`
-                }}
+            <div
+              className="rounded-2xl border border-border shadow-premium overflow-hidden min-h-[500px]"
+              style={{ maxWidth: "min(100%,1300px)" }}
+            >
+              <Cal
+                calLink={config.calLink}
+                style={{ width: "100%", height: "100%", minHeight: "500px" }}
+                config={{ layout: "month_view" }}
               />
             </div>
           </motion.div>

@@ -27,12 +27,12 @@ const nextConfig: NextConfig = {
   async headers() {
     const cspHeader = `
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.clarity.ms https://va.vercel-scripts.com;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.clarity.ms https://va.vercel-scripts.com https://www.googletagmanager.com https://app.cal.com;
       style-src 'self' 'unsafe-inline';
-      img-src 'self' blob: data: https://c.clarity.ms;
+      img-src 'self' blob: data: https://*.clarity.ms https://www.googletagmanager.com;
       font-src 'self' data:;
-      connect-src 'self' https://bawnyenqnzymqctyaxlb.supabase.co wss://bawnyenqnzymqctyaxlb.supabase.co https://w.clarity.ms https://vitals.vercel-insights.com;
-      frame-src 'self' https://cal.com;
+      connect-src 'self' https://bawnyenqnzymqctyaxlb.supabase.co wss://bawnyenqnzymqctyaxlb.supabase.co https://*.clarity.ms https://vitals.vercel-insights.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://app.cal.com https://api.cal.com;
+      frame-src 'self' https://cal.com https://app.cal.com;
       object-src 'none';
       base-uri 'self';
       form-action 'self';

@@ -14,7 +14,7 @@ const routes: { path: string; priority: MetadataRoute.Sitemap[number]["priority"
   { path: "/integrations", priority: 0.7, changefreq: "monthly" },
   { path: "/about", priority: 0.8, changefreq: "monthly" },
   { path: "/blog", priority: 0.8, changefreq: "weekly" },
-  { path: "/assessment", priority: 0.9, changefreq: "monthly" },
+  { path: "/pilot", priority: 1.0, changefreq: "weekly" },
   { path: "/resources", priority: 0.7, changefreq: "monthly" },
   { path: "/faq", priority: 0.6, changefreq: "monthly" },
   { path: "/demo", priority: 0.7, changefreq: "monthly" },

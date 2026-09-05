@@ -1,0 +1,7 @@
+{
+  "name": "pilot-notify",
+  "version": "1.0.0",
+  "imports": {
+    "jsr:@supabase/functions-js/edge-runtime.d.ts": "jsr:@supabase/functions-js/edge-runtime.d.ts"
+  }
+}
